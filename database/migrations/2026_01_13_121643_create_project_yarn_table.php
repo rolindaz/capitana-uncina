@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('project_id')->constrained('projects');
             $table->foreignId('yarn_id')->constrained('yarns');
+            $table->foreignId('colorway_id')->nullable()->constrained('colorways');
             $table->decimal('quantity');
             $table->integer('meterage');
             $table->integer('weight');
