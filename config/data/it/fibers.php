@@ -3,157 +3,157 @@
 return [
     [
         'fiber_id' => 1,
-        'locale' => 'en',
-        'name' => 'Acrylic',
-        'slug' => 'acrylic'
+        'locale' => 'it',
+        'name' => 'Acrilico',
+        'slug' => 'acrilico'
     ],
     [
         'fiber_id' => 2,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Alpaca',
         'slug' => 'alpaca'
     ],
     [
         'fiber_id' => 3,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Angora',
         'slug' => 'angora'
     ],
     [
         'fiber_id' => 4,
-        'locale' => 'en',
-        'name' => 'Bamboo',
-        'slug' => 'bamboo'
+        'locale' => 'it',
+        'name' => 'Bambù',
+        'slug' => 'bambu'
     ],
     [
         'fiber_id' => 5,
-        'locale' => 'en',
-        'name' => 'Bison',
-        'slug' => 'bison'
+        'locale' => 'it',
+        'name' => 'Bisonte',
+        'slug' => 'bisonte'
     ],
     [
         'fiber_id' => 6,
-        'locale' => 'en',
-        'name' => 'Camel',
-        'slug' => 'camel'
+        'locale' => 'it',
+        'name' => 'Cammello',
+        'slug' => 'cammello'
     ],
     [
         'fiber_id' => 7,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Cashmere',
         'slug' => 'cashmere'
     ],
     [
         'fiber_id' => 8,
-        'locale' => 'en',
-        'name' => 'Cotton',
-        'slug' => 'cotton'
+        'locale' => 'it',
+        'name' => 'Cotone',
+        'slug' => 'cotone'
     ],
     [
         'fiber_id' => 9,
-        'locale' => 'en',
-        'name' => 'Hemp',
-        'slug' => 'hemp'
+        'locale' => 'it',
+        'name' => 'Canapa',
+        'slug' => 'canapa'
     ],
     [
         'fiber_id' => 10,
-        'locale' => 'en',
-        'name' => 'Linen',
-        'slug' => 'linen'
+        'locale' => 'it',
+        'name' => 'Lino',
+        'slug' => 'lino'
     ],
     [
         'fiber_id' => 11,
-        'locale' => 'en',
-        'name' => 'Llama',
-        'slug' => 'llama'
+        'locale' => 'it',
+        'name' => 'Lama',
+        'slug' => 'lama'
     ],
     [
         'fiber_id' => 12,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Merino',
         'slug' => 'merino'
     ],
     [
         'fiber_id' => 13,
-        'locale' => 'en',
-        'name' => 'Metallic',
-        'slug' => 'metallic'
+        'locale' => 'it',
+        'name' => 'Metallico',
+        'slug' => 'metallico'
     ],
     [
         'fiber_id' => 14,
-        'locale' => 'en',
-        'name' => 'Microfiber',
-        'slug' => 'microfiber'
+        'locale' => 'it',
+        'name' => 'Microfibra',
+        'slug' => 'microfibra'
     ],
     [
         'fiber_id' => 15,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Mohair',
         'slug' => 'mohair'
     ],
     [
         'fiber_id' => 16,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Nylon',
         'slug' => 'nylon'
     ],
     [
         'fiber_id' => 17,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
     [
         'fiber_id' => 18,
-        'locale' => 'en',
-        'name' => 'Plant Fiber',
-        'slug' => 'plant_fiber'
+        'locale' => 'it',
+        'name' => 'Fibra Vegetale',
+        'slug' => 'fibra_vegetale'
     ],
     [
         'fiber_id' => 19,
-        'locale' => 'en',
-        'name' => 'Polyester',
-        'slug' => 'polyester'
+        'locale' => 'it',
+        'name' => 'Poliestere',
+        'slug' => 'poliestere'
     ],
     [
         'fiber_id' => 20,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Qiviut',
         'slug' => 'qiviut'
     ],
     [
         'fiber_id' => 21,
-        'locale' => 'en',
-        'name' => 'Rayon',
-        'slug' => 'rayon'
+        'locale' => 'it',
+        'name' => 'Raion',
+        'slug' => 'raion'
     ],
     [
         'fiber_id' => 22,
-        'locale' => 'en',
-        'name' => 'Silk',
-        'slug' => 'silk'
+        'locale' => 'it',
+        'name' => 'Seta',
+        'slug' => 'seta'
     ],
     [
         'fiber_id' => 23,
-        'locale' => 'en',
-        'name' => 'Soy',
-        'slug' => 'soy'
+        'locale' => 'it',
+        'name' => 'Soia',
+        'slug' => 'soia'
     ],
     [
         'fiber_id' => 24,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Tencel',
         'slug' => 'tencel'
     ],
     [
         'fiber_id' => 25,
-        'locale' => 'en',
-        'name' => 'Wool',
-        'slug' => 'wool'
+        'locale' => 'it',
+        'name' => 'Lana',
+        'slug' => 'lana'
     ],
     [
         'fiber_id' => 26,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Yak',
         'slug' => 'yak'
     ],
