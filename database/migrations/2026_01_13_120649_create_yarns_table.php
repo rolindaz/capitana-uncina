@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('weight', 255);
             $table->string('category', 255);
             $table->string('color_type', 255);
-            $table->integer('ply');
+            $table->integer('ply')->nullable();
             $table->integer('unit_weight');
             $table->integer('meterage');
             $table->integer('fiber_types_number')->default(1);
