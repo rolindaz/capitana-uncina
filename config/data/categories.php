@@ -386,4 +386,54 @@ return [
         'parent_id' => 81
     ],
     
+    // Children categories, Toys and Hobbies:
+
+    [
+        'key' => 'ball',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'blocks',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'costume',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'craft',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'doll_clothes',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'food',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'game',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'mature_content',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'mobile',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'puppet',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'softies',
+        'parent_id' => 4
+    ],
+    [
+        'key' => 'other',
+        'parent_id' => 4
+    ],
 ];

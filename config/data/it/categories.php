@@ -7,26 +7,26 @@ return [
     [
         'category_id' => 1,
         'locale' => 'en',
-        'name' => 'Clothing',
-        'slug' => 'clothing'
+        'name' => 'Abbigliamento',
+        'slug' => 'abbigliamento'
     ],
     [
         'category_id' => 2,
         'locale' => 'en',
-        'name' => 'Accessories',
-        'slug' => 'accessories'
+        'name' => 'Accessori',
+        'slug' => 'accessori'
     ],
     [
         'category_id' => 3,
         'locale' => 'en',
-        'name' => 'Home',
-        'slug' => 'home'
+        'name' => 'Casa',
+        'slug' => 'casa'
     ],
     [
         'category_id' => 4,
         'locale' => 'en',
-        'name' => 'Toys and Hobbies',
-        'slug' => 'toys_and_hobbies'
+        'name' => 'Giochi e Hobby',
+        'slug' => 'giochi_e_hobby'
     ],
 
     // Children categories, clothing:
@@ -34,20 +34,20 @@ return [
     [
         'category_id' => 5,
         'locale' => 'en',
-        'name' => 'Coat / Jacket',
-        'slug' => 'coat_jacket'
+        'name' => 'Cappotto / Giacca',
+        'slug' => 'cappotto_giacca'
     ],
     [
         'category_id' => 6,
         'locale' => 'en',
-        'name' => 'Dress',
-        'slug' => 'dress'
+        'name' => 'Vestito',
+        'slug' => 'vestito'
     ],
     [
         'category_id' => 7,
         'locale' => 'en',
-        'name' => 'Intimate Apparel',
-        'slug' => 'intimate_apparel'
+        'name' => 'Abbigliamento Intimo',
+        'slug' => 'abbigliamento_intimo'
     ],
     [
         'category_id' => 8,
@@ -58,14 +58,14 @@ return [
     [
         'category_id' => 9,
         'locale' => 'en',
-        'name' => 'Onesies',
-        'slug' => 'onesies'
+        'name' => 'Tuta',
+        'slug' => 'tuta'
     ],
     [
         'category_id' => 10,
         'locale' => 'en',
-        'name' => 'Pants',
-        'slug' => 'pants'
+        'name' => 'Pantaloni',
+        'slug' => 'pantaloni'
     ],
     [
         'category_id' => 11,
