@@ -6,25 +6,25 @@ return [
 
     [
         'category_id' => 1,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Abbigliamento',
         'slug' => 'abbigliamento'
     ],
     [
         'category_id' => 2,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Accessori',
         'slug' => 'accessori'
     ],
     [
         'category_id' => 3,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Casa',
         'slug' => 'casa'
     ],
     [
         'category_id' => 4,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Giochi e Hobby',
         'slug' => 'giochi_e_hobby'
     ],
@@ -33,605 +33,605 @@ return [
 
     [
         'category_id' => 5,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Cappotto / Giacca',
         'slug' => 'cappotto_giacca'
     ],
     [
         'category_id' => 6,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Vestito',
         'slug' => 'vestito'
     ],
     [
         'category_id' => 7,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Abbigliamento Intimo',
         'slug' => 'abbigliamento_intimo'
     ],
     [
         'category_id' => 8,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Leggings',
         'slug' => 'leggings'
     ],
     [
         'category_id' => 9,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Tuta',
         'slug' => 'tuta'
     ],
     [
         'category_id' => 10,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Pantaloni',
         'slug' => 'pantaloni'
     ],
     [
         'category_id' => 11,
-        'locale' => 'en',
-        'name' => 'Robe',
-        'slug' => 'robe'
+        'locale' => 'it',
+        'name' => 'Kimono / Vestaglia',
+        'slug' => 'kimono_vestaglia'
     ],
     [
         'category_id' => 12,
-        'locale' => 'en',
-        'name' => 'Shorts',
-        'slug' => 'shorts'
+        'locale' => 'it',
+        'name' => 'Pantaloncini',
+        'slug' => 'Pantaloncini'
     ],
     [
         'category_id' => 13,
-        'locale' => 'en',
-        'name' => 'Shrug / Bolero',
-        'slug' => 'shrug_bolero'
+        'locale' => 'it',
+        'name' => 'Bolero',
+        'slug' => 'bolero'
     ],
     [
         'category_id' => 14,
-        'locale' => 'en',
-        'name' => 'Skirt',
-        'slug' => 'skirt'
+        'locale' => 'it',
+        'name' => 'Gonna',
+        'slug' => 'gonna'
     ],
     [
         'category_id' => 15,
-        'locale' => 'en',
-        'name' => 'Sleepwear',
-        'slug' => 'sleepwear'
+        'locale' => 'it',
+        'name' => 'Pigiama',
+        'slug' => 'pigiama'
     ],
     [
         'category_id' => 16,
-        'locale' => 'en',
-        'name' => 'Sweater',
-        'slug' => 'sweater'
+        'locale' => 'it',
+        'name' => 'Maglione',
+        'slug' => 'maglione'
     ],
     [
         'category_id' => 17,
-        'locale' => 'en',
-        'name' => 'Swimwear',
-        'slug' => 'swimwear'
+        'locale' => 'it',
+        'name' => 'Costume da Bagno',
+        'slug' => 'costume_da_bagno'
     ],
     [
         'category_id' => 18,
-        'locale' => 'en',
-        'name' => 'Tops',
-        'slug' => 'tops'
+        'locale' => 'it',
+        'name' => 'Maglia',
+        'slug' => 'maglia'
     ],
     [
         'category_id' => 19,
-        'locale' => 'en',
-        'name' => 'Vest',
-        'slug' => 'vest'
+        'locale' => 'it',
+        'name' => 'Gilet',
+        'slug' => 'gilet'
     ],
     [
         'category_id' => 20,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
 
     // Children categories, intimate apparel:
 
     [
         'category_id' => 21,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Bra',
         'slug' => 'bra'
     ],
     [
         'category_id' => 22,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Panties',
         'slug' => 'panties'
     ],
     [
         'category_id' => 23,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Underwear',
         'slug' => 'underwear'
     ],
     [
         'category_id' => 24,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
 
         // Children categories, sweater:
 
     [
         'category_id' => 25,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Cardigan',
         'slug' => 'cardigan'
     ],
     [
         'category_id' => 26,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Pullover',
         'slug' => 'pullover'
     ],
     [
         'category_id' => 27,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
 
         // Children categories, tops:
 
     [
         'category_id' => 28,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Sleeveless Top',
-        'sleeveless_top' => 'other'
+        'sleeveless_top' => 'Altro'
     ],
     [
         'category_id' => 29,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Strapless Top',
         'slug' => 'strapless_top'
     ],
     [
         'category_id' => 30,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Tee',
         'slug' => 'tee'
     ],
     [
         'category_id' => 31,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
 
     // Children categories, Accessories:
     
     [
         'category_id' => 32,
-        'locale' => 'en',
-        'name' => 'Bag',
-        'slug' => 'bag'
+        'locale' => 'it',
+        'name' => 'Borsa',
+        'slug' => 'borsa'
     ],
     [
         'category_id' => 33,
-        'locale' => 'en',
-        'name' => 'Belt',
-        'slug' => 'belt'
+        'locale' => 'it',
+        'name' => 'Cintura',
+        'slug' => 'cintura'
     ],
     [
         'category_id' => 34,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Feet / Legs',
         'slug' => 'feet_legs'
     ],
     [
         'category_id' => 35,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Hands',
         'slug' => 'hands'
     ],
     [
         'category_id' => 36,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Hat',
         'slug' => 'hat'
     ],
     [
         'category_id' => 37,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Jewelry',
         'slug' => 'jewelry'
     ],
     [
         'category_id' => 38,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Neck / Torso',
         'slug' => 'neck_torso'
     ],
     [
         'category_id' => 39,
-        'locale' => 'en',
-        'name' => 'Other Headwear',
-        'slug' => 'other_headwear'
+        'locale' => 'it',
+        'name' => 'Altri Copricapo',
+        'slug' => 'altri_copricapo'
     ],
     [
         'category_id' => 40,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
 
     // Children categories, Bag
 
     [
         'category_id' => 41,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Backpack',
         'slug' => 'backpack'
     ],
     [
         'category_id' => 42,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Clutch',
         'slug' => 'clutch'
     ],
     [
         'category_id' => 43,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Drawstring',
         'slug' => 'drawstring'
     ],
     [
         'category_id' => 44,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Duffle',
         'slug' => 'duffle'
     ],
     [
         'category_id' => 45,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Laptop',
         'slug' => 'laptop'
     ],
     [
         'category_id' => 46,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Market Bag',
         'slug' => 'market_bag'
     ],
     [
         'category_id' => 47,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Messenger',
         'slug' => 'messenger'
     ],
     [
         'category_id' => 48,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Money',
         'slug' => 'money'
     ],
     [
         'category_id' => 49,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Purse / Handbag',
         'slug' => 'purse_handbag'
     ],
     [
         'category_id' => 50,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Tote',
         'slug' => 'tote'
     ],
     [
         'category_id' => 51,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Wristlet',
         'slug' => 'wristlet'
     ],
     [
         'category_id' => 52,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
     
     // Children categories, Bag
 
     [
         'category_id' => 53,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Boot Toppers',
         'slug' => 'boot_toppers'
     ],
     [
         'category_id' => 54,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Booties',
         'slug' => 'booties'
     ],
     [
         'category_id' => 55,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Legwarmers',
         'slug' => 'legwarmers'
     ],
     [
         'category_id' => 56,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Slippers',
         'slug' => 'slippers'
     ],
     [
         'category_id' => 57,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Socks',
         'slug' => 'socks'
     ],
     [
         'category_id' => 58,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Spats',
         'slug' => 'spats'
     ],
     [
         'category_id' => 59,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
     
     // Children categories, Home:
 
     [
         'category_id' => 60,
-        'locale' => 'en',
-        'name' => 'Blanket',
-        'slug' => 'blanket'
+        'locale' => 'it',
+        'name' => 'Coperta',
+        'slug' => 'coperta'
     ],
     [
         'category_id' => 61,
-        'locale' => 'en',
-        'name' => 'Bookmark',
-        'slug' => 'bookmark'
+        'locale' => 'it',
+        'name' => 'Segnalibro',
+        'slug' => 'segnalibro'
     ],
     [
         'category_id' => 62,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Cleaning',
         'slug' => 'cleaning'
     ],
     [
         'category_id' => 63,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Coaster',
         'slug' => 'coaster'
     ],
     [
         'category_id' => 64,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Containers',
         'slug' => 'containers'
     ],
     [
         'category_id' => 65,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Cozy',
         'slug' => 'cozy'
     ],
     [
         'category_id' => 66,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Curtain',
         'slug' => 'curtain'
     ],
     [
         'category_id' => 67,
-        'locale' => 'en',
-        'name' => 'Decorative',
-        'slug' => 'decorative'
+        'locale' => 'it',
+        'name' => 'Decorazioni',
+        'slug' => 'decorazioni'
     ],
     [
         'category_id' => 68,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Lampshade',
         'slug' => 'lampshade'
     ],
     [
         'category_id' => 69,
-        'locale' => 'en',
-        'name' => 'Pillow',
-        'slug' => 'pillow'
+        'locale' => 'it',
+        'name' => 'Cuscino',
+        'slug' => 'cuscino'
     ],
     [
         'category_id' => 70,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Potholder',
         'slug' => 'potholder'
     ],
     [
         'category_id' => 71,
-        'locale' => 'en',
-        'name' => 'Rug',
-        'slug' => 'rug'
+        'locale' => 'it',
+        'name' => 'Tappeto',
+        'slug' => 'tappeto'
     ],
     [
         'category_id' => 72,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Sachet',
         'slug' => 'sachet'
     ],
     [
         'category_id' => 73,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Table Setting',
         'slug' => 'table_setting'
     ],
     [
         'category_id' => 74,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
 
     // Children categories, Blanket:
 
     [
         'category_id' => 75,
-        'locale' => 'en',
-        'name' => 'Baby Blanket',
-        'slug' => 'baby_blanket'
+        'locale' => 'it',
+        'name' => 'Copertina da bebè',
+        'slug' => 'copertina_da_bebe'
     ],
     [
         'category_id' => 76,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Bedspread',
         'slug' => 'bedspread'
     ],
     [
         'category_id' => 77,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Throw',
         'slug' => 'throw'
     ],
     [
         'category_id' => 78,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
     
     // Children categories, Decorative:
 
     [
         'category_id' => 79,
-        'locale' => 'en',
-        'name' => 'Christmas Stocking',
-        'slug' => 'christmas_stocking'
+        'locale' => 'it',
+        'name' => 'Calza di Natale',
+        'slug' => 'calza_di_natale'
     ],
     [
         'category_id' => 80,
-        'locale' => 'en',
-        'name' => 'Doily',
-        'slug' => 'doily'
+        'locale' => 'it',
+        'name' => 'Centrino',
+        'slug' => 'centrino'
     ],
     [
         'category_id' => 81,
-        'locale' => 'en',
-        'name' => 'Hanging Ornament',
-        'slug' => 'hanging_ornament'
+        'locale' => 'it',
+        'name' => 'Da Appendere',
+        'slug' => 'da_appendere'
     ],
     [
         'category_id' => 82,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Ornamental Flower',
         'slug' => 'ornamental_flower'
     ],
     [
         'category_id' => 83,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Picture Frame',
         'slug' => 'picture_frame'
     ],
     [
         'category_id' => 84,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Wall Hanging',
         'slug' => 'wall_hanging'
     ],
     [
         'category_id' => 85,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Wreath',
         'slug' => 'wreath'
     ],
     [
         'category_id' => 86,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'Altro'
     ],
 
     // Children categories, Hanging Ornament:
 
     [
         'category_id' => 87,
-        'locale' => 'en',
-        'name' => 'Christmas Bauble',
-        'slug' => 'christmas_bauble'
+        'locale' => 'it',
+        'name' => 'Palla di Natale',
+        'slug' => 'palla_di_natale'
     ],
 
     // Children categories, Hanging Ornament:
 
     [
         'category_id' => 88,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Ball',
         'slug' => 'ball'
     ],
     [
         'category_id' => 89,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Blocks',
         'slug' => 'blocks'
     ],
     [
         'category_id' => 90,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Costume',
         'slug' => 'costume'
     ],
     [
         'category_id' => 91,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Craft',
         'slug' => 'craft'
     ],
     [
         'category_id' => 92,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Doll Clothes',
         'slug' => 'doll_clothes'
     ],
     [
         'category_id' => 93,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Food',
         'slug' => 'food'
     ],
     [
         'category_id' => 94,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Game',
         'slug' => 'game'
     ],
     [
         'category_id' => 95,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Mature Content',
         'slug' => 'mature_content'
     ],
     [
         'category_id' => 96,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Mobile',
         'slug' => 'mobile'
     ],
     [
         'category_id' => 97,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Puppet',
         'slug' => 'puppet'
     ],
     [
         'category_id' => 98,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Softies',
         'slug' => 'softies'
     ],
     [
         'category_id' => 99,
-        'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'locale' => 'it',
+        'name' => 'Altro',
+        'slug' => 'altro'
     ],
 ];

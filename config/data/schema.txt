@@ -1,0 +1,136 @@
+table projects {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+  pattern_name varchar(255)
+  pattern_url varchar(2048)
+  category_id integer [ref: > categories.id]
+  image_path varchar(255)
+  started date
+  completed date
+  execution_time integer
+  size varchar(255)
+}
+
+table project_translations {
+  id integer [pk, increment]
+  project_id integer [ref: > projects.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  notes text
+  craft varchar(255)
+  status varchar(255)
+  destination_use varchar(255)
+  age varchar(255)
+  fit varchar(255)
+  slug varchar(255)
+}
+
+table categories {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+  parent_id integer [null, note: "Self-reference: null = top-level category"]
+}
+
+table category_translations {
+  id integer [pk, increment]
+  category_id integer [ref: > categories.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  slug varchar(255)
+}
+
+table yarns {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+  brand varchar(255)
+  weight varchar(255)
+  category varchar(255)
+  ply integer
+  unit_weight integer
+  meterage integer
+  fiber_types_number integer [default: 1]
+  image_path varchar(255)
+  min_hook_size integer
+  max_hook_size integer
+  min_needle_size integer
+  max_needle_size integer
+}
+
+table yarn_translations {
+  id integer [pk, increment]
+  yarn_id integer [ref: > yarns.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  slug varchar(255)
+}
+
+table fibers {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+}
+
+table fiber_translations {
+  id integer [pk, increment]
+  fiber_id integer [ref: > fibers.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  slug varchar(255)
+}
+
+table tags {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+}
+
+table tag_translations {
+  id integer [pk, increment]
+  tag_id integer [ref: > tags.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  description varchar(255)
+  slug varchar(255)
+}
+
+table attributes {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+  parent_id integer [null, note: "Self-reference: null = top-level attribute"]
+}
+
+table attribute_translations {
+  id integer [pk, increment]
+  attribute_id integer [ref: > attributes.id]
+  locale varchar(5)
+  name varchar(255) [not null]
+  description varchar(255)
+  slug varchar(255)
+}
+
+table project_yarn {
+  id integer [pk, increment]
+  project_id integer [ref: <> projects.id]
+  yarn_id integer [ref: <> yarns.id]
+  colorway var_char(255)
+  quantity decimal
+  meterage integer
+}
+
+
+table fiber_yarn {
+  id integer [pk, increment]
+  fiber_id integer [ref: <> fibers.id]
+  yarn_id integer [ref: <> yarns.id]
+  percentage integer
+}
+
+table project_tag {
+  id integer [pk, increment]
+  project_id integer [ref: <> projects.id]
+  tag_id integer [ref: <> tags.id]
+}
+
+table attribute_project {
+  id integer [pk, increment]
+  attribute_id integer [ref: <> attributes.id]
+  project_id integer [ref: <> projects.id]
+}
