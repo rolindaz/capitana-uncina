@@ -45,7 +45,6 @@ table yarns {
   brand varchar(255)
   weight varchar(255)
   category varchar(255)
-  color_type varchar(255)
   ply integer
   unit_weight integer
   meterage integer
@@ -61,6 +60,7 @@ table yarn_translations {
   id integer [pk, increment]
   yarn_id integer [ref: > yarns.id]
   locale varchar(5)
+  color_type varchar(255)
   slug varchar(255)
 }
 
@@ -106,26 +106,38 @@ table attribute_translations {
   slug varchar(255)
 }
 
+table colorways {
+  id integer [pk, increment]
+  key varchar(255)
+}
+
+table colorway_translations {
+  id integer [pk, increment]
+  locale varchar(5)
+  name varchar(255)
+  slug varchar(255)
+}
+
 table project_yarn {
   id integer [pk, increment]
   project_id integer [ref: <> projects.id]
   yarn_id integer [ref: <> yarns.id]
   quantity decimal
   meterage integer
+  weight integer
 }
-
-table project_yarn_translations {
-  id integer [pk, increment]
-  project_yarn_id integer [ref: > project_yarn.id]
-  colorway var_char(255)
-}
-
 
 table fiber_yarn {
   id integer [pk, increment]
   fiber_id integer [ref: <> fibers.id]
   yarn_id integer [ref: <> yarns.id]
   percentage integer
+}
+
+table colorway_yarn {
+  id integer [pk, increment]
+  colorway_id integer [ref: <> colorways.id]
+  yarn_id integer [ref: <> yarns.id]
 }
 
 table project_tag {
