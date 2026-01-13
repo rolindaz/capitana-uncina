@@ -182,7 +182,7 @@ return [
         'category_id' => 28,
         'locale' => 'it',
         'name' => 'Sleeveless Top',
-        'sleeveless_top' => 'Altro'
+        'slug' => 'sleeveless_top'
     ],
     [
         'category_id' => 29,
