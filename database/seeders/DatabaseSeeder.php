@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             ProjectsTableSeeder::class,
             FibersTableSeeder::class,
-            CategoryTranslationsTableSeeder::class
+            CategoryTranslationsTableSeeder::class,
+            ProjectTranslationsTableSeeder::class
         ]);
     }
 }
