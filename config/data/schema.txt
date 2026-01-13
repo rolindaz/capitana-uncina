@@ -9,6 +9,7 @@ table projects {
   completed date
   execution_time integer
   size varchar(255)
+  correct boolean
 }
 
 table project_translations {
@@ -20,8 +21,6 @@ table project_translations {
   craft varchar(255)
   status varchar(255)
   destination_use varchar(255)
-  age varchar(255)
-  fit varchar(255)
   slug varchar(255)
 }
 
@@ -42,25 +41,26 @@ table category_translations {
 table yarns {
   id integer [pk, increment]
   key varchar(255) [unique]
+  name varchar(255) [not null]
   brand varchar(255)
   weight varchar(255)
   category varchar(255)
+  color_type varchar(255)
   ply integer
   unit_weight integer
   meterage integer
   fiber_types_number integer [default: 1]
   image_path varchar(255)
-  min_hook_size integer
-  max_hook_size integer
-  min_needle_size integer
-  max_needle_size integer
+  min_hook_size decimal
+  max_hook_size decimal
+  min_needle_size decimal
+  max_needle_size decimal
 }
 
 table yarn_translations {
   id integer [pk, increment]
   yarn_id integer [ref: > yarns.id]
   locale varchar(5)
-  name varchar(255) [not null]
   slug varchar(255)
 }
 
@@ -110,9 +110,14 @@ table project_yarn {
   id integer [pk, increment]
   project_id integer [ref: <> projects.id]
   yarn_id integer [ref: <> yarns.id]
-  colorway var_char(255)
   quantity decimal
   meterage integer
+}
+
+table project_yarn_translations {
+  id integer [pk, increment]
+  project_yarn_id integer [ref: > project_yarn.id]
+  colorway var_char(255)
 }
 
 
