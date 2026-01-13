@@ -15,10 +15,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategoriesTableSeeder::class,
-            ProjectsTableSeeder::class,
-            FibersTableSeeder::class,
             CategoryTranslationsTableSeeder::class,
-            ProjectTranslationsTableSeeder::class
+            ProjectsTableSeeder::class,
+            ProjectTranslationsTableSeeder::class,
+            FibersTableSeeder::class,
+            FiberTranslationsTableSeeder::class
         ]);
     }
 }
