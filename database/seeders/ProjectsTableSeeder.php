@@ -20,7 +20,7 @@ class ProjectsTableSeeder extends Seeder
 
             $newProject->key = $project['key'];
             $newProject->pattern_name = $project['pattern_name'];
-            $newProject->pattern_url = $project['key'];
+            $newProject->pattern_url = $project['pattern_url'];
             $newProject->category_id = $project['category_id'];
             $newProject->image_path = $project['image_path'];
             $newProject->started = $project['started'];
