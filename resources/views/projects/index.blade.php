@@ -2,21 +2,22 @@
 
 @section('title', 'Dashboard')
 
+{{-- @dd($projects); --}}
+
 @section('actions')
 
-{{-- <div class="m-4">
+<div class="m-4">
     <a href="{{ route('projects.create') }}">
             <button class="btn btn-success">
                 + New Project
             </button>
     </a>  
-</div> --}}
+</div>
 
 @endsection
 
 @section('content')
 
-{{-- @dd($projects); --}}
 
 <table class="table">
   <thead>

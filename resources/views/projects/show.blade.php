@@ -63,9 +63,9 @@
     </li>
     <li>
         Filati: 
-        @foreach ($project->projectYarns as $usage)
-            {{ $usage->yarn->name }}, {{ $usage->yarn->brand }} - 
-            Quantità: {{ (int)$usage->quantity }} gomitoli, {{ $usage->weight }} g per {{ $usage->meterage }} metri
+        @foreach ($project->projectYarns as $used_yarn)
+            {{ $used_yarn->yarn->name }}, {{ $used_yarn->yarn->brand }} - 
+            Quantità: {{ (int)$used_yarn->quantity }} gomitoli, {{ $used_yarn->weight }} g per {{ $used_yarn->meterage }} metri
         @endforeach
     </li>
    {{-- <li class="d-flex gap-2 mt-3">

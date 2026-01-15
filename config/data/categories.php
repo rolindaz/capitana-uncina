@@ -329,19 +329,19 @@ return [
 
     [
         'key' => 'baby_blanket',
-        'parent_id' => 50
+        'parent_id' => 60
     ],
     [
         'key' => 'bedspread',
-        'parent_id' => 50
+        'parent_id' => 60
     ],
     [
         'key' => 'throw',
-        'parent_id' => 50
+        'parent_id' => 60
     ],
     [
         'key' => 'other',
-        'parent_id' => 50
+        'parent_id' => 60
     ],
 
     // Children categories, Decorative:

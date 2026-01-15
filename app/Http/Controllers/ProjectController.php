@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
-use App\Models\ProjectTranslation;
+use App\Models\Category;
 
 class ProjectController extends Controller
 {
@@ -25,7 +25,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::query()
+            ->with('translation')
+            ->get();
+        return view('projects.create', compact('categories'));
     }
 
     /**
