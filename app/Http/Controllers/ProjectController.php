@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Yarn;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Models\Craft;
 
 class ProjectController extends Controller
 {
@@ -16,7 +17,10 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::with('translation')
+        $projects = Project::with([
+            'translation',
+            'crafts.translation'
+            ])
         ->orderByDesc('created_at')
         ->get();
 
@@ -36,8 +40,11 @@ class ProjectController extends Controller
         
         $sizes = config('data.projects.sizes');
         $status = config('data.projects.status');
+        $crafts = Craft::query()
+            ->with('translation')
+            ->get();
 
-        return view('projects.create', compact(['categories', 'sizes', 'yarns', 'status']));
+        return view('projects.create', compact(['categories', 'sizes', 'yarns', 'status', 'crafts']));
     }
 
     /**
@@ -48,7 +55,8 @@ class ProjectController extends Controller
 
         $validated_data = $request->validate([
             'name' => ['required', 'string'],
-            'craft' => ['required', 'string'],
+            'craft_ids' => ['required', 'array'],
+            'craft_ids.*' => ['exists:crafts,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
             'status' => ['required', 'string'],
@@ -88,7 +96,6 @@ class ProjectController extends Controller
             'locale' => app()->getLocale(),
             'name' => $validated_data['name'],
             'notes' => $validated_data['notes'],
-            'craft' => $validated_data['craft'],
             'status' => $validated_data['status'],
             'destination_use' => $validated_data['destination_use'],
             'slug' => Str::slug($validated_data['name'])
@@ -96,6 +103,10 @@ class ProjectController extends Controller
 
         if (!empty($validated_data['yarn_id'])) {
             $newProject->yarns()->attach($validated_data['yarn_id']);
+        }
+
+        if (!empty($validated_data['craft_ids'])) {
+            $newProject->crafts()->attach($validated_data['craft_ids']);
         }
 
         return redirect()

@@ -27,7 +27,6 @@ class ProjectTranslationsTableSeeder extends Seeder
                 $newData->locale = $data['locale'];
                 $newData->name = $data['name'];
                 $newData->notes = $data['notes'];
-                $newData->craft = $data['craft'];
                 $newData->status = $data['status'];
                 $newData->destination_use = $data['destination_use'];
                 $newData->slug = $data['slug'];

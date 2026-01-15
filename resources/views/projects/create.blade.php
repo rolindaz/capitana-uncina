@@ -14,10 +14,19 @@
             <input class="ms-2" type="text" name="name" id="name">
         </div>
         <div>
-            <label class="text-danger" for="craft">
-                Tecnica
+            <label class="text-danger">
+                Tecniche
             </label>
-            <input class="ms-2" type="text" name="craft" id="craft">
+            <div class="form-control mt-3 px-3 d-flex gap-4 flex-wrap justify-content-between">
+                @foreach ($crafts as $craft)
+                    <div class="form-check">
+                        <input class="form-check-input" name="craft_ids[]" type="checkbox" value="{{ $craft->id }}" id="craft-{{ $craft->id }}">
+                        <label class="form-check-label" for="craft-{{ $craft->id }}">
+                            {{ $craft->name }}
+                        </label>
+                    </div>      
+                @endforeach
+            </div>
         </div>
         <div class="d-flex align-items-center">
             <label class="text-danger" for="category">

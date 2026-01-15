@@ -55,7 +55,9 @@
         </a>
       </td>
       <td>
-            {{ $project->craft }} 
+        @foreach ($project->crafts as $craft)
+          {{ $craft->name }}
+        @endforeach
       </td>
       <td>
         {{ $project->created_at->diffForHumans() }}

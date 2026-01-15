@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('name', 255);
             $table->text('notes');
-            $table->string('craft', 255);
             $table->string('status', 255);
             $table->string('destination_use', 255)->nullable();
             $table->string('slug', 255);
