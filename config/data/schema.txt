@@ -1,6 +1,5 @@
 table projects {
   id integer [pk, increment]
-  key varchar(255) [unique]
   pattern_name varchar(255)
   pattern_url varchar(2048)
   category_id integer [ref: > categories.id]
@@ -21,6 +20,19 @@ table project_translations {
   craft varchar(255)
   status varchar(255)
   destination_use varchar(255)
+  slug varchar(255)
+}
+
+table crafts {
+  id integer [pk, increment]
+  key varchar(255) [unique]
+}
+
+table craft_translations {
+  id integer [pk, increment]
+  craft_id integer [ref: > crafts.id]
+  locale varchar(5)
+  name varchar(255) [not null]
   slug varchar(255)
 }
 
@@ -125,6 +137,12 @@ table project_yarn {
   quantity decimal
   meterage integer
   weight integer
+}
+
+table project_craft {
+  id integer [pk, increment]
+  project_id integer [ref: <> projects.id]
+  craft_id integer [ref: <> crafts.id]
 }
 
 table fiber_yarn {

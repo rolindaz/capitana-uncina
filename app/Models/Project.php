@@ -34,6 +34,10 @@ class Project extends Model
             ->using(ProjectYarn::class);
     }
 
+    public function crafts() {
+        return $this->belongsToMany(Craft::class);
+    }
+
     public function projectYarns() {
         return $this->hasMany(ProjectYarn::class);
     }
