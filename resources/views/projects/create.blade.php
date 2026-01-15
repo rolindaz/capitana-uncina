@@ -8,22 +8,22 @@
     @csrf
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div>
-            <label for="name">
+            <label class="text-danger" for="name">
                 Nome
             </label>
             <input class="ms-2" type="text" name="name" id="name">
         </div>
         <div>
-            <label for="craft">
+            <label class="text-danger" for="craft">
                 Tecnica
             </label>
             <input class="ms-2" type="text" name="craft" id="craft">
         </div>
         <div class="d-flex align-items-center">
-            <label for="category">
+            <label class="text-danger" for="category">
                 Categoria
             </label>
-            <select class="ms-2 w-50 form-select" name="category" id="category">
+            <select class="ms-2 w-50 form-select" name="category_id" id="category">
                 <option selected>
                     Seleziona la categoria
                 </option>
@@ -34,12 +34,12 @@
             <label for="image">
                 Immagine
             </label>
-            <input class="ms-2" type="file" name="image" id="image">
+            <input class="ms-2" type="file" name="image_path" id="image">
         </div>
     </div>
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div class="d-flex align-items-center">
-            <label for="status">
+            <label class="text-danger" for="status">
                 Stato
             </label>
             <select class="ms-2 w-50 form-select" name="status" id="status">
@@ -117,10 +117,10 @@
             </select>
         </div>
         <div class="d-flex align-items-center">
-            <label for="yarn">
+            <label class="text-danger" for="yarn_id">
                 Filato
             </label>
-            <select class="ms-2 w-50 form-select" name="yarn" id="yarn">
+            <select class="ms-2 w-50 form-select" name="yarn_id" id="yarn_id">
                 <option selected>
                     Seleziona il filato
                 </option>

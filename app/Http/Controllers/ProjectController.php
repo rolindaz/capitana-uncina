@@ -57,9 +57,9 @@ class ProjectController extends Controller
             'execution_time' => ['nullable', 'numeric'],
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
-            'correct' => ['nullable', 'boolean'],
+            'correct' => ['required', 'boolean'],
             'size' => ['nullable', 'string'],
-            'yarn' => ['required', 'exists:yarns,name'],
+            'yarn_id' => ['required', 'exists:yarns,id'],
             'destination_use' => ['nullable', 'string'],
             'notes' => ['nullable', 'string']
         ]);
@@ -69,7 +69,7 @@ class ProjectController extends Controller
         $newProject = Project::create([
             'pattern_name' => $validated_data['pattern_name'],
             'pattern_url' => $validated_data['pattern_url'],
-            'category_id' => $validated_data['category'],
+            'category_id' => $validated_data['category_id'],
             'started' => $validated_data['started'],
             'completed' => $validated_data['completed'],
             'execution_time' => $validated_data['execution_time'],
@@ -77,13 +77,14 @@ class ProjectController extends Controller
             'correct' => $validated_data['correct']
             ]);
             
-            if(array_key_exists('image', $validated_data)) {
-                // dump("l'immagine c'è");
-                $img_url = Storage::putFile('projects', $validated_data['image']);
-                $newProject->image_path = $img_url;
-            }
-        
-        $newProject->translations()->create([
+        if(array_key_exists('image_path', $validated_data)) {
+            // dump("l'immagine c'è");
+            $img_url = Storage::putFile('projects', $validated_data['image_path']);
+            $newProject->image_path = $img_url;
+            $newProject->save();
+        }
+                
+        $newProject->translation()->create([
             'locale' => app()->getLocale(),
             'name' => $validated_data['name'],
             'notes' => $validated_data['notes'],
@@ -92,6 +93,10 @@ class ProjectController extends Controller
             'destination_use' => $validated_data['destination_use'],
             'slug' => Str::slug($validated_data['name'])
         ]);
+
+        if (!empty($validated_data['yarn_id'])) {
+            $newProject->yarns()->attach($validated_data['yarn_id']);
+        }
 
         return redirect()
             ->route('projects.index')
