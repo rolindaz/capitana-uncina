@@ -43,8 +43,8 @@ class ProjectController extends Controller
     {
         $project = Project::query()
         ->with('translation')
-        ->whereHas('translation', function ($q) use ($slug) {
-            $q->where('slug', $slug)
+        ->whereHas('translation', function ($query) use ($slug) {
+            $query->where('slug', $slug)
               ->where('locale', app()->getLocale());
         })
         ->firstOrFail();

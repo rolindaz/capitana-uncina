@@ -42,14 +42,14 @@
     @foreach ($projects as $project)
     <tr>
       <td>
-        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project) }}">
+        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
           <div class="thumbnail">
             <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->name . ' Thumbnail'}}">
           </div>
         </a>
       </td>
       <td>
-        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project) }}">
+        <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
           {{ $project->name }}
         </a>
       </td>
