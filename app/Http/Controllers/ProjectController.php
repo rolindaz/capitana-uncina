@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\Yarn;
 
 class ProjectController extends Controller
 {
@@ -28,7 +29,13 @@ class ProjectController extends Controller
         $categories = Category::query()
             ->with('translation')
             ->get();
-        return view('projects.create', compact('categories'));
+        
+        $yarns = Yarn::all();
+        
+        $sizes = config('data.projects.sizes');
+        $status = config('data.projects.status');
+
+        return view('projects.create', compact(['categories', 'sizes', 'yarns', 'status']));
     }
 
     /**
