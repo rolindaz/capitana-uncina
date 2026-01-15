@@ -9,6 +9,6 @@ return [
         'craft' => 'Uncinetto, Cucito',
         'status' => 'Completato',
         'destination_use' => 'Per me stessa',
-        'slug' => 'freaky_cardigan',
+        'slug' => 'freaky-cardigan',
     ],
 ];

@@ -39,9 +39,17 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $project = Project::query()
+        ->with('translation')
+        ->whereHas('translation', function ($q) use ($slug) {
+            $q->where('slug', $slug)
+              ->where('locale', app()->getLocale());
+        })
+        ->firstOrFail();
+
+        return view('projects.show', compact('project'));
     }
 
     /**

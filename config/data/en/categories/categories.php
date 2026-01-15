@@ -26,7 +26,7 @@ return [
         'category_id' => 4,
         'locale' => 'en',
         'name' => 'Toys and Hobbies',
-        'slug' => 'toys_and_hobbies'
+        'slug' => 'toys-and-hobbies'
     ],
 
     // Children categories, clothing:
@@ -35,7 +35,7 @@ return [
         'category_id' => 5,
         'locale' => 'en',
         'name' => 'Coat / Jacket',
-        'slug' => 'coat_jacket'
+        'slug' => 'coat-jacket'
     ],
     [
         'category_id' => 6,
@@ -47,7 +47,7 @@ return [
         'category_id' => 7,
         'locale' => 'en',
         'name' => 'Intimate Apparel',
-        'slug' => 'intimate_apparel'
+        'slug' => 'intimate-apparel'
     ],
     [
         'category_id' => 8,
@@ -83,7 +83,7 @@ return [
         'category_id' => 13,
         'locale' => 'en',
         'name' => 'Shrug / Bolero',
-        'slug' => 'shrug_bolero'
+        'slug' => 'shrug-bolero'
     ],
     [
         'category_id' => 14,
@@ -182,13 +182,13 @@ return [
         'category_id' => 28,
         'locale' => 'en',
         'name' => 'Sleeveless Top',
-        'slug' => 'sleeveless_top'
+        'slug' => 'sleeveless-top'
     ],
     [
         'category_id' => 29,
         'locale' => 'en',
         'name' => 'Strapless Top',
-        'slug' => 'strapless_top'
+        'slug' => 'strapless-top'
     ],
     [
         'category_id' => 30,
@@ -221,7 +221,7 @@ return [
         'category_id' => 34,
         'locale' => 'en',
         'name' => 'Feet / Legs',
-        'slug' => 'feet_legs'
+        'slug' => 'feet-legs'
     ],
     [
         'category_id' => 35,
@@ -245,13 +245,13 @@ return [
         'category_id' => 38,
         'locale' => 'en',
         'name' => 'Neck / Torso',
-        'slug' => 'neck_torso'
+        'slug' => 'neck-torso'
     ],
     [
         'category_id' => 39,
         'locale' => 'en',
         'name' => 'Other Headwear',
-        'slug' => 'other_headwear'
+        'slug' => 'other-headwear'
     ],
     [
         'category_id' => 40,
@@ -296,7 +296,7 @@ return [
         'category_id' => 46,
         'locale' => 'en',
         'name' => 'Market Bag',
-        'slug' => 'market_bag'
+        'slug' => 'market-bag'
     ],
     [
         'category_id' => 47,
@@ -314,7 +314,7 @@ return [
         'category_id' => 49,
         'locale' => 'en',
         'name' => 'Purse / Handbag',
-        'slug' => 'purse_handbag'
+        'slug' => 'purse-handbag'
     ],
     [
         'category_id' => 50,
@@ -341,7 +341,7 @@ return [
         'category_id' => 53,
         'locale' => 'en',
         'name' => 'Boot Toppers',
-        'slug' => 'boot_toppers'
+        'slug' => 'boot-toppers'
     ],
     [
         'category_id' => 54,
@@ -464,7 +464,7 @@ return [
         'category_id' => 73,
         'locale' => 'en',
         'name' => 'Table Setting',
-        'slug' => 'table_setting'
+        'slug' => 'table-setting'
     ],
     [
         'category_id' => 74,
@@ -479,7 +479,7 @@ return [
         'category_id' => 75,
         'locale' => 'en',
         'name' => 'Baby Blanket',
-        'slug' => 'baby_blanket'
+        'slug' => 'baby-blanket'
     ],
     [
         'category_id' => 76,
@@ -506,7 +506,7 @@ return [
         'category_id' => 79,
         'locale' => 'en',
         'name' => 'Christmas Stocking',
-        'slug' => 'christmas_stocking'
+        'slug' => 'christmas-stocking'
     ],
     [
         'category_id' => 80,
@@ -518,25 +518,25 @@ return [
         'category_id' => 81,
         'locale' => 'en',
         'name' => 'Hanging Ornament',
-        'slug' => 'hanging_ornament'
+        'slug' => 'hanging-ornament'
     ],
     [
         'category_id' => 82,
         'locale' => 'en',
         'name' => 'Ornamental Flower',
-        'slug' => 'ornamental_flower'
+        'slug' => 'ornamental-flower'
     ],
     [
         'category_id' => 83,
         'locale' => 'en',
         'name' => 'Picture Frame',
-        'slug' => 'picture_frame'
+        'slug' => 'picture-frame'
     ],
     [
         'category_id' => 84,
         'locale' => 'en',
         'name' => 'Wall Hanging',
-        'slug' => 'wall_hanging'
+        'slug' => 'wall-hanging'
     ],
     [
         'category_id' => 85,
@@ -557,7 +557,7 @@ return [
         'category_id' => 87,
         'locale' => 'en',
         'name' => 'Christmas Bauble',
-        'slug' => 'christmas_bauble'
+        'slug' => 'christmas-bauble'
     ],
 
     // Children categories, Hanging Ornament:
@@ -590,7 +590,7 @@ return [
         'category_id' => 92,
         'locale' => 'en',
         'name' => 'Doll Clothes',
-        'slug' => 'doll_clothes'
+        'slug' => 'doll-clothes'
     ],
     [
         'category_id' => 93,
@@ -608,7 +608,7 @@ return [
         'category_id' => 95,
         'locale' => 'en',
         'name' => 'Mature Content',
-        'slug' => 'mature_content'
+        'slug' => 'mature-content'
     ],
     [
         'category_id' => 96,

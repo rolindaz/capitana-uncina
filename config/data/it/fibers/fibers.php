@@ -107,7 +107,7 @@ return [
         'fiber_id' => 18,
         'locale' => 'it',
         'name' => 'Fibra Vegetale',
-        'slug' => 'fibra_vegetale'
+        'slug' => 'fibra-vegetale'
     ],
     [
         'fiber_id' => 19,

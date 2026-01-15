@@ -26,7 +26,7 @@ return [
         'category_id' => 4,
         'locale' => 'it',
         'name' => 'Giochi e Hobby',
-        'slug' => 'giochi_e_hobby'
+        'slug' => 'giochi-e-hobby'
     ],
 
     // Children categories, clothing:
@@ -35,7 +35,7 @@ return [
         'category_id' => 5,
         'locale' => 'it',
         'name' => 'Cappotto / Giacca',
-        'slug' => 'cappotto_giacca'
+        'slug' => 'cappotto-giacca'
     ],
     [
         'category_id' => 6,
@@ -47,7 +47,7 @@ return [
         'category_id' => 7,
         'locale' => 'it',
         'name' => 'Abbigliamento Intimo',
-        'slug' => 'abbigliamento_intimo'
+        'slug' => 'abbigliamento-intimo'
     ],
     [
         'category_id' => 8,
@@ -71,7 +71,7 @@ return [
         'category_id' => 11,
         'locale' => 'it',
         'name' => 'Kimono / Vestaglia',
-        'slug' => 'kimono_vestaglia'
+        'slug' => 'kimono-vestaglia'
     ],
     [
         'category_id' => 12,
@@ -107,7 +107,7 @@ return [
         'category_id' => 17,
         'locale' => 'it',
         'name' => 'Costume da Bagno',
-        'slug' => 'costume_da_bagno'
+        'slug' => 'costume-da-bagno'
     ],
     [
         'category_id' => 18,
@@ -182,13 +182,13 @@ return [
         'category_id' => 28,
         'locale' => 'it',
         'name' => 'Sleeveless Top',
-        'slug' => 'sleeveless_top'
+        'slug' => 'sleeveless-top'
     ],
     [
         'category_id' => 29,
         'locale' => 'it',
         'name' => 'Strapless Top',
-        'slug' => 'strapless_top'
+        'slug' => 'strapless-top'
     ],
     [
         'category_id' => 30,
@@ -221,7 +221,7 @@ return [
         'category_id' => 34,
         'locale' => 'it',
         'name' => 'Feet / Legs',
-        'slug' => 'feet_legs'
+        'slug' => 'feet-legs'
     ],
     [
         'category_id' => 35,
@@ -245,13 +245,13 @@ return [
         'category_id' => 38,
         'locale' => 'it',
         'name' => 'Neck / Torso',
-        'slug' => 'neck_torso'
+        'slug' => 'neck-torso'
     ],
     [
         'category_id' => 39,
         'locale' => 'it',
         'name' => 'Altri Copricapo',
-        'slug' => 'altri_copricapo'
+        'slug' => 'altri-copricapo'
     ],
     [
         'category_id' => 40,
@@ -296,7 +296,7 @@ return [
         'category_id' => 46,
         'locale' => 'it',
         'name' => 'Market Bag',
-        'slug' => 'market_bag'
+        'slug' => 'market-bag'
     ],
     [
         'category_id' => 47,
@@ -314,7 +314,7 @@ return [
         'category_id' => 49,
         'locale' => 'it',
         'name' => 'Purse / Handbag',
-        'slug' => 'purse_handbag'
+        'slug' => 'purse-handbag'
     ],
     [
         'category_id' => 50,
@@ -341,7 +341,7 @@ return [
         'category_id' => 53,
         'locale' => 'it',
         'name' => 'Boot Toppers',
-        'slug' => 'boot_toppers'
+        'slug' => 'boot-toppers'
     ],
     [
         'category_id' => 54,
@@ -464,7 +464,7 @@ return [
         'category_id' => 73,
         'locale' => 'it',
         'name' => 'Table Setting',
-        'slug' => 'table_setting'
+        'slug' => 'table-setting'
     ],
     [
         'category_id' => 74,
@@ -479,7 +479,7 @@ return [
         'category_id' => 75,
         'locale' => 'it',
         'name' => 'Copertina da bebè',
-        'slug' => 'copertina_da_bebe'
+        'slug' => 'copertina-da-bebe'
     ],
     [
         'category_id' => 76,
@@ -506,7 +506,7 @@ return [
         'category_id' => 79,
         'locale' => 'it',
         'name' => 'Calza di Natale',
-        'slug' => 'calza_di_natale'
+        'slug' => 'calza-di-natale'
     ],
     [
         'category_id' => 80,
@@ -518,25 +518,25 @@ return [
         'category_id' => 81,
         'locale' => 'it',
         'name' => 'Da Appendere',
-        'slug' => 'da_appendere'
+        'slug' => 'da-appendere'
     ],
     [
         'category_id' => 82,
         'locale' => 'it',
         'name' => 'Ornamental Flower',
-        'slug' => 'ornamental_flower'
+        'slug' => 'ornamental-flower'
     ],
     [
         'category_id' => 83,
         'locale' => 'it',
         'name' => 'Picture Frame',
-        'slug' => 'picture_frame'
+        'slug' => 'picture-frame'
     ],
     [
         'category_id' => 84,
         'locale' => 'it',
         'name' => 'Wall Hanging',
-        'slug' => 'wall_hanging'
+        'slug' => 'wall-hanging'
     ],
     [
         'category_id' => 85,
@@ -557,7 +557,7 @@ return [
         'category_id' => 87,
         'locale' => 'it',
         'name' => 'Palla di Natale',
-        'slug' => 'palla_di_natale'
+        'slug' => 'palla-di-natale'
     ],
 
     // Children categories, Hanging Ornament:
@@ -590,7 +590,7 @@ return [
         'category_id' => 92,
         'locale' => 'it',
         'name' => 'Doll Clothes',
-        'slug' => 'doll_clothes'
+        'slug' => 'doll-clothes'
     ],
     [
         'category_id' => 93,
@@ -608,7 +608,7 @@ return [
         'category_id' => 95,
         'locale' => 'it',
         'name' => 'Mature Content',
-        'slug' => 'mature_content'
+        'slug' => 'mature-content'
     ],
     [
         'category_id' => 96,

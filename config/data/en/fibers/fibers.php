@@ -107,7 +107,7 @@ return [
         'fiber_id' => 18,
         'locale' => 'en',
         'name' => 'Plant Fiber',
-        'slug' => 'plant_fiber'
+        'slug' => 'plant-fiber'
     ],
     [
         'fiber_id' => 19,
