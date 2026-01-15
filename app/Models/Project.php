@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
+    /* // Salvo le date di inizio e completamento come istanze Carbon, non stringhe
+
+    protected $casts = [
+        'started' => 'datetime',
+        'completed' => 'datetime',
+    ]; */
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
@@ -24,5 +31,37 @@ class Project extends Model
 
     public function project_translations() {
         return $this->hasMany(ProjectTranslation::class);
+    }
+
+    // funzione che collega il progetto alla traduzione per la lingua corrente
+
+    public function translation() {
+        return $this->hasOne(ProjectTranslation::class)->where('locale', app()->getLocale());
+    }
+
+    // funzioni di accesso alle proprietà di Project translation:
+
+    public function getNameAttribute() {
+        return $this->translation?->name;
+    }
+
+    public function getNotesAttribute() {
+        return $this->translation?->notes;
+    }
+
+    public function getCraftAttribute() {
+        return $this->translation?->craft;
+    }
+
+    public function getStatusAttribute() {
+        return $this->translation?->status;
+    }
+
+    public function getDestinationUseAttribute() {
+        return $this->translation?->destination_use;
+    }
+
+    public function getSlugAttribute() {
+        return $this->translation?->slug;
     }
 }

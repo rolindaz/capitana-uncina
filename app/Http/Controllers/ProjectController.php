@@ -13,11 +13,11 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
-        $projects_en = ProjectTranslation::where('locale', 'en')->get();
-        $projects_it = ProjectTranslation::where('locale', 'it')->get();
+        $projects = Project::with('translation')
+        ->orderByDesc('created_at')
+        ->get();
 
-        return view('projects.index', compact(['projects', 'projects_en', 'projects_it']));
+        return view('projects.index', compact('projects'));
     }
 
     /**

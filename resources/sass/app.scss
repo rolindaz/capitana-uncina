@@ -6,3 +6,21 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+.thumbnail {
+ width: 80px;
+ 
+ img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+ }
+ 
+}
+
+#search-bar {
+   background-image: url('../../node_modules/bootstrap-icons/icons/search.svg');
+   background-position: 10px 10px; 
+   background-repeat: no-repeat;
+   padding: 7px 35px;
+}

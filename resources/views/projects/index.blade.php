@@ -17,25 +17,24 @@
 @section('content')
 
 {{-- @dd($projects); --}}
-{{-- @dd($projects_it); --}}
 
 <table class="table">
   <thead>
     <tr>
       <th scope="col">
-        Thumbnail
+        Immagine
     </th>
       <th scope="col">
-        Title
+        Nome
     </th>
       <th scope="col">
-        Craft
+        Tecniche
     </th>
       <th scope="col">
-        Added
+        Aggiunto
     </th>
     <th scope="col">
-        Last Updated
+        Ultima modifica
     </th>
     </tr>
   </thead>
@@ -45,11 +44,10 @@
       <td>
         <a class="text-decoration-none text-black" {{-- href="{{ route('projects.show', $project) }}" --}}>
           <div class="thumbnail">
-            <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->name . 'Thumbnail'}}">
+            <img src="{{ asset('storage/' . $project->image_path) }}" alt="{{ $project->name . ' Thumbnail'}}">
           </div>
         </a>
       </td>
-      @foreach ($projects_it as $project)
       <td>
         <a class="text-decoration-none text-black" {{-- href="{{ route('projects.show', $project) }}" --}}>
           {{ $project->name }}
@@ -58,12 +56,11 @@
       <td>
             {{ $project->craft }} 
       </td>
-      @endforeach
       <td>
-        {{ $project->started }}
+        {{ $project->created_at->diffForHumans() }}
       </td>
       <td>
-        {{ $project->completed }}
+        {{ $project->updated_at->diffForHumans() }}
       </td>
     </tr>
     @endforeach
