@@ -18,7 +18,12 @@ class Project extends Model
     }
 
     public function yarns() {
-        return $this->belongsToMany(Yarn::class);
+        return $this->belongsToMany(Yarn::class)
+            ->using(ProjectYarn::class);
+    }
+
+    public function projectYarns() {
+        return $this->hasMany(ProjectYarn::class);
     }
 
     public function attributes() {
