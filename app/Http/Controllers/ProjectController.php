@@ -42,7 +42,12 @@ class ProjectController extends Controller
     public function show(string $slug)
     {
         $project = Project::query()
-        ->with('translation')
+        ->with([
+            'translation',
+            'category.translation',
+            'projectYarns.yarn.translation',
+            'projectYarns.colorway.translation'
+            ])
         ->whereHas('translation', function ($query) use ($slug) {
             $query->where('slug', $slug)
               ->where('locale', app()->getLocale());

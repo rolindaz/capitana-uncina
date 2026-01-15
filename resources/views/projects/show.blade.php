@@ -56,7 +56,17 @@
         <img class="img-fluid w-50" src="{{ asset('storage/' . $project->image_path) }}" alt="copertina">
     @endif
     <li>
+        Categoria: {{ $project->category->name }}
+    </li>
+    <li>
         Tecniche: {{ $project->craft }}
+    </li>
+    <li>
+        Filati: 
+        @foreach ($project->projectYarns as $usage)
+            {{ $usage->yarn->name }}, {{ $usage->yarn->brand }} - 
+            Quantità: {{ (int)$usage->quantity }} gomitoli, {{ $usage->weight }} g per {{ $usage->meterage }} metri
+        @endforeach
     </li>
    {{-- <li class="d-flex gap-2 mt-3">
         @foreach ($project->tags as $tag)
