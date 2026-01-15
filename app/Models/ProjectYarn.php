@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class ProjectYarn extends Model
+class ProjectYarn extends Pivot
 {
     protected $table = 'project_yarn';
+    
+    public $timestamps = true;
 
     public function project() {
         return $this->belongsTo(Project::class);

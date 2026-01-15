@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('pattern_name', 255)->nullable();
             $table->string('pattern_url', 2048)->nullable();
             $table->string('size', 10)->nullable();
-            $table->boolean('correct')->nullable();
+            $table->boolean('correct')->nullable()->default(null);
             $table->timestamps();
         });
     }
