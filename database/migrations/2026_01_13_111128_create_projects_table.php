@@ -13,16 +13,15 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('key', 255);
-            $table->string('pattern_name', 255);
-            $table->string('pattern_url', 2048);
             $table->foreignId('category_id')->constrained('categories');
-            $table->string('image_path', 255);
-            $table->date('started');
-            $table->date('completed');
+            $table->string('image_path', 255)->nullable();
+            $table->date('started')->nullable();
+            $table->date('completed')->nullable();
             $table->integer('execution_time');
-            $table->string('size', 10);
-            $table->boolean('correct');
+            $table->string('pattern_name', 255)->nullable();
+            $table->string('pattern_url', 2048)->nullable();
+            $table->string('size', 10)->nullable();
+            $table->boolean('correct')->nullable();
             $table->timestamps();
         });
     }

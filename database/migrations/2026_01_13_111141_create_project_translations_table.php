@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('notes');
             $table->string('craft', 255);
             $table->string('status', 255);
-            $table->string('destination_use', 255);
+            $table->string('destination_use', 255)->nullable();
             $table->string('slug', 255);
             $table->timestamps();
         });

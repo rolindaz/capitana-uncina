@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form class="w-50" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+<form class="w-50 mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div>
@@ -110,22 +110,22 @@
                     Seleziona la taglia
                 </option>
                 @foreach ($sizes as $size)
-                    <option value="">
+                    <option value="{{ $size }}">
                         {{ $size }}
                     </option>
                 @endforeach
             </select>
         </div>
         <div class="d-flex align-items-center">
-            <label for="size">
+            <label for="yarn">
                 Filato
             </label>
-            <select class="ms-2 w-50 form-select" name="size" id="size">
+            <select class="ms-2 w-50 form-select" name="yarn" id="yarn">
                 <option selected>
                     Seleziona il filato
                 </option>
                 @foreach ($yarns as $yarn)
-                    <option value="">
+                    <option value="{{ $yarn->id }}">
                         {{ $yarn->name }}
                     </option>
                 @endforeach
@@ -144,7 +144,9 @@
             <textarea class="mt-2 form-control" name="notes" id="notes" rows="5"></textarea>
         </div>
     </div>
-    
+    <button type="submit" class="btn btn-info">
+        Salva
+    </button>
 </form>
 
 @endsection

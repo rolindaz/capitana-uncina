@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Yarn;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -43,7 +45,57 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $validated_data = $request->validate([
+            'name' => ['required', 'string'],
+            'craft' => ['required', 'string'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
+            'status' => ['required', 'string'],
+            'started' => ['nullable', 'date'],
+            'completed' => ['nullable', 'date'],
+            'execution_time' => ['nullable', 'numeric'],
+            'pattern_name' => ['nullable', 'string'],
+            'pattern_url' => ['nullable', 'url'],
+            'correct' => ['nullable', 'boolean'],
+            'size' => ['nullable', 'string'],
+            'yarn' => ['required', 'exists:yarns,name'],
+            'destination_use' => ['nullable', 'string'],
+            'notes' => ['nullable', 'string']
+        ]);
+        
+        /* dd($validated_data); */
+
+        $newProject = Project::create([
+            'pattern_name' => $validated_data['pattern_name'],
+            'pattern_url' => $validated_data['pattern_url'],
+            'category_id' => $validated_data['category'],
+            'started' => $validated_data['started'],
+            'completed' => $validated_data['completed'],
+            'execution_time' => $validated_data['execution_time'],
+            'size' => $validated_data['size'],
+            'correct' => $validated_data['correct']
+            ]);
+            
+            if(array_key_exists('image', $validated_data)) {
+                // dump("l'immagine c'è");
+                $img_url = Storage::putFile('projects', $validated_data['image']);
+                $newProject->image_path = $img_url;
+            }
+        
+        $newProject->translations()->create([
+            'locale' => app()->getLocale(),
+            'name' => $validated_data['name'],
+            'notes' => $validated_data['notes'],
+            'craft' => $validated_data['craft'],
+            'status' => $validated_data['status'],
+            'destination_use' => $validated_data['destination_use'],
+            'slug' => Str::slug($validated_data['name'])
+        ]);
+
+        return redirect()
+            ->route('projects.index')
+            ->with('success', 'Project created');
     }
 
     /**

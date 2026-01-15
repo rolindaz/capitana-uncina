@@ -13,6 +13,18 @@ class Project extends Model
         'completed' => 'datetime',
     ]; */
 
+    protected $fillable = [
+        'pattern_name',
+        'pattern_url',
+        'category_id',
+        'image_path',
+        'started',
+        'completed',
+        'execution_time',
+        'size',
+        'correct'
+    ];
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
