@@ -70,10 +70,6 @@ class Project extends Model
         return $this->translation?->notes;
     }
 
-    public function getCraftAttribute() {
-        return $this->translation?->craft;
-    }
-
     public function getStatusAttribute() {
         return $this->translation?->status;
     }

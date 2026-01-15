@@ -51,7 +51,7 @@
             <label class="text-danger" for="status">
                 Stato
             </label>
-            <select class="ms-2 w-50 form-select" name="status" id="status">
+            <select class="status ms-2 w-50 form-select" name="status" id="status">
                 <option selected>
                     Seleziona
                 </option>
@@ -62,19 +62,19 @@
                 @endforeach
             </select>
         </div>
-        <div>
+        <div class="started">
             <label for="started">
                 Iniziato
             </label>
             <input class="ms-2" type="date" name="started" id="started">
         </div>
-        <div class="d-flex align-items-center">
+        <div class="completed align-items-center">
             <label for="completed">
                 Completato
             </label>
             <input class="ms-2" type="date" name="completed" id="completed">
         </div>
-        <div>
+        <div class="execution_time">
             <label for="execution_time">
                 Ore di lavoro totali
             </label>
@@ -157,5 +157,7 @@
         Salva
     </button>
 </form>
+
+@vite(['resources/js/projects-form.js'])
 
 @endsection
