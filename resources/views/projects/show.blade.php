@@ -8,7 +8,7 @@
 
 @section('actions')
 <div class="d-flex gap-3 my-4">
-    <a href="{{ route('projects.edit', $project->slug) }}">
+    <a href="{{ route('projects.edit', $project) }}">
         <button class="btn btn-success">
             Modifica
         </button>

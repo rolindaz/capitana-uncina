@@ -196,28 +196,23 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $slug)
+    public function edit(string $id)
     {
         $project = Project::query()
-        ->with([
-            'translation',
-            'category.translation',
-            'projectYarns.yarn.translation',
-            'projectYarns.colorway.translation'
+            ->with([
+                'translation',
+                'category.translation',
+                'crafts.translation',
             ])
-        ->whereHas('translation', function ($query) use ($slug) {
-            $query->where('slug', $slug)
-              ->where('locale', app()->getLocale());
-        })
-        ->firstOrFail();
+            ->findOrFail($id);
 
         $categories = Category::query()
-        ->with('translation')
-        ->get();
+            ->with('translation')
+            ->get();
 
         $crafts = Craft::query()
-        ->with('translation')
-        ->get();
+            ->with('translation')
+            ->get();
 
         $status = config('data.projects.status');
 
@@ -227,8 +222,10 @@ class ProjectController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Project $project)
     {
+        /* dd($project); */
+
         $validated_data = $request->validate([
             'name' => ['required', 'string'],
             'category_id' => ['required', 'exists:categories,id'],
@@ -242,17 +239,49 @@ class ProjectController extends Controller
             'execution_time' => ['nullable', 'numeric'],
 
             'pattern_name' => ['nullable', 'string'],
-            'pattern_url' => ['nullable', 'url'], */
+            'pattern_url' => ['nullable', 'url'],
 
             'size' => ['nullable', 'string'],
-            /* 'yarn_id' => ['required', 'exists:yarns,id'], */
+            'yarn_id' => ['required', 'exists:yarns,id'],
             'yarns' => ['nullable', 'array'],
             'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
             'yarns.*.colorway_id' => ['nullable', 'sometimes', 'exists:colorways,id'],
             'yarns.*.quantity' => ['nullable', 'numeric', 'min:0'],
             'destination_use' => ['nullable', 'string'],
-            'notes' => ['nullable', 'string']
+            'notes' => ['nullable', 'string'] */
         ]);
+
+        /* dd($validated_data); */
+
+        $project->category_id = $validated_data['category_id'];
+
+        if ($request->hasFile('image_path')) {
+            if (!empty($project->image_path)) {
+                Storage::delete($project->image_path);
+            }
+
+            $project->image_path = Storage::putFile('projects', $validated_data['image_path']);
+        }
+
+        $project->save();
+
+        $project->project_translations()->updateOrCreate(
+            ['locale' => app()->getLocale()],
+            [
+                'name' => $validated_data['name'],
+                'status' => $validated_data['status'],
+                'slug' => Str::slug($validated_data['name']),
+            ]
+        );
+
+        $project->crafts()->sync($validated_data['craft_ids']);
+
+        $project->unsetRelation('translation');
+
+        return redirect()
+            ->route('projects.show', $project->slug ?? Str::slug($validated_data['name']))
+            ->with('success', 'Project updated');
+
     }
 
     /**
