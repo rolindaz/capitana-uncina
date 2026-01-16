@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Yarn;
 
 class YarnController extends Controller
 {
@@ -11,7 +12,12 @@ class YarnController extends Controller
      */
     public function index()
     {
-        //
+        $yarns = Yarn::with([
+            'translation',
+            'fibers'
+        ])->get();
+
+        return view('yarns.index', compact('yarns'));
     }
 
     /**
