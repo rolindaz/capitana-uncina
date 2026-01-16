@@ -61,10 +61,10 @@ class YarnController extends Controller
             'fibers.*.fiber_id' => ['required', 'exists:fibers,id'],
             'fibers.*.percentage' => ['nullable', 'numeric'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
-            'min_hook_size' => ['nullable', 'decimal:1,2'],
-            'max_hook_size' => ['nullable', 'decimal:1,2'],
-            'min_needle_size' => ['nullable', 'decimal:1,2'],
-            'max_needle_size' => ['nullable', 'decimal:1,2']
+            'min_hook_size' => ['nullable', 'decimal:0,2'],
+            'max_hook_size' => ['nullable', 'decimal:0,2'],
+            'min_needle_size' => ['nullable', 'decimal:0,2'],
+            'max_needle_size' => ['nullable', 'decimal:0,2']
         ]);
 
         /* dd($v_data); */
@@ -177,9 +177,78 @@ class YarnController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Yarn $yarn)
     {
-        //
+        $v_data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'brand' => ['required', 'string', 'max:255'],
+            'weight' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
+            'ply' => ['nullable', 'numeric'],
+            'unit_weight' => ['required', 'numeric'],
+            'color_type' => ['nullable', 'string', 'max:255'],
+            'meterage' => ['nullable', 'numeric'],
+            'fiber_types_number' => ['required', 'numeric'],
+            'fibers' => ['required', 'array'],
+            'fibers.*.fiber_id' => ['required', 'exists:fibers,id'],
+            'fibers.*.percentage' => ['nullable', 'numeric'],
+            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
+            'min_hook_size' => ['nullable', 'decimal:0,2'],
+            'max_hook_size' => ['nullable', 'decimal:0,2'],
+            'min_needle_size' => ['nullable', 'decimal:0,2'],
+            'max_needle_size' => ['nullable', 'decimal:0,2']
+        ]);
+
+        $yarn->fill([
+            'name' => $v_data['name'],
+            'brand' => $v_data['brand'],
+            'weight' => $v_data['weight'],
+            'category' => $v_data['category'],
+            'ply' => $v_data['ply'] ?? null,
+            'unit_weight' => $v_data['unit_weight'],
+            'meterage' => $v_data['meterage'] ?? null,
+            'fiber_types_number' => $v_data['fiber_types_number'],
+            'min_hook_size' => $v_data['min_hook_size'] ?? null,
+            'max_hook_size' => $v_data['max_hook_size'] ?? null,
+            'min_needle_size' => $v_data['min_needle_size'] ?? null,
+            'max_needle_size' => $v_data['max_needle_size'] ?? null,
+        ]);
+
+        if ($request->hasFile('image_path')) {
+            if (!empty($yarn->image_path)) {
+                Storage::delete($yarn->image_path);
+            }
+
+            $yarn->image_path = Storage::putFile('yarns', $v_data['image_path']);
+        }
+
+        $yarn->save();
+
+        $yarn->yarn_translations()->updateOrCreate(
+            ['locale' => app()->getLocale()],
+            [
+                'color_type' => $v_data['color_type'] ?? null,
+                'slug' => Str::slug($v_data['name']),
+            ]
+        );
+
+        // Sync fibers composition (fiber_yarn)
+        $fiberSyncData = [];
+        foreach ($v_data['fibers'] ?? [] as $fiberData) {
+            if (empty($fiberData['fiber_id'])) {
+                continue;
+            }
+            $fiberSyncData[$fiberData['fiber_id']] = [
+                'percentage' => $fiberData['percentage'] ?? null,
+            ];
+        }
+        $yarn->fibers()->sync($fiberSyncData);
+
+        $yarn->unsetRelation('translation');
+
+        return redirect()
+            ->route('yarns.show', $yarn->slug ?? $yarn->id)
+            ->with('success', 'Yarn updated');
     }
 
     /**

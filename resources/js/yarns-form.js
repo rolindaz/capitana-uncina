@@ -6,8 +6,11 @@ const fibersContainer = document.getElementById('fibers-container');
 const baseFiberSelect = document.getElementById('fiber_id_0');
 const baseFiberOptionsHtml = baseFiberSelect ? baseFiberSelect.innerHTML : '';
 
-let fiberRowCount = document.querySelectorAll('#fibers-container .fiber-row').length;;
+let fiberRowCount = document.querySelectorAll('#fibers-container .fiber-row').length;
 
+if (!addFiberBtn || !fibersContainer) {
+    console.warn('Missing #add-fiber-btn or #fibers-container.');
+} else {
 addFiberBtn.addEventListener('click', function(e) {
     e.preventDefault();
 
@@ -47,6 +50,7 @@ addFiberBtn.addEventListener('click', function(e) {
         newFiberRow.remove();
     });
 });
+}
 
 // Add remove button functionality to any existing remove buttons
 document.addEventListener('click', function(e) {

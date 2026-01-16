@@ -152,25 +152,25 @@
             <label for="min_hook_size">
                 Misura uncinetto minima
             </label>
-            <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
+            <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_hook_size" id="min_hook_size">
         </div>
         <div>
             <label for="max_hook_size">
                 Misura uncinetto massima
             </label>
-            <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
+            <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_hook_size" id="max_hook_size">
         </div>
         <div>
             <label for="min_needle_size">
                 Misura ferri minima
             </label>
-            <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
+            <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_needle_size" id="min_needle_size">
         </div>
         <div>
             <label for="max_needle_size">
                 Misura ferri massima
             </label>
-            <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
+            <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_needle_size" id="max_needle_size">
         </div>
     </div>
     <button type="submit" class="btn btn-info">
