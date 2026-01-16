@@ -4,6 +4,17 @@
 
 @section('content')
 
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <strong>Validation Errors:</strong>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <form class="w-50 mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
@@ -189,14 +200,12 @@
                     </button>
                 </div>
             </div>
-            <div class="d-flex gap-2 mt-3">
-                <button id="create-yarn-btn" type="button" class="btn btn-info" {{-- data-bs-toggle="modal" data-bs-target="#CreateYarnModal" --}}>
+            {{-- <div class="d-flex gap-2 mt-3">
+                <button id="create-yarn-btn" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#CreateYarnModal">
                     Aggiungi nuovo filato
                 </button>
             </div>
             <div class="create-yarn-form my-4 form-control" style="display: none;">
-                <form class="mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
                         <div class="mb-3 py-3 px-3 d-flex flex-column gap-4">
                             <div>
                                 <label class="text-danger" for="new_yarn[name]">
@@ -283,16 +292,7 @@
                                 <input class="ms-2" type="file" name="image_path" id="image_path">
                             </div>
                         </div>
-                        <div class="d-flex my-3 gap-3 justify-content-center">
-                            <button type="button" class="btn btn-danger" {{-- data-bs-dismiss="modal" --}}>
-                                Annulla
-                            </button>
-                            <button type="submit" class="btn btn-success">
-                                Conferma
-                            </button>   
-                        </div>
-                </form>
-            </div>
+            </div> --}}
         </div>
         <div>
             <label for="destination_use">

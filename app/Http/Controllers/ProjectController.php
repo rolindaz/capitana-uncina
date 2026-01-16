@@ -64,6 +64,23 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        /* dd($request); */
+
+        // Clean up placeholder values
+        $yarns = $request->input('yarns', []);
+        foreach ($yarns as &$yarn) {
+            // If colorway_id is the placeholder text, set it to null
+            if (isset($yarn['colorway_id']) && !is_numeric($yarn['colorway_id'])) {
+                $yarn['colorway_id'] = null;
+            }
+        }
+        $request->merge(['yarns' => $yarns]);
+
+        // Clean up size if it's a placeholder
+        $size = $request->input('size');
+        if ($size && !is_numeric($size) && strpos($size, 'Seleziona') !== false) {
+            $request->merge(['size' => null]);
+        }
 
         $validated_data = $request->validate([
             'name' => ['required', 'string'],
@@ -85,7 +102,7 @@ class ProjectController extends Controller
             /* 'yarn_id' => ['required', 'exists:yarns,id'], */
             'yarns' => ['nullable', 'array'],
             'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
-            'yarns.*.colorway_id' => ['nullable', 'exists:colorways,id'],
+            'yarns.*.colorway_id' => ['nullable', 'sometimes', 'exists:colorways,id'],
             'yarns.*.quantity' => ['nullable', 'numeric', 'min:0'],
             'destination_use' => ['nullable', 'string'],
             'notes' => ['nullable', 'string']
@@ -134,6 +151,19 @@ class ProjectController extends Controller
                 ]
             );
         }
+
+        /* // creazione del nuovo filato, se inserito:
+
+        if ($request->filled('new_yarn_name')) {
+            $yarn = Yarn::create([
+                'name' => $request->input('new_yarn_name'),
+                'brand' => $request->input('new_yarn_brand')
+            ]);
+
+            // e lo attacco al progetto
+
+            $newProject->yarns()->attach($yarn->id);
+        } */
 
         if (!empty($validated_data['craft_ids'])) {
             $newProject->crafts()->attach($validated_data['craft_ids']);

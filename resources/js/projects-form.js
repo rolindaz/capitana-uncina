@@ -80,9 +80,18 @@ document.addEventListener('click', function(e) {
         e.preventDefault();
         e.target.closest('.yarns').remove();
     }
-});
+}, true); // Use capture phase to ensure this runs first
 
-// create new yarn button logic
+// Ensure form can submit
+const form = document.querySelector('form');
+if (form) {
+    form.addEventListener('submit', function(e) {
+        // Allow form to submit normally
+        console.log('Form submitted');
+    });
+}
+
+/* // create new yarn button logic
 
 const createYarnBtn = document.getElementById('create-yarn-btn');
 const newYarnFormContainer = document.querySelector('.create-yarn-form');
@@ -101,6 +110,6 @@ if (createYarnBtn && newYarnFormContainer) {
             newYarnFormContainer.style.display = 'none';
         });
     }
-}
+} */
 
 
