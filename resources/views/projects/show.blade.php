@@ -36,7 +36,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Annulla
           </button>
-        <form action="{{ route('projects.destroy', $project->slug) }}" method="POST">
+        <form action="{{ route('projects.destroy', $project) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">

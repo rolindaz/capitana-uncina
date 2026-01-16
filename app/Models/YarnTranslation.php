@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class YarnTranslation extends Model
 {
     public function yarn() {
-        return $this->hasOne(Yarn::class);
+        return $this->belongsTo(Yarn::class);
     }
 }

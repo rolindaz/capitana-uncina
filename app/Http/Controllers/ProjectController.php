@@ -287,8 +287,19 @@ class ProjectController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        if (!empty($project->image_path)) {
+            Storage::delete($project->image_path);
+        }
+
+        // Prevent FK constraint failures (no cascade configured in migrations)
+        $project->crafts()->detach();
+        $project->projectYarns()->delete();
+        $project->project_translations()->delete();
+
+        $project->deleteOrFail();
+        
+        return redirect()->route('projects.index');
     }
 }
