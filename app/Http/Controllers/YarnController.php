@@ -164,8 +164,26 @@ class YarnController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Yarn $yarn)
     {
-        //
+        if (!empty($yarn->image_path)) {
+            Storage::delete($yarn->image_path);
+        }
+
+        // Prevent FK constraint failures (no cascade configured in migrations)
+
+        // Pivot tables
+        $yarn->projects()->detach();
+        $yarn->projectYarns()->delete();
+        $yarn->colorways()->detach();
+        $yarn->fibers()->detach();
+        $yarn->fiberYarns()->delete();
+
+        // Translations
+        $yarn->yarn_translations()->delete();
+
+        $yarn->deleteOrFail();
+        
+        return redirect()->route('yarns.index');
     }
 }
