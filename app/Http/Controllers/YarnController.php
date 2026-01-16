@@ -148,22 +148,29 @@ class YarnController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Yarn $yarn)
+    public function edit($id)
     {
-        $yarn->load(['translation', 'fibers']);
-        $fibers = Fiber::all();
-        $colorways = Colorway::all();
-        $weight = config('data.yarns.weight');
-        $category = config('data.yarns.category');
+        $yarn = Yarn::query()
+        ->with('translation', 'fibers')
+        ->findOrFail($id);
 
-        $translation = $yarn->translation;
+        $fibers = Fiber::query()
+        ->with('translation')
+        ->get();
+
+        $colorways = Colorway::query()
+        ->with('translation')
+        ->get();
+
+        $weight = config('data.yarns.weight');
+        $categories = config('data.yarns.category');
 
         return view('yarns.edit', compact([
-            '$yarn',
+            'yarn',
             'fibers',
             'colorways',
             'weight',
-            'category'
+            'categories'
         ]));
     }
 

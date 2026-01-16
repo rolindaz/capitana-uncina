@@ -4,8 +4,6 @@ const addFiberBtn = document.getElementById('add-fiber-btn');
 const fibersContainer = document.getElementById('fibers-container');
 
 const baseFiberSelect = document.getElementById('fiber_id_0');
-const baseColorwaySelect = document.getElementById('colorway_id_0');
-
 const baseFiberOptionsHtml = baseFiberSelect ? baseFiberSelect.innerHTML : '';
 
 let fiberRowCount = document.querySelectorAll('#fibers-container .fiber-row').length;;
@@ -36,9 +34,6 @@ addFiberBtn.addEventListener('click', function(e) {
                         </label>
                         <input class="ms-2 form-select" type="number" name="fibers[${fiberRowCount}][percentage]" id="percentage_${fiberRowCount}"/>
                     </div>
-                    <button type="button" id="add-fiber-btn" class="btn btn-secondary">
-                        +
-                    </button>
                     <button type="button" class="btn btn-sm btn-danger remove-fiber-btn">Rimuovi</button>
                 </div>
             `;
