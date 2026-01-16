@@ -96,7 +96,6 @@ class ProjectController extends Controller
 
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
-            'correct' => ['required', 'boolean'],
 
             'size' => ['nullable', 'string'],
             /* 'yarn_id' => ['required', 'exists:yarns,id'], */
@@ -117,8 +116,7 @@ class ProjectController extends Controller
             'started' => $validated_data['started'],
             'completed' => $validated_data['completed'],
             'execution_time' => $validated_data['execution_time'],
-            'size' => $validated_data['size'],
-            'correct' => $validated_data['correct']
+            'size' => $validated_data['size']
             ]);
             
         if(array_key_exists('image_path', $validated_data)) {
@@ -221,7 +219,9 @@ class ProjectController extends Controller
         ->with('translation')
         ->get();
 
-        return view('projects.edit', compact(['project', 'categories', 'crafts']));
+        $status = config('data.projects.status');
+
+        return view('projects.edit', compact(['project', 'categories', 'crafts', 'status']));
     }
 
     /**
@@ -229,7 +229,30 @@ class ProjectController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated_data = $request->validate([
+            'name' => ['required', 'string'],
+            'category_id' => ['required', 'exists:categories,id'],
+            'craft_ids' => ['required', 'array'],
+            'craft_ids.*' => ['exists:crafts,id'],
+            'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
+
+            'status' => ['required', 'string'],
+            /* 'started' => ['nullable', 'date'],
+            'completed' => ['nullable', 'date'],
+            'execution_time' => ['nullable', 'numeric'],
+
+            'pattern_name' => ['nullable', 'string'],
+            'pattern_url' => ['nullable', 'url'], */
+
+            'size' => ['nullable', 'string'],
+            /* 'yarn_id' => ['required', 'exists:yarns,id'], */
+            'yarns' => ['nullable', 'array'],
+            'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
+            'yarns.*.colorway_id' => ['nullable', 'sometimes', 'exists:colorways,id'],
+            'yarns.*.quantity' => ['nullable', 'numeric', 'min:0'],
+            'destination_use' => ['nullable', 'string'],
+            'notes' => ['nullable', 'string']
+        ]);
     }
 
     /**

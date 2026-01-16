@@ -26,7 +26,6 @@ class ProjectsTableSeeder extends Seeder
             $newProject->pattern_name = $project['pattern_name'];
             $newProject->pattern_url = $project['pattern_url'];
             $newProject->size = $project['size'];
-            $newProject->correct = $project['correct'];
 
             $newProject->save();
         }

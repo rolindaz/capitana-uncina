@@ -10,6 +10,5 @@ return [
         'pattern_name' => 'True Love Cardigan',
         'pattern_url' => 'https://www.woolandthegang.com/en/products/true-love-cardigan-kit',
         'size' => 'S',
-        'correct' => false
     ],
 ];

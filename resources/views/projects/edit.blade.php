@@ -19,7 +19,7 @@
         </div>
         <div class="form-control mb-3">
             <label for="type_id">
-                Tipologia
+                Categoria
             </label>
             <select name="type_id" id="type_id">
                 @foreach ($categories as $category)
@@ -28,16 +28,6 @@
                     </option>
                 @endforeach
             </select>
-        </div>
-        <div class="form-control mb-3">
-            <label for="title">
-                Tecnologia utilizzata
-            </label>
-            <input 
-            type="text"
-            name="tech"
-            id="tech"
-            value="{{ $project->tech }}">
         </div>
         <div class="form-control mb-3 d-flex gap-4 flex-wrap">
             <label for="craft">
@@ -53,6 +43,18 @@
                     </div>      
                 @endforeach
             </div>
+        </div>
+        <div class="form-control mb-3">
+            <label for="type_id">
+                Stato
+            </label>
+            <select name="type_id" id="type_id">
+                @foreach ($status as $data)
+                    <option value="{{ $data }}" {{ $project->status == $data ? 'selected' : '' }}>
+                        {{ $data }}
+                    </option>
+                @endforeach
+            </select>
         </div>
         <div class="form-control mb-3 d-flex gap-4 flex-wrap">
             <label for="image_path">

@@ -105,20 +105,6 @@
             </label>
             <input class="ms-2" type="url" name="pattern_url" id="pattern_url">
         </div>
-        <div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="correct" id="correct_true" value="1">
-                <label class="form-check-label" for="correct_true">
-                    Ho seguito lo schema
-                </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="correct" id="correct_false" value="0">
-              <label class="form-check-label" for="correct_false">
-                L'ho usato per ispirarmi
-              </label>
-            </div>
-        </div>
     </div>
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div class="d-flex align-items-center">
