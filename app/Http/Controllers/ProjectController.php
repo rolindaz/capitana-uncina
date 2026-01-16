@@ -198,9 +198,30 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
-        //
+        $project = Project::query()
+        ->with([
+            'translation',
+            'category.translation',
+            'projectYarns.yarn.translation',
+            'projectYarns.colorway.translation'
+            ])
+        ->whereHas('translation', function ($query) use ($slug) {
+            $query->where('slug', $slug)
+              ->where('locale', app()->getLocale());
+        })
+        ->firstOrFail();
+
+        $categories = Category::query()
+        ->with('translation')
+        ->get();
+
+        $crafts = Craft::query()
+        ->with('translation')
+        ->get();
+
+        return view('projects.edit', compact(['project', 'categories', 'crafts']));
     }
 
     /**
