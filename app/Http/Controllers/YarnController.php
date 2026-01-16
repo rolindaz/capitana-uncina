@@ -18,7 +18,7 @@ class YarnController extends Controller
     {
         $yarns = Yarn::with([
             'translation',
-            'fibers'
+            'fibers.translation'
         ])->get();
 
         return view('yarns.index', compact('yarns'));
@@ -99,9 +99,36 @@ class YarnController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
-        //
+        $yarn = Yarn::query()
+            ->with([
+                'translation',
+                'fibers.translation',
+                'colorways.translation',
+            ])
+            ->whereHas('translation', function ($query) use ($slug) {
+                $query->where('slug', $slug)
+                    ->where('locale', app()->getLocale());
+            })
+            ->first();
+
+        // Fallback: allow linking by numeric id when a slug is missing
+        if (!$yarn && ctype_digit($slug)) {
+            $yarn = Yarn::query()
+                ->with([
+                    'translation',
+                    'fibers.translation',
+                    'colorways.translation',
+                ])
+                ->findOrFail((int) $slug);
+        }
+
+        if (!$yarn) {
+            abort(404);
+        }
+
+        return view('yarns.show', compact('yarn'));
     }
 
     /**

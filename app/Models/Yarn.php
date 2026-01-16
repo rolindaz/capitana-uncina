@@ -27,6 +27,10 @@ class Yarn extends Model
         return $this->belongsToMany(Fiber::class);
     }
 
+    public function colorways() {
+        return $this->belongsToMany(Colorway::class);
+    }
+
     public function projects() {
         return $this->belongsToMany(Project::class)
         ->using(ProjectYarn::class);

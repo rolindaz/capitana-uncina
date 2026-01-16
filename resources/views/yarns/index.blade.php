@@ -46,14 +46,16 @@
     @foreach ($yarns as $yarn)
     <tr>
       <td>
-        <a class="text-decoration-none text-black" {{-- href="{{ route('yarns.show', $yarn->slug) }} --}}">
+        <a class="text-decoration-none text-black" href="{{ route('yarns.show', $yarn->slug ?? $yarn->id) }}">
           <div class="thumbnail">
-            <img src="{{ asset('storage/' . $yarn->image_path) }}" alt="{{ $yarn->name . ' Thumbnail'}}">
+            @if($yarn->image_path)
+              <img src="{{ asset('storage/' . $yarn->image_path) }}" alt="{{ $yarn->name . ' Thumbnail'}}">
+            @endif
           </div>
         </a>
       </td>
       <td>
-        <a class="text-decoration-none text-black" {{-- href="{{ route('yarns.show', $yarn->slug) }} --}}">
+        <a class="text-decoration-none text-black" href="{{ route('yarns.show', $yarn->slug ?? $yarn->id) }}">
           {{ $yarn->name }}
         </a>
       </td>
