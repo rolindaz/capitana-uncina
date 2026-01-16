@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Yarn;
+use App\Models\Fiber;
+use App\Models\Colorway;
 
 class YarnController extends Controller
 {
@@ -25,7 +27,17 @@ class YarnController extends Controller
      */
     public function create()
     {
-        //
+        $fibers = Fiber::all();
+        $colorways = Colorway::all();
+        $weight = config('data.yarns.weight');
+        $category = config('data.yarns.category');
+
+        return view('yarns.create', compact([
+            'fibers',
+            'colorways',
+            'weight',
+            'category'
+        ]));
     }
 
     /**
@@ -33,7 +45,21 @@ class YarnController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $v_data = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'brand' => ['required', 'string', 'max:255'],
+            'weight' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
+            'ply' => ['nullable', 'numeric'],
+            'unit_weight' => ['required', 'numeric'],
+            'meterage' => ['nullable', 'numeric'],
+            'fiber_types_number' => ['required', 'numeric'],
+            'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
+            'min_hook_size' => ['nullable', 'decimal:1,2'],
+            'max_hook_size' => ['nullable', 'decimal:1,2'],
+            'min_needle_size' => ['nullable', 'decimal:1,2'],
+            'max_needle_size' => ['nullable', 'decimal:1,2']
+        ]);
     }
 
     /**

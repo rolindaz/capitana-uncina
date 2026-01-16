@@ -15,7 +15,7 @@
     </div>
 @endif
 
-<form class="w-50 mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+<form class="w-50 mb-5" action="{{ route('yarns.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div>
@@ -25,6 +25,42 @@
             <input class="ms-2" type="text" name="name" id="name">
         </div>
         <div>
+            <label class="text-danger" for="brand">
+                Marca
+            </label>
+            <input class="ms-2" type="text" name="brand" id="brand">
+        </div>
+        <div class="d-flex align-items-center">
+            <label class="text-danger" for="weight">
+                Standard Peso
+            </label>
+            <select class="weight ms-2 w-50 form-select" name="weight" id="weight">
+                <option selected>
+                    Seleziona
+                </option>
+                @foreach ($weight as $data)
+                    <option value="{{ $data }}">
+                        {{ $data }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        <div class="d-flex align-items-center">
+            <label class="text-danger" for="category">
+                Standard Categoria
+            </label>
+            <select class="category ms-2 w-50 form-select" name="category" id="category">
+                <option selected>
+                    Seleziona
+                </option>
+                @foreach ($category as $data)
+                    <option value="{{ $data }}">
+                        {{ $data }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+        {{-- <div>
             <label class="text-danger">
                 Tecniche
             </label>
@@ -38,17 +74,26 @@
                     </div>      
                 @endforeach
             </div>
-        </div>
-        <div class="d-flex align-items-center">
-            <label class="text-danger" for="category">
-                Categoria
+        </div> --}}
+    </div>
+    <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div>
+            <label class="text-danger" for="fiber_types_number">
+                Tipologie di fibra
             </label>
-            <select class="ms-2 w-50 form-select" name="category_id" id="category">
-                <option selected>
-                    Seleziona la categoria
-                </option>
-                <x-category-options :categories="$categories" />
-            </select>
+            <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
+        </div>
+        <div>
+            <label for="meterage">
+                Metraggio
+            </label>
+            <input class="ms-2" type="number" name="meterage" id="meterage">
+        </div>
+        <div>
+            <label for="unit_weight">
+                Peso Unitario
+            </label>
+            <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
         </div>
         <div>
             <label for="image">
@@ -58,91 +103,40 @@
         </div>
     </div>
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
-        <div class="d-flex align-items-center">
-            <label class="text-danger" for="status">
-                Stato
-            </label>
-            <select class="status ms-2 w-50 form-select" name="status" id="status">
-                <option selected>
-                    Seleziona
-                </option>
-                @foreach ($status as $data)
-                    <option value="{{ $data }}">
-                        {{ $data }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
-        <div class="started">
-            <label for="started">
-                Iniziato
-            </label>
-            <input class="ms-2" type="date" name="started" id="started">
-        </div>
-        <div class="completed align-items-center">
-            <label for="completed">
-                Completato
-            </label>
-            <input class="ms-2" type="date" name="completed" id="completed">
-        </div>
-        <div class="execution_time">
-            <label for="execution_time">
-                Ore di lavoro totali
-            </label>
-            <input class="w-25 ms-2" type="number" name="execution_time" id="execution_time">
-        </div>
-    </div>
-    <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div>
-            <label for="pattern_name">
-                Nome dello schema
+            <label for="ply">
+                Fili
             </label>
-            <input class="ms-2" type="text" name="pattern_name" id="pattern_name">
+            <input class="ms-2" type="number" name="ply" id="ply">
         </div>
-        <div class="d-flex align-items-center">
-            <label for="pattern_url">
-                Link dello schema
+        <div>
+            <label for="min_hook_size">
+                Misura uncinetto minima
             </label>
-            <input class="ms-2" type="url" name="pattern_url" id="pattern_url">
+            <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
         </div>
-    </div>
-    <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
-        <div class="d-flex align-items-center">
-            <label for="size">
-                Taglia
+        <div>
+            <label for="max_hook_size">
+                Misura uncinetto massima
             </label>
-            <select class="ms-2 w-50 form-select" name="size" id="size">
-                <option selected>
-                    Seleziona la taglia
-                </option>
-                @foreach ($sizes as $size)
-                    <option value="{{ $size }}">
-                        {{ $size }}
-                    </option>
-                @endforeach
-            </select>
+            <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
         </div>
-        {{-- Contenitore input filati originale --}}
-        {{-- <div class="d-flex align-items-center">
-            <label class="text-danger" for="yarn_id">
-                Filato
+        <div>
+            <label for="min_needle_size">
+                Misura ferri minima
             </label>
-            <select class="ms-2 w-50 form-select" name="yarn_id" id="yarn_id">
-                <option selected>
-                    Seleziona il filato
-                </option>
-                @foreach ($yarns as $yarn)
-                    <option value="{{ $yarn->id }}">
-                        {{ $yarn->name }}
-                    </option>
-                @endforeach
-            </select>
-        </div> --}}
-        {{-- Contenitore input filati complesso --}}
-        <div id="yarns-container">
+            <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
+        </div>
+        <div>
+            <label for="max_needle_size">
+                Misura ferri massima
+            </label>
+            <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
+        </div>
+        {{-- Contenitore input fibre complesso --}}
+        {{-- <div id="fibers-container">
             <div class="yarns d-flex align-items-center">
                 <div class="yarn-row d-flex form-control justify-content-between gap-3">
-                    {{-- Filato --}}
                     <div class="yarn-column">
                         <label class="text-danger" for="yarn_id_0">
                             Filato
@@ -158,7 +152,6 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- Colore --}}
                     <div class="yarn-column">
                         <label class="text-danger" for="colorway_id_0">
                             Colore
@@ -174,7 +167,6 @@
                             @endforeach
                         </select>
                     </div>
-                    {{-- Quantità --}}
                     <div class="yarn-column">
                         <label class="text-danger" for="quantity_0">
                             Quantità
@@ -186,26 +178,11 @@
                     </button>
                 </div>
             </div>
-        </div>
-        <div>
-            <label for="destination_use">
-                Per chi è?
-            </label>
-            <input class="ms-2" type="text" name="destination_use" id="destination_use">
-        </div>
-        <div>
-            <label for="notes">
-                Note
-            </label>
-            <textarea class="mt-2 form-control" name="notes" id="notes" rows="5"></textarea>
-        </div>
+        </div> --}}
     </div>
     <button type="submit" class="btn btn-info">
         Salva
     </button>
 </form>
-
-
-@vite(['resources/js/projects-form.js'])
 
 @endsection
