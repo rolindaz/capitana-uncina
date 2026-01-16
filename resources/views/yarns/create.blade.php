@@ -83,6 +83,39 @@
             </label>
             <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
         </div>
+        {{-- Contenitore input fibre complesso --}}
+        <div id="fibers-container">
+            <div class="fibers d-flex align-items-center">
+                <div class="fiber-row d-flex form-control justify-content-between gap-3">
+                    <div class="fiber-column">
+                        <label class="text-danger" for="fiber_id_0">
+                            Fibra
+                        </label>
+                        <select class="ms-2 form-select" name="fibers[0][fiber_id]" id="fiber_id_0">
+                            <option selected>
+                                Seleziona la fibra
+                            </option>
+                            @foreach ($fibers as $fiber)
+                                <option value="{{ $fiber->id }}">
+                                    {{ $fiber->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="fiber-column">
+                        <label class="text-danger" for="percentage_0">
+                            Percentuale
+                        </label>
+                        <input class="ms-2 form-select" type="number" name="fibers[0][percentage]" id="percentage_0"/>
+                    </div>
+                    <button type="button" id="add-fiber-btn" class="btn btn-secondary">
+                        +
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
         <div>
             <label for="meterage">
                 Metraggio
@@ -139,56 +172,12 @@
             </label>
             <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
         </div>
-        {{-- Contenitore input fibre complesso --}}
-        {{-- <div id="fibers-container">
-            <div class="yarns d-flex align-items-center">
-                <div class="yarn-row d-flex form-control justify-content-between gap-3">
-                    <div class="yarn-column">
-                        <label class="text-danger" for="yarn_id_0">
-                            Filato
-                        </label>
-                        <select class="ms-2 form-select" name="yarns[0][yarn_id]" id="yarn_id_0">
-                            <option selected>
-                                Seleziona il filato
-                            </option>
-                            @foreach ($yarns as $yarn)
-                                <option value="{{ $yarn->id }}">
-                                    {{ $yarn->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="yarn-column">
-                        <label class="text-danger" for="colorway_id_0">
-                            Colore
-                        </label>
-                        <select class="ms-2 form-select" name="yarns[0][colorway_id]" id="colorway_id_0">
-                            <option selected>
-                                Seleziona il colore
-                            </option>
-                            @foreach ($colorways as $colorway)
-                                <option value="{{ $colorway->id }}">
-                                    {{ $colorway->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="yarn-column">
-                        <label class="text-danger" for="quantity_0">
-                            Quantità
-                        </label>
-                        <input class="ms-2 form-select" type="number" name="yarns[0][quantity]" id="quantity_0"/>
-                    </div>
-                    <button type="button" id="add-yarn-btn" class="btn btn-secondary">
-                        +
-                    </button>
-                </div>
-            </div>
-        </div> --}}
     </div>
     <button type="submit" class="btn btn-info">
         Salva
     </button>
 </form>
+
+@vite('resources/js/yarns-form.js')
 
 @endsection

@@ -25,10 +25,21 @@ toggleFields(); // Run on page load
 const addYarnBtn = document.getElementById('add-yarn-btn');
 const yarnsContainer = document.getElementById('yarns-container');
 
-let yarnRowCount = 1;
+const baseYarnSelect = document.getElementById('yarn_id_0');
+const baseColorwaySelect = document.getElementById('colorway_id_0');
+
+const baseYarnOptionsHtml = baseYarnSelect ? baseYarnSelect.innerHTML : '';
+const baseColorwayOptionsHtml = baseColorwaySelect ? baseColorwaySelect.innerHTML : '';
+
+let yarnRowCount = document.querySelectorAll('#yarns-container .yarn-row').length;
 
 addYarnBtn.addEventListener('click', function(e) {
     e.preventDefault();
+
+    if (!baseYarnOptionsHtml || !baseColorwayOptionsHtml) {
+        console.warn('Missing base yarn/colorway selects to clone options from.');
+        return;
+    }
     
     const newYarnRow = document.createElement('div');
     newYarnRow.className = 'yarns d-flex align-items-center mt-3';
@@ -39,9 +50,7 @@ addYarnBtn.addEventListener('click', function(e) {
                     Filato
                 </label>
                 <select class="ms-2 form-select" name="yarns[${yarnRowCount}][yarn_id]" id="yarn_id_${yarnRowCount}">
-                    <option selected>
-                        Seleziona il filato
-                    </option>
+                    ${baseYarnOptionsHtml}
                 </select>
             </div>
             <div class="yarn-column">
@@ -49,9 +58,7 @@ addYarnBtn.addEventListener('click', function(e) {
                     Colore
                 </label>
                 <select class="ms-2 form-select" name="yarns[${yarnRowCount}][colorway_id]" id="colorway_id_${yarnRowCount}">
-                    <option selected>
-                        Seleziona il colore
-                    </option>
+                    ${baseColorwayOptionsHtml}
                 </select>
             </div>
             <div class="yarn-column">

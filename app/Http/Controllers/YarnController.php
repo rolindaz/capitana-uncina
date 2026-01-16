@@ -57,12 +57,17 @@ class YarnController extends Controller
             'color_type' => ['nullable', 'string', 'max:255'],
             'meterage' => ['nullable', 'numeric'],
             'fiber_types_number' => ['required', 'numeric'],
+            'fibers' => ['required', 'array'],
+            'fibers.*.fiber_id' => ['required', 'exists:fibers,id'],
+            'fibers.*.percentage' => ['nullable', 'numeric'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
             'min_hook_size' => ['nullable', 'decimal:1,2'],
             'max_hook_size' => ['nullable', 'decimal:1,2'],
             'min_needle_size' => ['nullable', 'decimal:1,2'],
             'max_needle_size' => ['nullable', 'decimal:1,2']
         ]);
+
+        /* dd($v_data); */
 
         $imagePath = null;
         if ($request->hasFile('image_path')) {
