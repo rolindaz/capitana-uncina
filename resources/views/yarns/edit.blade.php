@@ -65,7 +65,7 @@
             </select>
         </div>
         {{-- Contenitore input fibre complesso --}}
-        <div id="fibers-container">
+        <div id="fibers-container mb-3">
             @php
                 $fiberRows = old('fibers');
                 if (!is_array($fiberRows)) {
@@ -121,6 +121,58 @@
                 </div>
             @endforeach
         </div>
+        <div class="form-control my-3 py-3 px-3 d-flex flex-column gap-4">
+        <div>
+            <label for="meterage">
+                Metraggio
+            </label>
+            <input class="ms-2" type="number" name="meterage" id="meterage" value="{{ old('meterage', $yarn->meterage) }}">
+        </div>
+        <div>
+            <label class="text-danger" for="unit_weight">
+                Peso Unitario
+            </label>
+            <input class="ms-2" type="number" name="unit_weight" id="unit_weight" value="{{ old('unit_weight', $yarn->unit_weight) }}">
+        </div>
+        <div>
+            <label for="color_type">
+                Tipo Colore
+            </label>
+            <input class="ms-2" type="text" name="color_type" id="color_type" value="{{ old('color_type', $yarn->color_type) }}">
+        </div>
+    </div>
+    <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div>
+            <label for="ply">
+                Fili
+            </label>
+            <input class="ms-2" type="number" name="ply" id="ply" value="{{ old('ply', $yarn->ply) }}">
+        </div>
+        <div>
+            <label for="min_hook_size">
+                Misura uncinetto minima
+            </label>
+            <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size" value="{{ old('min_hook_size', $yarn->min_hook_size) }}">
+        </div>
+        <div>
+            <label for="max_hook_size">
+                Misura uncinetto massima
+            </label>
+            <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size" value="{{ old('max_hook_size', $yarn->max_hook_size) }}">
+        </div>
+        <div>
+            <label for="min_needle_size">
+                Misura ferri minima
+            </label>
+            <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size" value="{{ old('min_needle_size', $yarn->min_needle_size) }}">
+        </div>
+        <div>
+            <label for="max_needle_size">
+                Misura ferri massima
+            </label>
+            <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size" value="{{ old('max_needle_size', $yarn->max_needle_size) }}">
+        </div>
+    </div>
         <div class="form-control mb-3 d-flex gap-4 flex-wrap">
             <label for="image_path">
                 Immagine
