@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
 use App\Models\Yarn;
+use App\Models\Colorway;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Craft;
@@ -37,6 +38,10 @@ class ProjectController extends Controller
             ->get();
         
         $yarns = Yarn::all();
+
+        $colorways = Colorway::query()
+            ->with('translation')
+            ->get();
         
         $sizes = config('data.projects.sizes');
         $status = config('data.projects.status');
@@ -44,7 +49,14 @@ class ProjectController extends Controller
             ->with('translation')
             ->get();
 
-        return view('projects.create', compact(['categories', 'sizes', 'yarns', 'status', 'crafts']));
+        return view('projects.create', compact([
+            'categories',
+            'sizes',
+            'yarns',
+            'colorways',
+            'status',
+            'crafts'
+            ]));
     }
 
     /**
@@ -59,15 +71,22 @@ class ProjectController extends Controller
             'craft_ids.*' => ['exists:crafts,id'],
             'category_id' => ['required', 'exists:categories,id'],
             'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
+
             'status' => ['required', 'string'],
             'started' => ['nullable', 'date'],
             'completed' => ['nullable', 'date'],
             'execution_time' => ['nullable', 'numeric'],
+
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
             'correct' => ['required', 'boolean'],
+
             'size' => ['nullable', 'string'],
-            'yarn_id' => ['required', 'exists:yarns,id'],
+            /* 'yarn_id' => ['required', 'exists:yarns,id'], */
+            'yarns' => ['nullable', 'array'],
+            'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
+            'yarns.*.colorway_id' => ['nullable', 'exists:colorways,id'],
+            'yarns.*.quantity' => ['nullable', 'numeric', 'min:0'],
             'destination_use' => ['nullable', 'string'],
             'notes' => ['nullable', 'string']
         ]);
@@ -101,8 +120,19 @@ class ProjectController extends Controller
             'slug' => Str::slug($validated_data['name'])
         ]);
 
-        if (!empty($validated_data['yarn_id'])) {
+        // Versione appending di yarn per un solo filato selezionabile
+        /* if (!empty($validated_data['yarn_id'])) {
             $newProject->yarns()->attach($validated_data['yarn_id']);
+        } */
+
+        foreach($validated_data['yarns'] ?? [] as $yarnData) {
+            $newProject->yarns()->attach(
+                $yarnData['yarn_id'],
+                [
+                    'colorway_id' => $yarnData['colorway_id'] ?? null,
+                    'quantity' => $yarnData['quantity'] ?? null
+                ]
+            );
         }
 
         if (!empty($validated_data['craft_ids'])) {

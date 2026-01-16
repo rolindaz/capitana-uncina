@@ -1,3 +1,5 @@
+// Toggle timing variables in the form based on the project status
+
 const statusSelect = document.getElementById('status');
 const startedDiv = document.querySelector('.started');
 const completedDiv = document.querySelector('.completed');
@@ -17,3 +19,67 @@ function toggleFields() {
 
 statusSelect.addEventListener('change', toggleFields);
 toggleFields(); // Run on page load
+
+// Add a new row of yarn selection in the form
+
+const addYarnBtn = document.getElementById('add-yarn-btn');
+const yarnsContainer = document.getElementById('yarns-container');
+
+let yarnRowCount = 1;
+
+addYarnBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    const newYarnRow = document.createElement('div');
+    newYarnRow.className = 'yarns d-flex align-items-center mt-3';
+    newYarnRow.innerHTML = `
+        <div class="yarn-row d-flex form-control justify-content-between gap-3">
+            <div class="yarn-column">
+                <label class="text-danger" for="yarn_id_${yarnRowCount}">
+                    Filato
+                </label>
+                <select class="ms-2 form-select" name="yarns[${yarnRowCount}][yarn_id]" id="yarn_id_${yarnRowCount}">
+                    <option selected>
+                        Seleziona il filato
+                    </option>
+                </select>
+            </div>
+            <div class="yarn-column">
+                <label class="text-danger" for="colorway_id_${yarnRowCount}">
+                    Colore
+                </label>
+                <select class="ms-2 form-select" name="yarns[${yarnRowCount}][colorway_id]" id="colorway_id_${yarnRowCount}">
+                    <option selected>
+                        Seleziona il colore
+                    </option>
+                </select>
+            </div>
+            <div class="yarn-column">
+                <label class="text-danger" for="quantity_${yarnRowCount}">
+                    Quantità
+                </label>
+                <input class="ms-2 form-select" type="number" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>
+            </div>
+            <button type="button" class="btn btn-sm btn-danger remove-yarn-btn">Rimuovi</button>
+        </div>
+    `;
+    
+    yarnsContainer.appendChild(newYarnRow);
+    yarnRowCount++;
+    
+    // Add remove functionality to the new row
+    newYarnRow.querySelector('.remove-yarn-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        newYarnRow.remove();
+    });
+});
+
+// Add remove button functionality to any existing remove buttons
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('remove-yarn-btn')) {
+        e.preventDefault();
+        e.target.closest('.yarns').remove();
+    }
+});
+
+

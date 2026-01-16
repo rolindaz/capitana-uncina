@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-{{-- @dd($yarns) --}}
+{{-- @dd($colorways) --}}
 
 @section('content')
 
@@ -125,7 +125,8 @@
                 @endforeach
             </select>
         </div>
-        <div class="d-flex align-items-center">
+        {{-- Contenitore input filati originale --}}
+        {{-- <div class="d-flex align-items-center">
             <label class="text-danger" for="yarn_id">
                 Filato
             </label>
@@ -139,7 +140,56 @@
                     </option>
                 @endforeach
             </select>
+        </div> --}}
+        {{-- Contenitore input filati complesso --}}
+        <div id="yarns-container">
+            <div class="yarns d-flex align-items-center">
+                <div class="yarn-row d-flex form-control justify-content-between gap-3">
+                    {{-- Filato --}}
+                    <div class="yarn-column">
+                        <label class="text-danger" for="yarn_id_0">
+                            Filato
+                        </label>
+                        <select class="ms-2 form-select" name="yarns[0][yarn_id]" id="yarn_id_0">
+                            <option selected>
+                                Seleziona il filato
+                            </option>
+                            @foreach ($yarns as $yarn)
+                                <option value="{{ $yarn->id }}">
+                                    {{ $yarn->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- Colore --}}
+                    <div class="yarn-column">
+                        <label class="text-danger" for="colorway_id_0">
+                            Colore
+                        </label>
+                        <select class="ms-2 form-select" name="yarns[0][colorway_id]" id="colorway_id_0">
+                            <option selected>
+                                Seleziona il colore
+                            </option>
+                            @foreach ($colorways as $colorway)
+                                <option value="{{ $colorway->id }}">
+                                    {{ $colorway->name }}
+                                </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    {{-- Quantità --}}
+                    <div class="yarn-column">
+                        <label class="text-danger" for="quantity_0">
+                            Quantità
+                        </label>
+                        <input class="ms-2 form-select" type="number" name="yarns[0][quantity]" id="quantity_0"/>
+                    </div>
+                </div>
+            </div>
         </div>
+        <button type="button" id="add-yarn-btn" class="btn btn-secondary mt-3">
+            Aggiungi filato
+        </button>
         <div>
             <label for="destination_use">
                 Per chi è?

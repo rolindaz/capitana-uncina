@@ -31,7 +31,7 @@ class Project extends Model
 
     public function yarns() {
         return $this->belongsToMany(Yarn::class)
-            ->using(ProjectYarn::class);
+            ->withPivot(['colorway']);
     }
 
     public function crafts() {

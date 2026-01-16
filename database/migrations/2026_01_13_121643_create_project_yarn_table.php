@@ -19,6 +19,7 @@ return new class extends Migration
             $table->decimal('quantity')->nullable();
             $table->integer('meterage')->nullable();
             $table->integer('weight')->nullable();
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }
