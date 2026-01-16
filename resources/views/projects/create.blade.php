@@ -184,12 +184,116 @@
                         </label>
                         <input class="ms-2 form-select" type="number" name="yarns[0][quantity]" id="quantity_0"/>
                     </div>
+                    <button type="button" id="add-yarn-btn" class="btn btn-secondary">
+                        +
+                    </button>
                 </div>
             </div>
+            <div class="d-flex gap-2 mt-3">
+                <button id="create-yarn-btn" type="button" class="btn btn-info" {{-- data-bs-toggle="modal" data-bs-target="#CreateYarnModal" --}}>
+                    Aggiungi nuovo filato
+                </button>
+            </div>
+            <div class="create-yarn-form my-4 form-control" style="display: none;">
+                <form class="mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                        <div class="mb-3 py-3 px-3 d-flex flex-column gap-4">
+                            <div>
+                                <label class="text-danger" for="new_yarn[name]">
+                                    Nome
+                                </label>
+                                <input class="ms-2" type="text" name="new_yarn[name]" id="new_yarn[name]">
+                            </div>
+                            <div>
+                                <label class="text-danger" for="new_yarn[brand]">
+                                    Marca
+                                </label>
+                                <input class="ms-2" type="text" name="new_yarn[brand]" id="new_yarn[brand]">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="weight">
+                                    Peso
+                                </label>
+                                <input class="ms-2" type="text" name="weight" id="weight">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="category">
+                                    Categoria
+                                </label>
+                                <input class="ms-2" type="text" name="category" id="category">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="ply">
+                                    Fili
+                                </label>
+                                <input class="ms-2" type="number" name="ply" id="ply">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="unit_weight">
+                                    Peso unitario
+                                </label>
+                                <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="meterage">
+                                    Metraggio
+                                </label>
+                                <input class="ms-2" type="number" name="meterage" id="meterage">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="fiber_types_number">
+                                    Tipologie di fibra
+                                </label>
+                                <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="min_hook_size">
+                                    Misura uncinetto minima
+                                </label>
+                                <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="max_hook_size">
+                                    Misura uncinetto massima
+                                </label>
+                                <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="min_needle_size">
+                                    Misura ferri minima
+                                </label>
+                                <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="max_needle_size">
+                                    Misura ferri massima
+                                </label>
+                                <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <label class="text-danger" for="color_type">
+                                    Tipologia colore
+                                </label>
+                                <input class="ms-2" type="number" name="color_type" id="color_type">
+                            </div>
+                            <div>
+                                <label for="image_path">
+                                    Immagine
+                                </label>
+                                <input class="ms-2" type="file" name="image_path" id="image_path">
+                            </div>
+                        </div>
+                        <div class="d-flex my-3 gap-3 justify-content-center">
+                            <button type="button" class="btn btn-danger" {{-- data-bs-dismiss="modal" --}}>
+                                Annulla
+                            </button>
+                            <button type="submit" class="btn btn-success">
+                                Conferma
+                            </button>   
+                        </div>
+                </form>
+            </div>
         </div>
-        <button type="button" id="add-yarn-btn" class="btn btn-secondary mt-3">
-            Aggiungi filato
-        </button>
         <div>
             <label for="destination_use">
                 Per chi è?
@@ -207,6 +311,8 @@
         Salva
     </button>
 </form>
+
+{{-- <x-create-yarn-modal/> --}}
 
 @vite(['resources/js/projects-form.js'])
 

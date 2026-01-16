@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('yarn_id')->constrained();
             $table->string('locale', 5);
-            $table->string('color_type', 255);
+            $table->string('color_type', 255)->nullable();
             $table->string('slug', 255);
             $table->timestamps();
         });
