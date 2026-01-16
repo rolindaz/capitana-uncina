@@ -24,7 +24,10 @@ class Yarn extends Model
     ];
 
     public function fibers() {
-        return $this->belongsToMany(Fiber::class);
+        return $this->belongsToMany(Fiber::class)
+            ->using(FiberYarn::class)
+            ->withPivot(['percentage'])
+            ->withTimestamps();
     }
 
     public function colorways() {
@@ -38,6 +41,10 @@ class Yarn extends Model
 
     public function projectYarns() {
         return $this->hasMany(ProjectYarn::class);
+    }
+
+    public function fiberYarns() {
+        return $this->hasMany(FiberYarn::class);
     }
 
     public function yarn_translations() {

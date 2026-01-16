@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class FiberYarn extends Model
+class FiberYarn extends Pivot
 {
     protected $table = 'fiber_yarn';
+
+    public $timestamps = true;
 
     public function fiber() {
         return $this->belongsTo(Fiber::class);

@@ -1,14 +1,14 @@
 @extends('layouts.admin')
 
-{{-- @dd($project) --}}
+{{-- @dd($yarn) --}}
 
-@section('title', $project->name)
+@section('title', $yarn->name . ' - ' . $yarn->brand)
 
-{{-- <x-projects.go-back-button/> --}}
+{{-- <x-yarns.go-back-button/> --}}
 
 @section('actions')
 <div class="d-flex gap-3 my-4">
-    <a href="{{ route('projects.edit', $project) }}">
+    <a href="{{ route('yarns.edit', $yarn) }}">
         <button class="btn btn-success">
             Modifica
         </button>
@@ -36,7 +36,7 @@
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
               Annulla
           </button>
-        <form action="{{ route('projects.destroy', $project) }}" method="POST">
+        <form action="{{ route('yarns.destroy', $yarn) }}" method="POST">
             @csrf
             @method('DELETE')
             <button type="submit" class="btn btn-danger">
@@ -52,24 +52,23 @@
 
 @section('content')
 <ul>
-    @if($project->image_path)
-        <img class="img-fluid w-50" src="{{ asset('storage/' . $project->image_path) }}" alt="copertina">
+    @if($yarn->image_path)
+        <img class="img-fluid w-25" src="{{ asset('storage/' . $yarn->image_path) }}" alt="copertina">
     @endif
     <li>
-        Categoria: {{ $project->category->name }}
+        Marca: {{ $yarn->brand }}
     </li>
     <li>
-        Tecniche: {{ $project->craft }}
+        Categoria: {{ $yarn->category }}
     </li>
     <li>
-        Filati: 
-        @foreach ($project->projectYarns as $used_yarn)
-            {{ $used_yarn->yarn->name }}, {{ $used_yarn->yarn->brand }} - 
-            Quantità: {{ (int)$used_yarn->quantity }} gomitoli, {{ $used_yarn->weight }} g per {{ $used_yarn->meterage }} metri
+        Fibre: 
+        @foreach ($yarn->fiberYarns as $fiber_composition)
+            {{ $fiber_composition->fiber->name }}: {{ $fiber_composition->percentage }}% 
         @endforeach
     </li>
    {{-- <li class="d-flex gap-2 mt-3">
-        @foreach ($project->tags as $tag)
+        @foreach ($yarn->tags as $tag)
             <div style="
             background-color: {{ $tag->color }};"
             class="rounded-2 px-3">

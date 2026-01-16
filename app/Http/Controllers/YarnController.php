@@ -96,6 +96,14 @@ class YarnController extends Controller
             'slug' => Str::slug($v_data['name'])
         ]);
 
+        // Attach fibers to pivot table (fiber_yarn)
+        foreach ($v_data['fibers'] ?? [] as $fiberData) {
+            $newYarn->fibers()->attach(
+                $fiberData['fiber_id'],
+                ['percentage' => $fiberData['percentage'] ?? null]
+            );
+        }
+
         return redirect()
             ->route('yarns.index')
             ->with('success', 'Yarn created');
@@ -110,6 +118,7 @@ class YarnController extends Controller
             ->with([
                 'translation',
                 'fibers.translation',
+                'fiberYarns',
                 'colorways.translation',
             ])
             ->whereHas('translation', function ($query) use ($slug) {
