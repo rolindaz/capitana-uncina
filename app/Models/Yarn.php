@@ -6,6 +6,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Yarn extends Model
 {
+
+    protected $fillable = [
+        'name',
+        'brand',
+        'weight',
+        'category',
+        'image_path',
+        'ply',
+        'unit_weight',
+        'meterage',
+        'fiber_types_number',
+        'min_hook_size',
+        'max_hook_size',
+        'min_needle_size',
+        'max_needle_size'
+    ];
+
     public function fibers() {
         return $this->belongsToMany(Fiber::class);
     }

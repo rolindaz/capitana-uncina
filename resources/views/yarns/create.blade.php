@@ -90,16 +90,22 @@
             <input class="ms-2" type="number" name="meterage" id="meterage">
         </div>
         <div>
-            <label for="unit_weight">
+            <label class="text-danger" for="unit_weight">
                 Peso Unitario
             </label>
             <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
         </div>
         <div>
-            <label for="image">
+            <label for="color_type">
+                Tipo Colore
+            </label>
+            <input class="ms-2" type="text" name="color_type" id="color_type">
+        </div>
+        <div>
+            <label for="image_path">
                 Immagine
             </label>
-            <input class="ms-2" type="file" name="image_path" id="image">
+            <input class="ms-2" type="file" name="image_path" id="image_path">
         </div>
     </div>
     <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
