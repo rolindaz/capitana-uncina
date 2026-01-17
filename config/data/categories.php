@@ -436,4 +436,11 @@ return [
         'key' => 'other',
         'parent_id' => 4
     ],
+    
+    // Children categories, Cozy:
+
+    [
+        'key' => 'electronics',
+        'parent_id' => 65
+    ],
 ];

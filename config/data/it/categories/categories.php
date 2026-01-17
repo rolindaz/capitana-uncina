@@ -415,14 +415,14 @@ return [
     [
         'category_id' => 65,
         'locale' => 'it',
-        'name' => 'Cozy',
-        'slug' => 'cozy'
+        'name' => 'Custodia',
+        'slug' => 'custodia'
     ],
     [
         'category_id' => 66,
         'locale' => 'it',
-        'name' => 'Curtain',
-        'slug' => 'curtain'
+        'name' => 'Tenda',
+        'slug' => 'tenda'
     ],
     [
         'category_id' => 67,
@@ -633,5 +633,11 @@ return [
         'locale' => 'it',
         'name' => 'Altro',
         'slug' => 'altro'
+    ],
+    [
+        'category_id' => 100,
+        'locale' => 'en',
+        'name' => 'Elettronica',
+        'slug' => 'elettronica'
     ],
 ];

@@ -634,4 +634,10 @@ return [
         'name' => 'Other',
         'slug' => 'other'
     ],
+    [
+        'category_id' => 100,
+        'locale' => 'en',
+        'name' => 'Electronics',
+        'slug' => 'electronics'
+    ],
 ];
