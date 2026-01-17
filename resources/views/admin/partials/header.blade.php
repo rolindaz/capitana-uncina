@@ -1,4 +1,4 @@
-<nav class="header-nav navbar d-flex border-bottom px-4">
+<nav class="header-nav navbar d-flex px-4">
 
     <img class="cat" src="{{ asset('storage/element1.png') }}" alt="cat">
     

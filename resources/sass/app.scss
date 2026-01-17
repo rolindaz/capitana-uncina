@@ -24,6 +24,18 @@
   font-style: normal;
 }
 
+.handwriting {
+  font-family: "Walter Turncoat", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.table-head-font {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 #search-bar {
    background-image: url('../../node_modules/bootstrap-icons/icons/search.svg');
    background-position: 10px 10px; 
@@ -101,11 +113,47 @@ aside {
    width: 40px;
 }
 
+// Bootstrap tables paint cell backgrounds via CSS variables.
+// Set `--bs-table-bg` (and friends) to reliably change table colors.
+.admin-resource-table {
+   --bs-table-bg: #efd87c;
+   --bs-table-color: #031963;
+   --bs-table-hover-bg: rgba(3, 25, 99, 0.06);
+}
+
+.admin-resource-table th,
+.admin-resource-table td {
+   vertical-align: middle;
+}
+
+.header-nav {
+   background-color: #f6e7a8;
+   border-bottom: 5px solid #fff;
+}
+
+.admin-resource-table thead {
+   --bs-table-bg: #f6e7a8;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Custom cursor (optional)
 // Drop your cursor images in: public/cursors/
 // Recommended: PNG with transparency, small (e.g. 32x32 or 64x64).
 // Hotspot values (the two numbers) are x/y in pixels from the top-left of the image.
-:root {
+/* :root {
    --cursor-default: url('/cursors/default.png');
    --cursor-pointer: url('/cursors/pointer.png');
 
@@ -131,4 +179,4 @@ label[for] {
    cursor: var(--cursor-pointer) var(--cursor-pointer-hotspot-x)
       var(--cursor-pointer-hotspot-y),
       pointer;
-}
+} */

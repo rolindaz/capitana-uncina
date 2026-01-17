@@ -1,17 +1,19 @@
+<div class="bg-white d-flex justify-content-between align-items-center p-3 mb-5 rounded-3">
+    <strong class="handwriting text-center fs-1">{{ $title }}</strong>
+
+    @isset($createRoute)
+        <a href="{{ $createRoute }}" class="text-decoration-none">
+            <button class="btn btn-success" type="button">
+                + New Project
+            </button>
+        </a>
+    @endisset
+</div>
+
 <div class="card">
-    <div class="card-header d-flex justify-content-between align-items-center">
-        <strong>{{ $title }}</strong>
-
-        @isset($createRoute)
-            <a href="{{ $createRoute }}" class="btn btn-primary btn-sm">
-                + Create
-            </a>
-        @endisset
-    </div>
-
     <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead class="table-light">
+        <table class="table table-hover mb-0 admin-resource-table">
+            <thead class="table-head-font">
                 <tr>
                     {{ $head }}
                     <th class="text-end">Actions</th>
