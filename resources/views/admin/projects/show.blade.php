@@ -6,76 +6,129 @@
 
 {{-- <x-projects.go-back-button/> --}}
 
-@section('actions')
-<div class="d-flex gap-3 my-4">
-    <a href="{{ route('projects.edit', $project) }}">
-        <button class="btn btn-success">
-            Modifica
-        </button>
-    </a>  
-    
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Elimina
-    </button>
-</div>
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
-            Conferma eliminazione
-        </h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        Sei sicuro di voler eliminare questo progetto? L'azione è irreversibile.
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-              Annulla
-          </button>
-        <form action="{{ route('projects.destroy', $project) }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <button type="submit" class="btn btn-danger">
-                Elimina definitivamente
-            </button>
-        </form> 
-    </div>
-</div>
-</div>
-</div>
 
-@endsection
 
 @section('content')
-<ul>
-    @if($project->image_path)
-        <img class="img-fluid w-50" src="{{ asset('storage/' . $project->image_path) }}" alt="copertina">
-    @endif
-    <li>
-        Categoria: {{ $project->category->name }}
-    </li>
-    <li>
-        Tecniche: {{ $project->craft }}
-    </li>
-    <li>
-        Filati: 
-        @foreach ($project->projectYarns as $used_yarn)
-            {{ $used_yarn->yarn->name }}, {{ $used_yarn->yarn->brand }} - 
-            Quantità: {{ (int)$used_yarn->quantity }} gomitoli, {{ $used_yarn->weight }} g per {{ $used_yarn->meterage }} metri
-        @endforeach
-    </li>
-   {{-- <li class="d-flex gap-2 mt-3">
-        @foreach ($project->tags as $tag)
-            <div style="
-            background-color: {{ $tag->color }};"
-            class="rounded-2 px-3">
-                {{ $tag->name }}
+
+<div class="row g-4 align-items-start mb-4">
+    <div class="col-12 col-md-4 col-lg-3">
+        @if($project->image_path)
+            <figure class="polaroid mb-0">
+                <img
+                    class="polaroid-img"
+                    src="{{ asset('storage/' . $project->image_path) }}"
+                    alt="{{ $project->name }}"
+                >
+                <figcaption class="polaroid-caption handwriting">
+                    {{ $project->name }}
+                </figcaption>
+            </figure>
+        @else
+            <div class="polaroid mb-0">
+                <div class="polaroid-img d-flex align-items-center justify-content-center text-muted">
+                    Nessuna immagine
+                </div>
+                <div class="polaroid-caption handwriting">
+                    {{ $project->name }}
+                </div>
             </div>
-        @endforeach
-    </li> --}}
-</ul>
+        @endif
+    </div>
+
+    <div class="col-12 col-md-8 col-lg-9">
+        <div class="d-flex justify-content-between align-items-start gap-3">
+            <div>
+                <h1 class="h3 mb-1 handwriting">{{ $project->name }}</h1>
+                <div class="text-muted small">
+                    Creato: {{ $project->created_at?->diffForHumans() ?? '—' }} · Ultima modifica: {{ $project->updated_at?->diffForHumans() ?? '—' }}
+                </div>
+            </div>
+
+            <div class="d-flex gap-2 flex-wrap justify-content-end">
+                <a href="{{ route('projects.edit', $project) }}" class="btn btn-success">
+                    Modifica
+                </a>
+
+                <x-admin.delete-modal
+                    id="deleteProjectModal"
+                    :action="route('projects.destroy', $project)"
+                    message="Sei sicuro di voler eliminare questo progetto? L'azione è irreversibile."
+                    triggerText="Elimina"
+                    triggerClass="btn btn-danger"
+                />
+            </div>
+        </div>
+
+        <div class="row g-3 mt-3">
+            <div class="col-12 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-head-font text-uppercase small text-muted mb-2">Categoria</div>
+                        <div class="fs-6">
+                            {{ $project->category->name ?? '—' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-head-font text-uppercase small text-muted mb-2">Tecniche</div>
+                        <div class="fs-6">
+                            {{ $project->craft ?? '—' }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-head-font text-uppercase small text-muted mb-2">Filati usati</div>
+
+                        @forelse ($project->projectYarns as $used_yarn)
+                            <div class="d-flex flex-wrap align-items-center gap-2 py-2 {{ !$loop->last ? 'border-bottom' : '' }}">
+                                <strong>{{ $used_yarn->yarn->name ?? '—' }}</strong>
+                                <span class="text-muted">{{ $used_yarn->yarn->brand ?? '' }}</span>
+                                <span class="badge text-bg-light">
+                                    Quantità: {{ (int) $used_yarn->quantity }} gomitoli
+                                </span>
+                                <span class="badge text-bg-light">
+                                    {{ $used_yarn->weight }} g
+                                </span>
+                                <span class="badge text-bg-light">
+                                    {{ $used_yarn->meterage }} m
+                                </span>
+                            </div>
+                        @empty
+                            <div class="text-muted">Nessun filato associato.</div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="notebook-sheet">
+    <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
+        <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
+    </div>
+
+    <div class="notebook-sheet-body">
+        @php
+            $notes = $project->notes ?? null;
+        @endphp
+
+        @if(!empty($notes))
+            <p class="mb-0">{!! nl2br(e($notes)) !!}</p>
+        @else
+            <p class="mb-0 text-muted">
+            </p>
+        @endif
+    </div>
+</section>
 @endsection

@@ -135,6 +135,90 @@ aside {
    --bs-table-bg: #f6e7a8;
 }
 
+// Polaroid-style frame (admin detail pages)
+.polaroid {
+   background: #fff;
+   padding: 0.75rem;
+   padding-bottom: 1.25rem;
+   border-radius: 0.25rem;
+   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+   border: 1px solid rgba(0, 0, 0, 0.06);
+   transform: rotate(-1.5deg);
+   transition: transform 180ms ease, box-shadow 180ms ease;
+   will-change: transform;
+}
+
+.polaroid:hover {
+   transform: rotate(0deg) translateY(-2px);
+   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+.polaroid-img {
+   width: 100%;
+   aspect-ratio: 1 / 1;
+   object-fit: cover;
+   border-radius: 0.2rem;
+   display: block;
+   background: #f8f9fa;
+}
+
+.polaroid-caption {
+   margin-top: 0.75rem;
+   text-align: center;
+   color: #031963;
+}
+
+// Notebook-style notes sheet (torn page + ruled lines)
+.notebook-sheet {
+   position: relative;
+   background: #fff;
+   border-radius: 0.75rem;
+   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+   border: 1px solid rgba(0, 0, 0, 0.06);
+   overflow: hidden;
+}
+
+// Torn edge (top)
+.notebook-sheet::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   right: 0;
+   top: 0;
+   height: 18px;
+   background:
+      radial-gradient(circle at 12px 18px, transparent 12px, #fff 13px) 0 0 / 24px 18px repeat-x;
+   transform: translateY(-10px);
+   filter: drop-shadow(0 2px 1px rgba(0, 0, 0, 0.12));
+}
+
+.notebook-sheet-header {
+   padding: 1.25rem 1.25rem 0.5rem 1.25rem;
+}
+
+.notebook-sheet-body {
+   position: relative;
+   padding: 1rem 1.25rem 1.25rem 1.25rem;
+
+   // ruled lines + left margin line
+   background-image:
+      linear-gradient(to right, rgba(220, 53, 69, 0.35), rgba(220, 53, 69, 0.35)),
+      repeating-linear-gradient(
+         to bottom,
+         rgba(13, 110, 253, 0.18) 0px,
+         rgba(13, 110, 253, 0.18) 1px,
+         transparent 1px,
+         transparent 28px
+      );
+   background-size: 2px 100%, 100% 100%;
+   background-position: 64px 0, 0 0;
+   background-repeat: no-repeat, repeat;
+
+   // give text some breathing room from the margin line
+   padding-left: 88px;
+   min-height: 220px;
+}
+
 
 
 
