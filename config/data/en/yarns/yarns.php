@@ -31,4 +31,22 @@ return [
         'color_type' => 'Solid',
         'slug' => 'bravo'
     ],
+    [
+        'yarn_id' => 6,
+        'locale' => 'en',
+        'color_type' => 'Solid',
+        'slug' => 'catona-25g'
+    ],
+    [
+        'yarn_id' => 7,
+        'locale' => 'en',
+        'color_type' => 'Solid',
+        'slug' => 'loves-you-9'
+    ],
+    [
+        'yarn_id' => 8,
+        'locale' => 'en',
+        'color_type' => 'Solid',
+        'slug' => 'junior-3mm'
+    ],
 ];

@@ -8,5 +8,9 @@ return [
         '4 - Medium',
         '5 - Bulky',
         '6 - Super Bulky',
-        '7 - Jumbo'
+        '7 - Jumbo',
+        'Junior',
+        'Premium',
+        'Jumbo Soft',
+        'Jumbo'
 ];

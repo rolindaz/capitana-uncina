@@ -8,5 +8,6 @@ return [
     'Worsted, Afghan, Aran',
     'Chunky, Craft, Rug',
     'Super Bulky, Roving',
-    'Jumbo, Roving'
+    'Jumbo, Roving',
+    'Macrame Cord'
 ];
