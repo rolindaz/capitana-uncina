@@ -14,19 +14,19 @@
 <x-slot name="head">
 
   <th scope="col">
-        Immagine
+        Image
     </th>
       <th scope="col">
-        Nome
+        Title
     </th>
       <th scope="col">
-        Tecniche
+        Category
     </th>
       <th scope="col">
-        Aggiunto
+        Added
     </th>
     <th scope="col">
-        Ultima modifica
+        Last updated
     </th>
 
 </x-slot>
@@ -48,9 +48,7 @@
         </a>
       </td>
       <td>
-        @foreach ($project->crafts as $craft)
-          {{ $craft->name }}
-        @endforeach
+          {{ $project->category->name }}
       </td>
       <td>
         {{ $project->created_at->diffForHumans() }}

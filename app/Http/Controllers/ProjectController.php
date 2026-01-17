@@ -20,7 +20,8 @@ class ProjectController extends Controller
     {
         $projects = Project::with([
             'translation',
-            'crafts.translation'
+            'crafts.translation',
+            'category.translation'
             ])
         ->orderByDesc('created_at')
         ->get();
@@ -168,7 +169,7 @@ class ProjectController extends Controller
         }
 
         return redirect()
-            ->route('admin.projects.index')
+            ->route('projects.index')
             ->with('success', 'Project created');
     }
 

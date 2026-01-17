@@ -18,8 +18,15 @@
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
+               class="side-nav-item {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
+                Categories
+            </a>
+        </li>
+
+        <li class="nav-item mb-3 marker-font">
+            <a href="{{ route('yarns.index') }}"
                class="side-nav-item">
-                Fibre
+                Fibers
             </a>
         </li>
 
