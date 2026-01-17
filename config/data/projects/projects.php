@@ -74,7 +74,7 @@ return [
     [
         'category_id' => 75,
         'started' => '2025-10-15',
-        'completed' => '2025-23-12',
+        'completed' => '2025-12-23',
         'execution_time' => null,
         'image_path' => 'projects/copertina.jpeg',
         'pattern_name' => null,

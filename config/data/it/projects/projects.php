@@ -118,4 +118,13 @@ return [
         'destination_use' => 'Per Flaminia',
         'slug' => 'verde-e-oro',
     ],
+    [   
+        'project_id' => 14,
+        'locale' => 'it',
+        'name' => 'Custodia AirPods',
+        'notes' => "Carinissima e superveloce. Ci ho anche fatto il mio primo ricamo su uncinetto, così, per sperimentare.",
+        'status' => 'Completato',
+        'destination_use' => 'Per Chicca',
+        'slug' => 'custodia-airpods',
+    ],
 ];
