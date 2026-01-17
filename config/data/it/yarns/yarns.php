@@ -20,6 +20,12 @@ return [
         'slug' => 'paris'
     ],
     [
+        'yarn_id' => 4,
+        'locale' => 'it',
+        'color_type' => 'Tinta unita',
+        'slug' => 'mistral'
+    ],
+    [
         'yarn_id' => 5,
         'locale' => 'it',
         'color_type' => 'Tinta unita',

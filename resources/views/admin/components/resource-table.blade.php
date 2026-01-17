@@ -2,10 +2,8 @@
     <strong class="handwriting text-center fs-1">{{ $title }}</strong>
 
     @isset($createRoute)
-        <a href="{{ $createRoute }}" class="text-decoration-none">
-            <button class="btn btn-success" type="button">
+        <a href="{{ $createRoute }}" class="create-btn">
                 + New Project
-            </button>
         </a>
     @endisset
 </div>
@@ -13,10 +11,10 @@
 <div class="card">
     <div class="table-responsive">
         <table class="table table-hover mb-0 admin-resource-table">
-            <thead class="table-head-font">
+            <thead class="precise-font">
                 <tr>
                     {{ $head }}
-                    <th class="text-end">Actions</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
 

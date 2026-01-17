@@ -18,6 +18,8 @@
  
 }
 
+// Fonts
+
 .marker-font {
   font-family: "Permanent Marker", cursive;
   font-weight: 400;
@@ -30,7 +32,7 @@
   font-style: normal;
 }
 
-.table-head-font {
+.precise-font {
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -135,6 +137,31 @@ aside {
    --bs-table-bg: #f6e7a8;
 }
 
+.create-btn {
+   text-decoration: none;
+   border: 10px solid #0636c3fa;
+   border-radius: 1.5rem;
+   color: #0636c3fa;
+   padding: .5rem;
+   font-family: "Montserrat Alternates", sans-serif;
+   font-weight: 700;
+}
+
+.create-btn:hover {
+   transform: scale(1.08);
+}
+
+
+
+.edit-btn {
+   background-color: #47df47c2;
+   color: #fff;
+   border-radius: 2rem;
+   padding-inline: 1rem;
+   padding-top: .25rem;
+   text-decoration: none;
+}
+
 // Polaroid-style frame (admin detail pages)
 .polaroid {
    background: #fff;
@@ -167,6 +194,7 @@ aside {
    text-align: center;
    color: #031963;
 }
+
 
 // Notebook-style notes sheet (torn page + ruled lines)
 .notebook-sheet {

@@ -58,9 +58,7 @@
       </td>
       <td class="text-end">
         <div class="d-inline-flex gap-2">
-          <a href="{{ route('projects.edit', $project) }}" class="btn btn-success btn-sm">
-            Modifica
-          </a>
+          <x-admin.edit-button label="Edit" :route="'project.edit'"/>
 
           <x-admin.delete-modal
             :id="'deleteProjectModal-'.$project->id"

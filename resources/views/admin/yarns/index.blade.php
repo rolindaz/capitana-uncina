@@ -26,22 +26,19 @@ title="Yarns"
 <x-slot name="head">
 
   <th scope="col">
-        Immagine
+        Image
       </th>
       <th scope="col">
-        Nome
+        Name
       </th>
       <th scope="col">
-        Marca
+        Brand
       </th>
       <th scope="col">
-        Fibre
+        Added
       </th>
       <th scope="col">
-        Aggiunto
-      </th>
-      <th scope="col">
-        Ultima modifica
+        Last updated
       </th>
 
 </x-slot>
@@ -68,21 +65,14 @@ title="Yarns"
           {{ $yarn->brand }}
       </td>
       <td>
-        {{-- @foreach ($yarns->fibers as $fiber)
-        {{ $yarn->fiber }}
-        @endforeach --}}
-      </td>
-      <td>
         {{ $yarn->created_at->diffForHumans() }}
       </td>
       <td>
         {{ $yarn->updated_at->diffForHumans() }}
       </td>
-      <td class="text-end">
+      <td>
         <div class="d-inline-flex gap-2">
-          <a href="{{ route('yarns.edit', $yarn) }}" class="btn btn-success btn-sm">
-            Modifica
-          </a>
+          <x-admin.edit-button route="yarns.edit" :model="$yarn" />
 
           <x-admin.delete-modal
             :id="'deleteYarnModal-'.$yarn->id"
