@@ -151,14 +151,30 @@ aside {
    transform: scale(1.08);
 }
 
-
-
 .edit-btn {
-   background-color: #47df47c2;
+   background-color: #47df47;
+   color: #fff;
+   border-radius: 2rem;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   padding-inline: 1rem;
+   padding-block: .5rem;
+   line-height: 1.2;
+   text-decoration: none;
+}
+
+.go-back-button:hover,
+.edit-btn:hover {
+   filter: brightness(95%);
+}
+
+.go-back-button {
+   background-color: #F4B327;
    color: #fff;
    border-radius: 2rem;
    padding-inline: 1rem;
-   padding-top: .25rem;
+   padding-block: 1rem;
    text-decoration: none;
 }
 
@@ -244,7 +260,7 @@ aside {
 
    // give text some breathing room from the margin line
    padding-left: 88px;
-   min-height: 220px;
+   min-height: 120px;
 }
 
 

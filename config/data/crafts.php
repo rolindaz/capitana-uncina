@@ -5,6 +5,9 @@ return [
         'key' => 'crochet'
     ],
     [
+        'key' => 'embroidery'
+    ],
+    [
         'key' => 'hand_sewing'
     ],
     [

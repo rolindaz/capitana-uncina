@@ -18,7 +18,7 @@
                 </tr>
             </thead>
 
-            <tbody>
+            <tbody class="precise-font">
                 {{ $body }}
                 @if (trim($body) === '')
                     <tr>

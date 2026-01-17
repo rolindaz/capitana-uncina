@@ -27,7 +27,7 @@
             </figure>
         @else
             <div class="polaroid mb-0">
-                <div class="polaroid-img d-flex align-items-center justify-content-center text-muted">
+                <div class="polaroid-img d-flex align-items-center justify-content-center text-muted handwriting">
                     Nessuna immagine
                 </div>
                 <div class="polaroid-caption handwriting">
@@ -37,7 +37,7 @@
         @endif
     </div>
 
-    <div class="col-12 col-md-8 col-lg-9">
+    <div class="col-12 col-md-8 col-lg-9 precise-font">
         <div class="d-flex justify-content-between align-items-start gap-3">
             <div>
                 <h1 class="h3 mb-1 handwriting">{{ $project->name }}</h1>
@@ -47,9 +47,7 @@
             </div>
 
             <div class="d-flex gap-2 flex-wrap justify-content-end">
-                <a href="{{ route('projects.edit', $project) }}" class="btn btn-success">
-                    Modifica
-                </a>
+                <x-admin.edit-button route="projects.edit" :model="$project"/>
 
                 <x-admin.delete-modal
                     id="deleteProjectModal"
@@ -77,9 +75,11 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-head-font text-uppercase small text-muted mb-2">Tecniche</div>
-                        <div class="fs-6">
-                            {{ $project->craft ?? '—' }}
-                        </div>
+                        @forelse ($project->crafts as $craft)
+                            <span class="badge text-bg-light me-1 mb-1">{{ $craft->name ?? '—' }}</span>
+                        @empty
+                            <div class="text-muted">—</div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
         <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
     </div>
 
-    <div class="notebook-sheet-body">
+    <div class="notebook-sheet-body precise-font">
         @php
             $notes = $project->notes ?? null;
         @endphp
@@ -131,4 +131,10 @@
         @endif
     </div>
 </section>
+
+<div class="d-flex justify-content-start mt-4 precise-font">
+    <a href="{{ route('projects.index') }}" class="go-back-button">
+        Torna ai progetti
+    </a>
+</div>
 @endsection

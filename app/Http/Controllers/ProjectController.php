@@ -182,6 +182,7 @@ class ProjectController extends Controller
         ->with([
             'translation',
             'category.translation',
+            'crafts.translation',
             'projectYarns.yarn.translation',
             'projectYarns.colorway.translation'
             ])
