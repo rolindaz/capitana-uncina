@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('yarns', function (Blueprint $table) {
             $table->id();
-            $table->string('key', 255)->nullable();
             $table->string('name', 255);
             $table->string('brand', 255);
             $table->string('weight', 255)->nullable();

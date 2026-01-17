@@ -18,7 +18,6 @@ class YarnsTableSeeder extends Seeder
         foreach($yarns as $yarn) {
             $newYarn = new Yarn;
 
-            $newYarn->key = $yarn['key'];
             $newYarn->name = $yarn['name'];
             $newYarn->brand = $yarn['brand'];
             $newYarn->weight = $yarn['weight'];
