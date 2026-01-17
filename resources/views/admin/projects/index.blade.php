@@ -18,11 +18,14 @@
 
 @section('content')
 
+<x-admin.resource-table
+  title="Projects"
+  :createRoute="route('projects.create')"
+>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">
+<x-slot name="head">
+
+  <th scope="col">
         Immagine
     </th>
       <th scope="col">
@@ -37,10 +40,12 @@
     <th scope="col">
         Ultima modifica
     </th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($projects as $project)
+
+</x-slot>
+
+<x-slot name="body">
+
+  @foreach ($projects as $project)
     <tr>
       <td>
         <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
@@ -67,6 +72,9 @@
       </td>
     </tr>
     @endforeach
-  </tbody>
-</table>
+
+</x-slot>
+
+</x-admin.resource-table>
+
 @endsection

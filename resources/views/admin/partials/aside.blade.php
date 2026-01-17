@@ -6,14 +6,14 @@
 
         <li class="nav-item">
             <a href="{{ route('projects.index') }}"
-               class="nav-link">
+               class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                 Projects
             </a>
         </li>
 
         <li class="nav-item">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link">
+               class="nav-link {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
                 Yarns
             </a>
         </li>

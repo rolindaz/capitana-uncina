@@ -18,11 +18,14 @@
 
 @section('content')
 
+<x-admin.resource-table
+title="Yarns"
+:createRoute="route('yarns.create')"
+>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">
+<x-slot name="head">
+
+  <th scope="col">
         Immagine
       </th>
       <th scope="col">
@@ -40,10 +43,12 @@
       <th scope="col">
         Ultima modifica
       </th>
-    </tr>
-  </thead>
-  <tbody>
-    @foreach ($yarns as $yarn)
+
+</x-slot>
+
+<x-slot name="body">
+
+@foreach ($yarns as $yarn)
     <tr>
       <td>
         <a class="text-decoration-none text-black" href="{{ route('yarns.show', $yarn->slug ?? $yarn->id) }}">
@@ -75,6 +80,9 @@
       </td>
     </tr>
     @endforeach
-  </tbody>
-</table>
+
+</x-slot>
+
+</x-admin.resource-table>
+
 @endsection
