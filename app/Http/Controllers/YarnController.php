@@ -21,7 +21,7 @@ class YarnController extends Controller
             'fibers.translation'
         ])->get();
 
-        return view('yarns.index', compact('yarns'));
+        return view('admin.yarns.index', compact('yarns'));
     }
 
     /**
@@ -34,7 +34,7 @@ class YarnController extends Controller
         $weight = config('data.yarns.weight');
         $category = config('data.yarns.category');
 
-        return view('yarns.create', compact([
+        return view('admin.yarns.create', compact([
             'fibers',
             'colorways',
             'weight',
@@ -142,7 +142,7 @@ class YarnController extends Controller
             abort(404);
         }
 
-        return view('yarns.show', compact('yarn'));
+        return view('admin.yarns.show', compact('yarn'));
     }
 
     /**
@@ -165,7 +165,7 @@ class YarnController extends Controller
         $weight = config('data.yarns.weight');
         $categories = config('data.yarns.category');
 
-        return view('yarns.edit', compact([
+        return view('admin.yarns.edit', compact([
             'yarn',
             'fibers',
             'colorways',

@@ -6,14 +6,16 @@
     <title>@yield('title')</title>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-<body>
-    @include('partials.header')
-    <div class="container">
-        <h1 class="mt-4">
-            @yield('title')
-        </h1>
-        @yield('actions')
-        @yield('content')
+<body class="bg-light">
+    <div class="d-flex vh-100">
+        @include('admin.partials.aside')
+        <div class="flex-grow-1 d-flex flex-column">
+            @include('admin.partials.header')
+            <main class="flex-grow-1 p-4 overflow-auto">
+                @yield('content')
+            </main>
+            @yield('actions')
+    </div>
     </div>
 </body>
 </html>

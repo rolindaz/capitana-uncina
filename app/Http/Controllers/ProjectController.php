@@ -25,7 +25,7 @@ class ProjectController extends Controller
         ->orderByDesc('created_at')
         ->get();
 
-        return view('projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -49,7 +49,7 @@ class ProjectController extends Controller
             ->with('translation')
             ->get();
 
-        return view('projects.create', compact([
+        return view('admin.projects.create', compact([
             'categories',
             'sizes',
             'yarns',
@@ -168,7 +168,7 @@ class ProjectController extends Controller
         }
 
         return redirect()
-            ->route('projects.index')
+            ->route('admin.projects.index')
             ->with('success', 'Project created');
     }
 
@@ -190,7 +190,7 @@ class ProjectController extends Controller
         })
         ->firstOrFail();
 
-        return view('projects.show', compact('project'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -216,7 +216,7 @@ class ProjectController extends Controller
 
         $status = config('data.projects.status');
 
-        return view('projects.edit', compact(['project', 'categories', 'crafts', 'status']));
+        return view('admin.projects.edit', compact(['project', 'categories', 'crafts', 'status']));
     }
 
     /**
