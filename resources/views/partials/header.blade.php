@@ -1,5 +1,3 @@
 <div class="header p-3 bg-white">
-    <div class="container">
-        <input id="search-bar" class="form-control w-25" type="text" placeholder="Search..."/>
-    </div>
+    <x-search-bar/>
 </div>
