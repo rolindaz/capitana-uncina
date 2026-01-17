@@ -1,47 +1,45 @@
-<aside class="bg-white border-end p-3" style="width: 260px;">
+<aside class="border-end p-3 d-flex align-items-center">
 
-    <h5 class="mb-4">Admin Dashboard</h5>
+    <ul class="nav nav-pills flex-column gap-3">
 
-    <ul class="nav nav-pills flex-column gap-1">
-
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('projects.index') }}"
-               class="nav-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
+               class="side-nav-item {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                 Projects
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
+               class="side-nav-item {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
                 Yarns
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link">
+               class="side-nav-item">
                 Fibre
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link">
+               class="side-nav-item">
                 Crafts
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link">
+               class="side-nav-item">
                 Tags
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
-               class="nav-link">
+               class="side-nav-item">
                 Attributes
             </a>
         </li>

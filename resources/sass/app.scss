@@ -18,6 +18,12 @@
  
 }
 
+.marker-font {
+  font-family: "Permanent Marker", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 #search-bar {
    background-image: url('../../node_modules/bootstrap-icons/icons/search.svg');
    background-position: 10px 10px; 
@@ -40,4 +46,89 @@
     background-color: #f0f4ff;
     color: #0d6efd;
     font-weight: 500;
+}
+
+main {
+   background-image: url('../../storage/app/public/bg3.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: rgba($color: white, $alpha: 0.6);
+   background-blend-mode: lighten;
+}
+
+aside {
+   background-image: url('../../storage/app/public/bg5.jpg');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   /* background-color: rgba($color: white, $alpha: 0.6);
+   background-blend-mode: lighten; */
+}
+
+aside {
+   width: 270px;
+}
+
+.nav-item {
+   opacity: .8;
+   text-align: center;
+   padding-inline: .75rem;
+   border-radius: 3rem;
+   background-color: #fff;
+}
+
+.nav-item:hover {
+   opacity: 1;
+   /* filter: brightness(50%); */
+}
+.side-nav-item {
+   padding: 0;
+   color: #031963;
+   font-size: 40px;
+   text-decoration: none;
+}
+
+.cat {
+   width: 40px;
+   margin-left: 2rem;
+}
+
+.geko {
+   width: 40px;
+}
+
+.chameleon {
+   width: 40px;
+}
+
+// Custom cursor (optional)
+// Drop your cursor images in: public/cursors/
+// Recommended: PNG with transparency, small (e.g. 32x32 or 64x64).
+// Hotspot values (the two numbers) are x/y in pixels from the top-left of the image.
+:root {
+   --cursor-default: url('/cursors/default.png');
+   --cursor-pointer: url('/cursors/pointer.png');
+
+   // Hotspots for 64x64 images (tweak if click-point feels off)
+   --cursor-default-hotspot-x: 4;
+   --cursor-default-hotspot-y: 4;
+   --cursor-pointer-hotspot-x: 6;
+   --cursor-pointer-hotspot-y: 2;
+}
+
+body {
+   cursor: var(--cursor-default) var(--cursor-default-hotspot-x)
+      var(--cursor-default-hotspot-y),
+      auto;
+}
+
+a,
+button,
+[role='button'],
+input[type='submit'],
+input[type='button'],
+label[for] {
+   cursor: var(--cursor-pointer) var(--cursor-pointer-hotspot-x)
+      var(--cursor-pointer-hotspot-y),
+      pointer;
 }

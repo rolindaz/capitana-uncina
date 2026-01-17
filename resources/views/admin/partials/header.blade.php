@@ -1,6 +1,11 @@
-<nav class="navbar d-flex navbar-light bg-white border-bottom px-4">
+<nav class="header-nav navbar d-flex border-bottom px-4">
+
+    <img class="cat" src="{{ asset('storage/element1.png') }}" alt="cat">
     
     <x-search-bar/>
+    
+    <img class="geko" src="{{ asset('storage/element2.png') }}" alt="geko">
+    
 
     <div class="d-flex align-items-center gap-3">
         <span class="small text-muted">
@@ -14,4 +19,6 @@
             height="32"
         >
     </div>
+
+    <img class="chameleon" src="{{ asset('storage/element3.png') }}" alt="chameleon">
 </nav>
