@@ -16,18 +16,11 @@
   <th scope="col">
         Image
     </th>
-      <th scope="col">
-        Title
-    </th>
-      <th scope="col">
-        Category
-    </th>
-      <th scope="col">
-        Added
-    </th>
-    <th scope="col">
-        Last updated
-    </th>
+
+    <x-admin.sortable-th field="name" label="Title" />
+    <x-admin.sortable-th field="category" label="Category" />
+    <x-admin.sortable-th field="created_at" label="Added" />
+    <x-admin.sortable-th field="updated_at" label="Last updated" />
 
 </x-slot>
 

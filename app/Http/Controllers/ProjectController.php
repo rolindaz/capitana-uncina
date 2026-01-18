@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
+use App\Models\CategoryTranslation;
+use App\Models\ProjectTranslation;
 use App\Models\Yarn;
 use App\Models\Colorway;
 use Illuminate\Support\Facades\Storage;
@@ -16,15 +18,54 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::with([
+        $allowedSorts = [
+            'name',
+            'category',
+            'created_at',
+            'updated_at',
+        ];
+
+        $sort = $request->query('sort', 'created_at');
+        if (!in_array($sort, $allowedSorts, true)) {
+            $sort = 'created_at';
+        }
+
+        $direction = $request->query('direction', 'desc');
+        $direction = $direction === 'asc' ? 'asc' : 'desc';
+
+        $locale = app()->getLocale();
+
+        $query = Project::query()->with([
             'translation',
             'crafts.translation',
             'category.translation'
-            ])
-        ->orderByDesc('created_at')
-        ->get();
+        ]);
+
+        if ($sort === 'name') {
+            $query->orderBy(
+                ProjectTranslation::query()
+                    ->select('name')
+                    ->whereColumn('project_id', 'projects.id')
+                    ->where('locale', $locale)
+                    ->limit(1),
+                $direction
+            );
+        } elseif ($sort === 'category') {
+            $query->orderBy(
+                CategoryTranslation::query()
+                    ->select('name')
+                    ->whereColumn('category_id', 'projects.category_id')
+                    ->where('locale', $locale)
+                    ->limit(1),
+                $direction
+            );
+        } else {
+            $query->orderBy($sort, $direction);
+        }
+
+        $projects = $query->get();
 
         return view('admin.projects.index', compact('projects'));
     }
@@ -182,6 +223,8 @@ class ProjectController extends Controller
         ->with([
             'translation',
             'category.translation',
+            'category.parent.translation',
+            'category.parent.parent.translation',
             'crafts.translation',
             'projectYarns.yarn.translation',
             'projectYarns.colorway.translation'

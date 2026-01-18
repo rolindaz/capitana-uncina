@@ -14,12 +14,29 @@ class YarnController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $allowedSorts = [
+            'name',
+            'brand',
+            'created_at',
+            'updated_at',
+        ];
+
+        $sort = $request->query('sort', 'created_at');
+        if (!in_array($sort, $allowedSorts, true)) {
+            $sort = 'created_at';
+        }
+
+        $direction = $request->query('direction', 'desc');
+        $direction = $direction === 'asc' ? 'asc' : 'desc';
+
         $yarns = Yarn::with([
             'translation',
             'fibers.translation'
-        ])->get();
+        ])
+            ->orderBy($sort, $direction)
+            ->get();
 
         return view('admin.yarns.index', compact('yarns'));
     }

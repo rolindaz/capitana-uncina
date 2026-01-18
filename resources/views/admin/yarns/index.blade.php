@@ -28,18 +28,11 @@ title="Yarns"
   <th scope="col">
         Image
       </th>
-      <th scope="col">
-        Name
-      </th>
-      <th scope="col">
-        Brand
-      </th>
-      <th scope="col">
-        Added
-      </th>
-      <th scope="col">
-        Last updated
-      </th>
+
+      <x-admin.sortable-th field="name" label="Name" />
+      <x-admin.sortable-th field="brand" label="Brand" />
+      <x-admin.sortable-th field="created_at" label="Added" />
+      <x-admin.sortable-th field="updated_at" label="Last updated" />
 
 </x-slot>
 

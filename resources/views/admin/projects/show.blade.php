@@ -65,7 +65,7 @@
                     <div class="card-body">
                         <div class="table-head-font text-uppercase small text-muted mb-2">Categoria</div>
                         <div class="fs-6">
-                            {{ $project->category->name ?? '—' }}
+                            {{ $project->category?->breadcrumb ?: '—' }}
                         </div>
                     </div>
                 </div>
