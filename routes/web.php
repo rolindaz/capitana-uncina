@@ -10,7 +10,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $recentUpdates = \App\Models\Project::latest('created_at')->take(10)->get();
+    return view('dashboard', compact('recentUpdates'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

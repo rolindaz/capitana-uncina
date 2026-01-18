@@ -14,7 +14,7 @@
             <thead class="precise-font">
                 <tr>
                     {{ $head }}
-                    <th>Actions</th>
+                    <th>Azioni</th>
                 </tr>
             </thead>
 
@@ -23,7 +23,7 @@
                 @if (trim($body) === '')
                     <tr>
                         <td colspan="100%" class="text-center text-muted py-4">
-                            No records found.
+                            Qui non c'è niente!
                         </td>
                     </tr>
                 @endif

@@ -14,13 +14,13 @@
 <x-slot name="head">
 
   <th scope="col">
-        Image
+        Foto
     </th>
 
-    <x-admin.sortable-th field="name" label="Title" />
-    <x-admin.sortable-th field="category" label="Category" />
-    <x-admin.sortable-th field="created_at" label="Added" />
-    <x-admin.sortable-th field="updated_at" label="Last updated" />
+    <x-admin.sortable-th field="name" label="Titolo" />
+    <x-admin.sortable-th field="category" label="Categoria" />
+    <x-admin.sortable-th field="created_at" label="Aggiunto" />
+    <x-admin.sortable-th field="updated_at" label="Aggiornato" />
 
 </x-slot>
 
