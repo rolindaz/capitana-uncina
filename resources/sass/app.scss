@@ -179,28 +179,78 @@ aside {
 }
 
 .welcome {
-   background-image: url('../../storage/app/public/yarn.png');
-   width: 600px;
-   height: 600px;
-   background-size: cover;
+   position: relative;
+   background-color: white;
+   opacity: .9;
+   width: 650px;
+   height: 650px;
+   background-size: contain;
    border-radius: 50%;
    background-position: center;
    background-repeat: no-repeat;
 }
 
-.welcome-pills {
-   background-color: white;
+.welcome-pill {
+   position: absolute;
+   color: white;
    opacity: .85;
    font-family: "Permanent Marker";
-   font-size: 45px;
+   font-size: 40px;
    padding-block: .75rem;
    padding-inline: 1.5rem;
    border-radius: 3rem;
 }
 
-.welcome-pills:hover {
+.wp-register {
+   right: calc((650 / 2) - (144 / 2));
+   bottom: 50px;
+   background-color: #46A0CF;
+}
+
+.wp-login {
+   left: calc((650 / 2) - (170 / 2));
+   top: 50px;
+   background-color: #CF627F;
+}
+
+.welcome-pill:hover {
    opacity: 1;
    transform: scale(1.15);
+}
+
+.crochet {
+   position: absolute;
+   height: 350px;
+   z-index: 1;
+}
+
+.hooks {
+   background-image: url('../../storage/app/public/yarn.png');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+.modal-header.login-header,
+button.login-btn {
+   color: white;
+   background-color: #CF627F;
+}
+
+.modal-header.register-header,
+button.register-btn {
+   color: white;
+   background-color: #46A0CF;
+}
+
+.modal-body.login-body {
+   color: #CF627F;
+   font-weight: 500;
+}
+
+.modal-body.register-body {
+   color: #46A0CF;
+   font-weight: 500;
 }
 
 // Polaroid-style frame (admin detail pages)
