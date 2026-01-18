@@ -62,7 +62,7 @@
     font-weight: 500;
 }
 
-main {
+.stockinette {
    background-image: url('../../storage/app/public/bg3.jpg');
    background-size: cover;
    background-repeat: no-repeat;
@@ -176,6 +176,31 @@ aside {
    padding-inline: 1rem;
    padding-block: 1rem;
    text-decoration: none;
+}
+
+.welcome {
+   background-image: url('../../storage/app/public/yarn.png');
+   width: 600px;
+   height: 600px;
+   background-size: cover;
+   border-radius: 50%;
+   background-position: center;
+   background-repeat: no-repeat;
+}
+
+.welcome-pills {
+   background-color: white;
+   opacity: .85;
+   font-family: "Permanent Marker";
+   font-size: 45px;
+   padding-block: .75rem;
+   padding-inline: 1.5rem;
+   border-radius: 3rem;
+}
+
+.welcome-pills:hover {
+   opacity: 1;
+   transform: scale(1.15);
 }
 
 // Polaroid-style frame (admin detail pages)

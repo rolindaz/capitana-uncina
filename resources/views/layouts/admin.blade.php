@@ -15,7 +15,7 @@
         @include('admin.partials.aside')
         <div class="flex-grow-1 d-flex flex-column">
             @include('admin.partials.header')
-            <main class="flex-grow-1 p-4 overflow-auto">
+            <main class="stockinette flex-grow-1 p-4 overflow-auto">
                 @yield('content')
             </main>
         </div>
