@@ -3,5 +3,8 @@
 return [
     'In corso',
     'In sospeso',
-    'Completato'
+    'Completato',
+    'Work in progress',
+    'On hold',
+    'Completed'
 ];
