@@ -24,7 +24,7 @@ class CategoryTranslationsTableSeeder extends Seeder
                 $newData = new CategoryTranslation;
                 
                 $newData->category_id = $data['category_id'];
-                $newData->locale = $data['locale'];
+                $newData->locale = $locale;
                 $newData->name = $data['name'];
                 $newData->slug = $data['slug'];
     

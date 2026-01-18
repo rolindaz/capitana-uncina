@@ -162,7 +162,7 @@ return [
         'size' => 'S',
     ],
     [
-        'category_id' => 17,
+        'category_id' => 16,
         'started' => null,
         'completed' => null,
         'execution_time' => null,
@@ -172,7 +172,7 @@ return [
         'size' => 'S',
     ],
     [
-        'category_id' => 18,
+        'category_id' => 16,
         'started' => null,
         'completed' => null,
         'execution_time' => null,

@@ -181,8 +181,8 @@ return [
     [
         'category_id' => 28,
         'locale' => 'it',
-        'name' => 'Sleeveless Top',
-        'slug' => 'sleeveless-top'
+        'name' => 'Top Senza Maniche',
+        'slug' => 'top-senza-maniche'
     ],
     [
         'category_id' => 29,
@@ -335,7 +335,7 @@ return [
         'slug' => 'Altro'
     ],
     
-    // Children categories, Bag
+    // Children categories, Feet / Leg
 
     [
         'category_id' => 53,
@@ -346,8 +346,8 @@ return [
     [
         'category_id' => 54,
         'locale' => 'it',
-        'name' => 'Booties',
-        'slug' => 'booties'
+        'name' => 'Scarpette Bebè',
+        'slug' => 'scarpette-bebe'
     ],
     [
         'category_id' => 55,
@@ -535,8 +535,8 @@ return [
     [
         'category_id' => 84,
         'locale' => 'it',
-        'name' => 'Wall Hanging',
-        'slug' => 'wall-hanging'
+        'name' => 'Decorazione da Parete',
+        'slug' => 'decorazione-da-parete'
     ],
     [
         'category_id' => 85,
@@ -636,7 +636,7 @@ return [
     ],
     [
         'category_id' => 100,
-        'locale' => 'en',
+        'locale' => 'it',
         'name' => 'Elettronica',
         'slug' => 'elettronica'
     ],
