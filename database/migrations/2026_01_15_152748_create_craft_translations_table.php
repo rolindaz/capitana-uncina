@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('craft_id')->constrained('crafts');
             $table->string('locale', 5);
             $table->string('name', 255);
+            $table->text('description');
             $table->string('slug', 255);
             $table->timestamps();
         });

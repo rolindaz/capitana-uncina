@@ -169,4 +169,10 @@ return [
         'key' => 'limone',
         'image_path' => 'colorways/limone3.png'
     ],
+    [
+        'id' => 29,
+        'color_code' => '08363',
+        'key' => 'ghiaccio',
+        'image_path' => 'colorways/ghiaccio.png'
+    ],
 ];

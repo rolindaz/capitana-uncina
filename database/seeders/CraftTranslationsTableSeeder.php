@@ -26,6 +26,7 @@ class CraftTranslationsTableSeeder extends Seeder
                 $newData->craft_id = $data['craft_id'];
                 $newData->locale = $data['locale'];
                 $newData->name = $data['name'];
+                $newData->description = $data['description'];
                 $newData->slug = $data['slug'];
     
                 $newData->save();

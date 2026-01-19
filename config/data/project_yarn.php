@@ -323,4 +323,12 @@ return [
         'meterage' => null,
         'weight' => null
     ],
+    [
+        'project_id' => 17,
+        'yarn_id' => 5,
+        'colorway_id' => 29,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
 ];
