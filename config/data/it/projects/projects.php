@@ -14,7 +14,7 @@ return [
         'project_id' => 2,
         'locale' => 'it',
         'name' => 'Maglione Azteco',
-        'notes' => 'Uno dei miei progetti in assoluto, che conto di fare e rifare sperimentando un milione di combinazioni di colori diverse.',
+        'notes' => 'Uno dei miei progetti più belli in assoluto, che conto di fare e rifare sperimentando un milione di combinazioni di colori diverse.',
         'status' => 'Completato',
         'destination_use' => 'Per mia mamma',
         'slug' => 'maglione-azteco',

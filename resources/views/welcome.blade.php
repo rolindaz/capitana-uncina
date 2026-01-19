@@ -15,7 +15,7 @@
             @endif
 
             @else
-            <li class="nav-item dropdown">
+            <div class="nav-item dropdown bg-white z-3 opacity-100 handwriting fs-3 border border-danger-subtle">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }}
                 </a>
@@ -32,7 +32,7 @@
                         @csrf
                     </form>
                 </div>
-            </li>
+            </div>
             @endguest
             <!-- Login Modal -->
             <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
