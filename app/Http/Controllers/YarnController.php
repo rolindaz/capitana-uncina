@@ -32,7 +32,6 @@ class YarnController extends Controller
         $direction = $direction === 'asc' ? 'asc' : 'desc';
 
         $yarns = Yarn::with([
-            'translation',
             'fibers.translation'
         ])
             ->orderBy($sort, $direction)
@@ -93,6 +92,7 @@ class YarnController extends Controller
 
         $newYarn = Yarn::create([
             'name' => $v_data['name'],
+            'slug' => Str::slug($v_data['name']),
             'brand' => $v_data['brand'],
             'weight' => $v_data['weight'],
             'category' => $v_data['category'],
@@ -105,12 +105,6 @@ class YarnController extends Controller
             'max_hook_size' => $v_data['max_hook_size'] ?? null,
             'min_needle_size' => $v_data['min_needle_size'] ?? null,
             'max_needle_size' => $v_data['max_needle_size'] ?? null,
-        ]);
-
-        $newYarn->yarn_translations()->create([
-            'locale' => app()->getLocale(),
-            'color_type' => $v_data['color_type'] ?? null,
-            'slug' => Str::slug($v_data['name'])
         ]);
 
         // Attach fibers to pivot table (fiber_yarn)
@@ -133,22 +127,17 @@ class YarnController extends Controller
     {
         $yarn = Yarn::query()
             ->with([
-                'translation',
                 'fibers.translation',
                 'fiberYarns',
                 'colorways.translation',
             ])
-            ->whereHas('translation', function ($query) use ($slug) {
-                $query->where('slug', $slug)
-                    ->where('locale', app()->getLocale());
-            })
+            ->where('slug', $slug)
             ->first();
 
         // Fallback: allow linking by numeric id when a slug is missing
         if (!$yarn && ctype_digit($slug)) {
             $yarn = Yarn::query()
                 ->with([
-                    'translation',
                     'fibers.translation',
                     'colorways.translation',
                 ])
@@ -168,7 +157,7 @@ class YarnController extends Controller
     public function edit($id)
     {
         $yarn = Yarn::query()
-        ->with('translation', 'fibers')
+        ->with('fibers')
         ->findOrFail($id);
 
         $fibers = Fiber::query()
@@ -218,6 +207,7 @@ class YarnController extends Controller
 
         $yarn->fill([
             'name' => $v_data['name'],
+            'slug' => Str::slug($v_data['name']),
             'brand' => $v_data['brand'],
             'weight' => $v_data['weight'],
             'category' => $v_data['category'],
@@ -241,14 +231,6 @@ class YarnController extends Controller
 
         $yarn->save();
 
-        $yarn->yarn_translations()->updateOrCreate(
-            ['locale' => app()->getLocale()],
-            [
-                'color_type' => $v_data['color_type'] ?? null,
-                'slug' => Str::slug($v_data['name']),
-            ]
-        );
-
         // Sync fibers composition (fiber_yarn)
         $fiberSyncData = [];
         foreach ($v_data['fibers'] ?? [] as $fiberData) {
@@ -260,8 +242,6 @@ class YarnController extends Controller
             ];
         }
         $yarn->fibers()->sync($fiberSyncData);
-
-        $yarn->unsetRelation('translation');
 
         return redirect()
             ->route('yarns.show', $yarn->slug ?? $yarn->id)
@@ -285,9 +265,6 @@ class YarnController extends Controller
         $yarn->colorways()->detach();
         $yarn->fibers()->detach();
         $yarn->fiberYarns()->delete();
-
-        // Translations
-        $yarn->yarn_translations()->delete();
 
         $yarn->deleteOrFail();
         

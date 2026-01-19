@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('title', 'Aggiungi un filato')
+
 @section('content')
 
 {{-- Mostra errori di validazione --}}

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('yarns', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
+            $table->string('slug', 255);
             $table->string('brand', 255);
             $table->string('weight', 255)->nullable();
             $table->string('category', 255)->nullable();
-            $table->string('color_type', 255);
             $table->integer('ply')->nullable();
             $table->integer('unit_weight')->nullable();
             $table->integer('meterage')->nullable();

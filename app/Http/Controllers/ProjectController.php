@@ -222,7 +222,6 @@ class ProjectController extends Controller
             'category.parent.translation',
             'category.parent.parent.translation',
             'crafts.translation',
-            'projectYarns.yarn.translation',
             'projectYarns.colorway.translation'
         ]);
 
@@ -238,7 +237,6 @@ class ProjectController extends Controller
             'translation',
             'category.translation',
             'crafts.translation',
-            'projectYarns.yarn.translation',
             'projectYarns.colorway.translation'
         ]);
 

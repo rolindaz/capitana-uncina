@@ -3,6 +3,7 @@
 return [
     [
         'name' => 'Coco',
+        'slug' => 'coco',
         'brand' => 'DIY Handmade',
         'weight' => 'Macrame Cord',
         'category' => 'Sport, Baby',
@@ -18,6 +19,7 @@ return [
     ],
     [
         'name' => 'Safran',
+        'slug' => 'safran',
         'brand' => 'Drops',
         'weight' => '2 - Fine',
         'category' => 'Sport, Baby',
@@ -33,6 +35,7 @@ return [
     ],
     [
         'name' => 'Paris',
+        'slug' => 'paris',
         'brand' => 'Drops',
         'weight' => '4 - Medium',
         'category' => 'Worsted, Afghan, Aran',
@@ -48,6 +51,7 @@ return [
     ],
     [
         'name' => 'Mistral',
+        'slug' => 'mistral',
         'brand' => 'Sesia',
         'weight' => '2 - Fine',
         'category' => 'Sport, Baby',
@@ -63,6 +67,7 @@ return [
     ],
     [
         'name' => 'Bravo',
+        'slug' => 'bravo',
         'brand' => 'Schachenmayr',
         'weight' => '3 - Light',
         'category' => 'DK, Light, Worsted',
@@ -78,6 +83,7 @@ return [
     ],
     [
         'name' => 'Catona 25g',
+        'slug' => 'catona-25g',
         'brand' => 'Scheepjes',
         'weight' => '1 - Super Fine',
         'category' => 'Sock, Fingering, Baby',
@@ -93,6 +99,7 @@ return [
     ],
     [
         'name' => 'Loves You 9',
+        'slug' => 'loves-you-9',
         'brand' => 'Drops',
         'weight' => '2 - Fine',
         'category' => 'Sport, Baby',
@@ -108,6 +115,7 @@ return [
     ],
     [
         'name' => 'Junior 3mm',
+        'slug' => 'junior-3mm',
         'brand' => 'Bobbiny',
         'weight' => 'Junior',
         'category' => 'Macrame Cord',
