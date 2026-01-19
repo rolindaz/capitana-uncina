@@ -14,13 +14,13 @@ class CraftProjectTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = config('data.crafts');
+        $data = config('data.craft_project');
 
         foreach ($data as $row) {
             $project = Project::where('id', $row['project_id'])->first();
             $craft = Craft::where('id', $row['craft_id'])->first();
+            $project->crafts()->attach($craft->id);
         }
 
-        $project->crafts()->attach($craft->id);
     }
 }
