@@ -26,6 +26,7 @@ class FiberTranslationsTableSeeder extends Seeder
                 $newData->fiber_id = $data['fiber_id'];
                 $newData->locale = $data['locale'];
                 $newData->name = $data['name'];
+                $newData->description = $data['description'];
                 $newData->slug = $data['slug'];
     
                 $newData->save();

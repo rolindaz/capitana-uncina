@@ -79,7 +79,7 @@ return [
     ],
     [
         'project_id' => 17,
-        'craft_id' => 1
+        'craft_id' => 4
     ],
     [
         'project_id' => 18,

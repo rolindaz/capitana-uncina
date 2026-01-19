@@ -16,6 +16,7 @@ return new class extends Migration
             $table->foreignId('fiber_id')->constrained('fibers');
             $table->string('locale', 5);
             $table->string('name', 255);
+            $table->text('description');
             $table->string('slug', 255);
             $table->timestamps();
         });
