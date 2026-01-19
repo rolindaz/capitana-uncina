@@ -182,12 +182,31 @@ aside {
    position: relative;
    background-color: white;
    opacity: .9;
+   transition: opacity .2s ease;
    width: 650px;
    height: 650px;
    background-size: contain;
    border-radius: 50%;
    background-position: center;
    background-repeat: no-repeat;
+}
+
+// Fallback: when anything inside `.welcome` has focus (e.g. a clicked link or open modal)
+.welcome:focus-within {
+   opacity: 1;
+}
+
+// Preferred: only react to `.welcome-pill` link interaction and/or the modal being shown
+@supports selector(:has(*)) {
+   .welcome:focus-within {
+      opacity: .9;
+   }
+
+   .welcome:has(.welcome-pill a:focus),
+   .welcome:has(.welcome-pill a:active),
+   .welcome:has(.modal.show) {
+      opacity: 1;
+   }
 }
 
 .welcome-pill {

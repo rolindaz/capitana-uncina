@@ -27,14 +27,8 @@
 <body>
     <div class="hooks d-flex justify-content-center align-items-center vh-100" id="app">
         <main class="welcome d-flex align-items-center justify-content-evenly">
-            
             @yield('content')
         </main>
-
-
-
-            
-        <img src="{{ asset('storage/crochet.png') }}" alt="crossing_hooks" class="crochet">
     </div>
 </body>
 
