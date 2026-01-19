@@ -237,6 +237,18 @@ aside {
    transform: scale(1.15);
 }
 
+// Standalone auth pages reuse modal markup; keep it within the 650px `.welcome` circle.
+.auth-modal-shell {
+   max-width: 520px;
+   padding-inline: 1rem;
+}
+
+.auth-modal-shell .modal-dialog {
+   width: 100%;
+   max-width: 100%;
+   margin: 0;
+}
+
 .crochet {
    position: absolute;
    height: 350px;
