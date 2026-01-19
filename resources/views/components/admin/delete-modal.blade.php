@@ -1,12 +1,12 @@
 @props([
     'id',
     'action',
-    'title' => 'Confirm deletion',
-    'message' => "Are you sure you want to delete this item? This action cannot be undone.",
-    'triggerText' => 'Delete',
+    'title' => 'Conferma eliminazione',
+    'message' => "Sei sicuro di voler eliminare questo elemento? Questa azione è irreversibile.",
+    'triggerText' => 'Elimina',
     'triggerClass' => 'btn btn-danger precise-font',
-    'confirmText' => 'Delete permanently',
-    'cancelText' => 'Cancel',
+    'confirmText' => 'Elimina definitivamente',
+    'cancelText' => 'Annulla',
 ])
 
 @php
