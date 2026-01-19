@@ -77,6 +77,12 @@ if (addYarnBtn && yarnsContainer) {
         `;
         
         yarnsContainer.appendChild(newYarnRow);
+
+        const newYarnSelect = newYarnRow.querySelector(`#yarn_id_${yarnRowCount}`);
+        const newColorwaySelect = newYarnRow.querySelector(`#colorway_id_${yarnRowCount}`);
+        if (newYarnSelect) newYarnSelect.selectedIndex = 0;
+        if (newColorwaySelect) newColorwaySelect.selectedIndex = 0;
+
         yarnRowCount++;
         
         // Add remove functionality to the new row

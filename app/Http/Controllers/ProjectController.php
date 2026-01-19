@@ -136,6 +136,7 @@ class ProjectController extends Controller
             'completed' => ['nullable', 'date'],
             'execution_time' => ['nullable', 'numeric'],
 
+            'designer_name' => ['nullable', 'string'],
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
 
@@ -152,6 +153,7 @@ class ProjectController extends Controller
         /* dd($validated_data); */
 
         $newProject = Project::create([
+            'designer_name' => $validated_data['designer_name'],
             'pattern_name' => $validated_data['pattern_name'],
             'pattern_url' => $validated_data['pattern_url'],
             'category_id' => $validated_data['category_id'],
@@ -248,20 +250,37 @@ class ProjectController extends Controller
                 'translation',
                 'category.translation',
                 'crafts.translation',
+                'projectYarns.yarn.translation',
+                'projectYarns.colorway.translation'
             ])
             ->findOrFail($id);
+
+        $yarns = Yarn::all();
 
         $categories = Category::query()
             ->with('translation')
             ->get();
+
+        $colorways = Colorway::query()
+        ->with('translation')
+        ->get();
 
         $crafts = Craft::query()
             ->with('translation')
             ->get();
 
         $status = config('data.projects.status');
+        $sizes = config('data.projects.sizes');
 
-        return view('admin.projects.edit', compact(['project', 'categories', 'crafts', 'status']));
+        return view('admin.projects.edit', compact([
+            'project',
+            'categories',
+            'crafts',
+            'status',
+            'sizes',
+            'yarns',
+            'colorways'
+        ]));
     }
 
     /**

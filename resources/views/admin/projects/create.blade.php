@@ -97,6 +97,12 @@
         </div>
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
             <div>
+                <label for="designer_name">
+                    Nome del(la) designer
+                </label>
+                <input class="ms-2" type="text" name="designer_name" id="designer_name">
+            </div>
+            <div>
                 <label for="pattern_name">
                     Nome dello schema
                 </label>
