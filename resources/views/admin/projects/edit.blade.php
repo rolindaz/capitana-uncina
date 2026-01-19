@@ -54,10 +54,10 @@
                     Categoria
                 </label>
                 <select class="ms-2 w-50 form-select" name="category_id" id="category_id">
-                    <option selected>
+                    <option value="" disabled {{ old('category_id', $project->category_id) ? '' : 'selected' }}>
                         Seleziona la categoria
                     </option>
-                    <x-category-options :categories="$categories" />
+                    <x-category-options :categories="$categories" :selected="old('category_id', $project->category_id)" />
                 </select>
             </div>
         </div>
