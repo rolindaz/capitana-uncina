@@ -44,9 +44,9 @@ addYarnBtn.addEventListener('click', function(e) {
     const newYarnRow = document.createElement('div');
     newYarnRow.className = 'yarns d-flex align-items-center mt-3';
     newYarnRow.innerHTML = `
-        <div class="yarn-row d-flex form-control justify-content-between gap-3">
+        <div class="yarn-row gold-border d-flex form-control justify-content-between gap-3">
             <div class="yarn-column">
-                <label class="text-danger" for="yarn_id_${yarnRowCount}">
+                <label for="yarn_id_${yarnRowCount}">
                     Filato
                 </label>
                 <select class="ms-2 form-select" name="yarns[${yarnRowCount}][yarn_id]" id="yarn_id_${yarnRowCount}">
@@ -54,7 +54,7 @@ addYarnBtn.addEventListener('click', function(e) {
                 </select>
             </div>
             <div class="yarn-column">
-                <label class="text-danger" for="colorway_id_${yarnRowCount}">
+                <label for="colorway_id_${yarnRowCount}">
                     Colore
                 </label>
                 <select class="ms-2 form-select" name="yarns[${yarnRowCount}][colorway_id]" id="colorway_id_${yarnRowCount}">
@@ -62,7 +62,7 @@ addYarnBtn.addEventListener('click', function(e) {
                 </select>
             </div>
             <div class="yarn-column">
-                <label class="text-danger" for="quantity_${yarnRowCount}">
+                <label for="quantity_${yarnRowCount}">
                     Quantità
                 </label>
                 <input class="ms-2 form-select" type="number" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>

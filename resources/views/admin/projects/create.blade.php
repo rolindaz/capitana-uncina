@@ -123,22 +123,6 @@
                     @endforeach
                 </select>
             </div>
-            {{-- Contenitore input filati originale --}}
-            {{-- <div class="d-flex align-items-center">
-                <label for="yarn_id">
-                    Filato
-                </label>
-                <select class="ms-2 w-50 form-select" name="yarn_id" id="yarn_id">
-                    <option selected>
-                        Seleziona il filato
-                    </option>
-                    @foreach ($yarns as $yarn)
-                        <option value="{{ $yarn->id }}">
-                            {{ $yarn->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div> --}}
             {{-- Contenitore input filati complesso --}}
             <div id="yarns-container">
                 <div class="yarns d-flex align-items-center">
@@ -187,99 +171,6 @@
                         </button>
                     </div>
                 </div>
-                {{-- <div class="d-flex gap-2 mt-3">
-                    <button id="create-yarn-btn" type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#CreateYarnModal">
-                        Aggiungi nuovo filato
-                    </button>
-                </div>
-                <div class="create-yarn-form my-4 form-control blue-border" style="display: none;">
-                            <div class="mb-3 py-3 px-3 d-flex flex-column gap-4">
-                                <div>
-                                    <label for="new_yarn[name]">
-                                        Nome
-                                    </label>
-                                    <input class="ms-2" type="text" name="new_yarn[name]" id="new_yarn[name]">
-                                </div>
-                                <div>
-                                    <label for="new_yarn[brand]">
-                                        Marca
-                                    </label>
-                                    <input class="ms-2" type="text" name="new_yarn[brand]" id="new_yarn[brand]">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="weight">
-                                        Peso
-                                    </label>
-                                    <input class="ms-2" type="text" name="weight" id="weight">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="category">
-                                        Categoria
-                                    </label>
-                                    <input class="ms-2" type="text" name="category" id="category">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="ply">
-                                        Fili
-                                    </label>
-                                    <input class="ms-2" type="number" name="ply" id="ply">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="unit_weight">
-                                        Peso unitario
-                                    </label>
-                                    <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="meterage">
-                                        Metraggio
-                                    </label>
-                                    <input class="ms-2" type="number" name="meterage" id="meterage">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="fiber_types_number">
-                                        Tipologie di fibra
-                                    </label>
-                                    <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="min_hook_size">
-                                        Misura uncinetto minima
-                                    </label>
-                                    <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="max_hook_size">
-                                        Misura uncinetto massima
-                                    </label>
-                                    <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="min_needle_size">
-                                        Misura ferri minima
-                                    </label>
-                                    <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="max_needle_size">
-                                        Misura ferri massima
-                                    </label>
-                                    <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
-                                </div>
-                                <div class="d-flex align-items-center">
-                                    <label for="color_type">
-                                        Tipologia colore
-                                    </label>
-                                    <input class="ms-2" type="number" name="color_type" id="color_type">
-                                </div>
-                                <div>
-                                    <label for="image_path">
-                                        Immagine
-                                    </label>
-                                    <input class="ms-2" type="file" name="image_path" id="image_path">
-                                </div>
-                            </div>
-                </div> --}}
             </div>
             <div>
                 <label for="destination_use">
