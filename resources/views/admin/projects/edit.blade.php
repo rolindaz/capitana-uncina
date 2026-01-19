@@ -244,8 +244,7 @@
                 class="mt-2 form-control gold-border"
                 name="notes"
                 id="notes"
-                rows="5"
-                value="{{ old('notes',$project->notes) }}"></textarea>
+                rows="5">{{ old('notes', $project->notes) }}</textarea>
             </div>
         </div>
         <div class="form-control blue-border mb-3 d-flex gap-4 flex-wrap">

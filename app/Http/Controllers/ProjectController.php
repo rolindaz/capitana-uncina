@@ -179,11 +179,6 @@ class ProjectController extends Controller
             'slug' => Str::slug($validated_data['name'])
         ]);
 
-        // Versione appending di yarn per un solo filato selezionabile
-        /* if (!empty($validated_data['yarn_id'])) {
-            $newProject->yarns()->attach($validated_data['yarn_id']);
-        } */
-
         foreach($validated_data['yarns'] ?? [] as $yarnData) {
             $newProject->yarns()->attach(
                 $yarnData['yarn_id'],
@@ -280,62 +275,118 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
         /* dd($project); */
 
-        $validated_data = $request->validate([
+        // Clean up placeholder values (same idea as store)
+        $yarns = $request->input('yarns', []);
+        $yarns = array_values(array_filter($yarns, function ($yarn) {
+            return isset($yarn['yarn_id']) && is_numeric($yarn['yarn_id']);
+        }));
+
+        foreach ($yarns as &$yarn) {
+            if (isset($yarn['colorway_id']) && !is_numeric($yarn['colorway_id'])) {
+                $yarn['colorway_id'] = null;
+            }
+
+            if (array_key_exists('quantity', $yarn) && ($yarn['quantity'] === '' || $yarn['quantity'] === null)) {
+                $yarn['quantity'] = null;
+            }
+        }
+        unset($yarn);
+
+        $request->merge(['yarns' => $yarns]);
+
+        $size = $request->input('size');
+        if ($size && !is_numeric($size) && strpos($size, 'Seleziona') !== false) {
+            $request->merge(['size' => null]);
+        }
+
+        $v_data = $request->validate([
             'name' => ['required', 'string'],
             'category_id' => ['required', 'exists:categories,id'],
             'craft_ids' => ['required', 'array'],
             'craft_ids.*' => ['exists:crafts,id'],
-            'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
 
             'status' => ['required', 'string'],
-            /* 'started' => ['nullable', 'date'],
+            'started' => ['nullable', 'date'],
             'completed' => ['nullable', 'date'],
             'execution_time' => ['nullable', 'numeric'],
-
+            
+            'designer_name' => ['nullable', 'string'],
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
 
             'size' => ['nullable', 'string'],
-            'yarn_id' => ['required', 'exists:yarns,id'],
             'yarns' => ['nullable', 'array'],
             'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
             'yarns.*.colorway_id' => ['nullable', 'sometimes', 'exists:colorways,id'],
             'yarns.*.quantity' => ['nullable', 'numeric', 'min:0'],
             'destination_use' => ['nullable', 'string'],
-            'notes' => ['nullable', 'string'] */
+            'notes' => ['nullable', 'string'],
+
+            'image_path' => ['nullable', 'image', 'mimes:jpg,png,jpeg'],
         ]);
 
-        /* dd($validated_data); */
+        /* dd($v_data); */
 
-        $project->category_id = $validated_data['category_id'];
+        // If status is not completed, clear completed-specific fields
+        if (!in_array($v_data['status'], ['Completed', 'Completato'], true)) {
+            $v_data['completed'] = null;
+            $v_data['execution_time'] = null;
+        }
 
+        $project->category_id = $v_data['category_id'];
+        $project->started = $v_data['started'] ?? null;
+        $project->completed = $v_data['completed'] ?? null;
+        $project->execution_time = $v_data['execution_time'] ?? ($project->execution_time ?? null);
+        $project->designer_name = $v_data['designer_name'] ?? null;
+        $project->pattern_name = $v_data['pattern_name'] ?? null;
+        $project->pattern_url = $v_data['pattern_url'] ?? null;
+        $project->size = $v_data['size'] ?? null;
+
+        // Aggiornamento immagine
         if ($request->hasFile('image_path')) {
             if (!empty($project->image_path)) {
                 Storage::delete($project->image_path);
             }
-
-            $project->image_path = Storage::putFile('projects', $validated_data['image_path']);
+            $project->image_path = Storage::putFile('projects', $v_data['image_path']);
         }
 
         $project->save();
 
         $project->project_translations()->updateOrCreate(
-            ['locale' => app()->getLocale()],
             [
-                'name' => $validated_data['name'],
-                'status' => $validated_data['status'],
-                'slug' => Str::slug($validated_data['name']),
+                'locale' => app()->getLocale(),
+                'project_id' => $project->id
+            ],
+            [
+                'name' => $v_data['name'],
+                'notes' => $v_data['notes'],
+                'destination_use' => $v_data['destination_use'],
+                'status' => $v_data['status'],
+                'slug' => Str::slug($v_data['name']),
             ]
         );
 
-        $project->crafts()->sync($validated_data['craft_ids']);
+        $project->crafts()->sync($v_data['craft_ids']);
+
+        // Rebuild pivot rows (supports multiple yarn rows)
+        $project->yarns()->detach();
+        foreach ($v_data['yarns'] ?? [] as $yarnData) {
+            $project->yarns()->attach(
+                $yarnData['yarn_id'],
+                [
+                    'colorway_id' => $yarnData['colorway_id'] ?? null,
+                    'quantity' => $yarnData['quantity'] ?? null,
+                ]
+            );
+        }
 
         $project->unsetRelation('translation');
 
         return redirect()
-            ->route('projects.show', $project->slug ?? Str::slug($validated_data['name']))
+            ->route('projects.show', $project->slug ?? Str::slug($v_data['name']))
             ->with('success', 'Project updated');
 
     }
