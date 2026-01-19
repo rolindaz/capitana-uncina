@@ -14,6 +14,7 @@ class Project extends Model
     ]; */
 
     protected $fillable = [
+        'designer_name',
         'pattern_name',
         'pattern_url',
         'category_id',

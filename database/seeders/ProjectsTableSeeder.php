@@ -23,6 +23,7 @@ class ProjectsTableSeeder extends Seeder
             $newProject->completed = $project['completed'];
             $newProject->execution_time = $project['execution_time'];
             $newProject->image_path = $project['image_path'];
+            $newProject->designer_name = $project['designer_name'];
             $newProject->pattern_name = $project['pattern_name'];
             $newProject->pattern_url = $project['pattern_url'];
             $newProject->size = $project['size'];

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('started')->nullable();
             $table->date('completed')->nullable();
             $table->integer('execution_time');
+            $table->string('designer_name', 255)->nullable();
             $table->string('pattern_name', 255)->nullable();
             $table->string('pattern_url', 2048)->nullable();
             $table->string('size', 10)->nullable();

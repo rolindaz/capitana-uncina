@@ -2,6 +2,8 @@
 
 {{-- @dd($colorways) --}}
 
+@section('title', 'Crea un nuovo progetto')
+
 @section('content')
 
 @if ($errors->any())

@@ -6,6 +6,8 @@ const completedDiv = document.querySelector('.completed');
 const executionTimeDiv = document.querySelector('.execution_time');
 
 function toggleFields() {
+    if (!statusSelect || !completedDiv || !executionTimeDiv) return;
+
     if (statusSelect.value === 'Completed' || statusSelect.value === 'Completato') {
         /* startedDiv.style.display = 'block'; */
         completedDiv.style.display = 'flex';
@@ -17,8 +19,10 @@ function toggleFields() {
     }
 }
 
-statusSelect.addEventListener('change', toggleFields);
-toggleFields(); // Run on page load
+if (statusSelect) {
+    statusSelect.addEventListener('change', toggleFields);
+    toggleFields(); // Run on page load
+}
 
 // Add a new row of yarn selection in the form
 
@@ -33,53 +37,55 @@ const baseColorwayOptionsHtml = baseColorwaySelect ? baseColorwaySelect.innerHTM
 
 let yarnRowCount = document.querySelectorAll('#yarns-container .yarn-row').length;
 
-addYarnBtn.addEventListener('click', function(e) {
-    e.preventDefault();
-
-    if (!baseYarnOptionsHtml || !baseColorwayOptionsHtml) {
-        console.warn('Missing base yarn/colorway selects to clone options from.');
-        return;
-    }
-    
-    const newYarnRow = document.createElement('div');
-    newYarnRow.className = 'yarns d-flex align-items-center mt-3';
-    newYarnRow.innerHTML = `
-        <div class="yarn-row gold-border d-flex form-control justify-content-between gap-3">
-            <div class="yarn-column">
-                <label for="yarn_id_${yarnRowCount}">
-                    Filato
-                </label>
-                <select class="ms-2 form-select" name="yarns[${yarnRowCount}][yarn_id]" id="yarn_id_${yarnRowCount}">
-                    ${baseYarnOptionsHtml}
-                </select>
-            </div>
-            <div class="yarn-column">
-                <label for="colorway_id_${yarnRowCount}">
-                    Colore
-                </label>
-                <select class="ms-2 form-select" name="yarns[${yarnRowCount}][colorway_id]" id="colorway_id_${yarnRowCount}">
-                    ${baseColorwayOptionsHtml}
-                </select>
-            </div>
-            <div class="yarn-column">
-                <label for="quantity_${yarnRowCount}">
-                    Quantità
-                </label>
-                <input class="ms-2 form-select" type="number" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>
-            </div>
-            <button type="button" class="btn btn-sm btn-danger remove-yarn-btn">Rimuovi</button>
-        </div>
-    `;
-    
-    yarnsContainer.appendChild(newYarnRow);
-    yarnRowCount++;
-    
-    // Add remove functionality to the new row
-    newYarnRow.querySelector('.remove-yarn-btn').addEventListener('click', function(e) {
+if (addYarnBtn && yarnsContainer) {
+    addYarnBtn.addEventListener('click', function(e) {
         e.preventDefault();
-        newYarnRow.remove();
+
+        if (!baseYarnOptionsHtml || !baseColorwayOptionsHtml) {
+            console.warn('Missing base yarn/colorway selects to clone options from.');
+            return;
+        }
+        
+        const newYarnRow = document.createElement('div');
+        newYarnRow.className = 'yarns d-flex align-items-center mt-3';
+        newYarnRow.innerHTML = `
+            <div class="yarn-row gold-border d-flex form-control justify-content-between gap-3">
+                <div class="yarn-column">
+                    <label for="yarn_id_${yarnRowCount}">
+                        Filato
+                    </label>
+                    <select class="ms-2 form-select" name="yarns[${yarnRowCount}][yarn_id]" id="yarn_id_${yarnRowCount}">
+                        ${baseYarnOptionsHtml}
+                    </select>
+                </div>
+                <div class="yarn-column">
+                    <label for="colorway_id_${yarnRowCount}">
+                        Colore
+                    </label>
+                    <select class="ms-2 form-select" name="yarns[${yarnRowCount}][colorway_id]" id="colorway_id_${yarnRowCount}">
+                        ${baseColorwayOptionsHtml}
+                    </select>
+                </div>
+                <div class="yarn-column">
+                    <label for="quantity_${yarnRowCount}">
+                        Quantità
+                    </label>
+                    <input class="ms-2 form-select" type="number" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>
+                </div>
+                <button type="button" class="btn btn-sm btn-danger remove-yarn-btn">Rimuovi</button>
+            </div>
+        `;
+        
+        yarnsContainer.appendChild(newYarnRow);
+        yarnRowCount++;
+        
+        // Add remove functionality to the new row
+        newYarnRow.querySelector('.remove-yarn-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            newYarnRow.remove();
+        });
     });
-});
+}
 
 // Add remove button functionality to any existing remove buttons
 document.addEventListener('click', function(e) {
