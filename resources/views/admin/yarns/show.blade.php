@@ -2,7 +2,7 @@
 
 {{-- @dd($yarn) --}}
 
-@section('title', $yarn->name . ' - ' . $yarn->brand)
+@section('title', $yarn->brand . ' - ' . $yarn->name)
 
 {{-- <x-yarns.go-back-button/> --}}
 

@@ -2,7 +2,7 @@
 
 {{-- @dd($colorways) --}}
 
-@section('title', 'Crea un nuovo progetto')
+@section('title', 'Aggiungi un progetto')
 
 @section('content')
 

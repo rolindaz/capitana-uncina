@@ -128,8 +128,8 @@
                     @endforeach
                 </select>
             </div>
-        </div>
-        <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
+            </div>
+            <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
                 <div class="row row-cols-3 px-5 align-items-center">
                     <h6 class="col mb-0 border-end">
                         Uncinetto
