@@ -88,8 +88,8 @@ return [
     [
         'id' => 15,
         'color_code' => '08210',
-        'key' => 'gelb',
-        'image_path' => 'colorways/bianco.png'
+        'key' => 'giallo',
+        'image_path' => 'colorways/giallo.png'
     ],
     [
         'id' => 16,
@@ -153,14 +153,20 @@ return [
     ],
     [
         'id' => 26,
-        'color_code' => '08307',
-        'key' => 'limone_bravo',
+        'color_code' => '08361',
+        'key' => 'lemon',
         'image_path' => 'colorways/limone2.png'
     ],
     [
         'id' => 27,
-        'color_code' => '08307',
+        'color_code' => '08340',
         'key' => 'cobalto',
         'image_path' => 'colorways/cobalto.png'
+    ],
+    [
+        'id' => 28,
+        'color_code' => '08194',
+        'key' => 'limone',
+        'image_path' => 'colorways/limone3.png'
     ],
 ];

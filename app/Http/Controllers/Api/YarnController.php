@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Yarn;
+use App\Models\Colorway;
 
 class YarnController extends Controller
 {
@@ -13,6 +14,7 @@ class YarnController extends Controller
     $yarns = Yarn::query()
     ->with([
         'projectYarns.project.translation',
+        'projectYarns.colorway',
         'fiberYarns.fiber.translation'
     ])
     ->get();
@@ -27,7 +29,8 @@ class YarnController extends Controller
 
     $yarn->load([
         'projectYarns.project.translation',
-        'fiberYarns.fiber.translation'
+        'fiberYarns.fiber.translation',
+        'projectYarns.colorway'
     ]);
 
     return response()->json([

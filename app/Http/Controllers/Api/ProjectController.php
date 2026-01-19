@@ -33,7 +33,8 @@ class ProjectController extends Controller
             'translation',
             'category.translation',
             'crafts.translation',
-            'projectYarns.yarn'
+            'projectYarns.yarn',
+            'projectYarns.colorway'
         ]);
 
         return response()->json(
