@@ -5,49 +5,56 @@
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('projects.index') }}"
                class="side-nav-item {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
-                Projects
+                Progetti
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
-                Yarns
+                Filati
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item {{ request()->routeIs('admin.yarns.*') ? 'active' : '' }}">
-                Categories
+                Fibre
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item">
-                Fibers
+                Colori
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item">
-                Crafts
+                Categorie
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item">
-                Tags
+                Tecniche
             </a>
         </li>
 
         <li class="nav-item mb-3 marker-font">
             <a href="{{ route('yarns.index') }}"
                class="side-nav-item">
-                Attributes
+                Tag
+            </a>
+        </li>
+
+        <li class="nav-item mb-3 marker-font">
+            <a href="{{ route('yarns.index') }}"
+               class="side-nav-item">
+                Attributi
             </a>
         </li>
     </ul>

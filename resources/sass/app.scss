@@ -102,6 +102,30 @@ aside {
    text-decoration: none;
 }
 
+.form-control.blue-border {
+   border: 3px solid #031963;
+}
+
+.form-control.gold-border {
+   border: 3px solid #DF9406;
+}
+
+.btn.btn-form {
+   background-color: #DF9406;
+   border: 3px solid #031963;
+   color: #031963;
+   font-size: 25px;
+   width: 150px;
+}
+
+.btn.btn-form:hover {
+   background-color: #031963;
+   border: 3px solid #DF9406;
+   color: #DF9406;
+   font-size: 25px;
+   width: 150px;
+}
+
 .cat {
    width: 40px;
    margin-left: 2rem;

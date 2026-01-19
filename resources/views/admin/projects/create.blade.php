@@ -18,18 +18,18 @@
 <div class="container d-flex justify-content-center">
     <form class="precise-font w-75 mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
             <div>
-                <label class="text-danger" for="name">
+                <label for="name">
                     Nome
                 </label>
                 <input class="ms-2" type="text" name="name" id="name">
             </div>
             <div>
-                <label class="text-danger">
+                <label>
                     Tecniche
                 </label>
-                <div class="form-control mt-3 px-3 d-flex gap-4 flex-wrap justify-content-between">
+                <div class="form-control gold-border mt-3 px-3 d-flex gap-4 flex-wrap justify-content-between">
                     @foreach ($crafts as $craft)
                         <div class="form-check">
                             <input class="form-check-input" name="craft_ids[]" type="checkbox" value="{{ $craft->id }}" id="craft-{{ $craft->id }}">
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div class="d-flex align-items-center">
-                <label class="text-danger" for="category">
+                <label for="category">
                     Categoria
                 </label>
                 <select class="ms-2 w-50 form-select" name="category_id" id="category">
@@ -58,9 +58,9 @@
                 <input class="ms-2" type="file" name="image_path" id="image">
             </div>
         </div>
-        <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
             <div class="d-flex align-items-center">
-                <label class="text-danger" for="status">
+                <label for="status">
                     Stato
                 </label>
                 <select class="status ms-2 w-50 form-select" name="status" id="status">
@@ -93,7 +93,7 @@
                 <input class="w-25 ms-2" type="number" name="execution_time" id="execution_time">
             </div>
         </div>
-        <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
             <div>
                 <label for="pattern_name">
                     Nome dello schema
@@ -107,7 +107,7 @@
                 <input class="ms-2" type="url" name="pattern_url" id="pattern_url">
             </div>
         </div>
-        <div class="form-control mb-3 py-3 px-3 d-flex flex-column gap-4">
+        <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
             <div class="d-flex align-items-center">
                 <label for="size">
                     Taglia
@@ -125,7 +125,7 @@
             </div>
             {{-- Contenitore input filati originale --}}
             {{-- <div class="d-flex align-items-center">
-                <label class="text-danger" for="yarn_id">
+                <label for="yarn_id">
                     Filato
                 </label>
                 <select class="ms-2 w-50 form-select" name="yarn_id" id="yarn_id">
@@ -142,10 +142,10 @@
             {{-- Contenitore input filati complesso --}}
             <div id="yarns-container">
                 <div class="yarns d-flex align-items-center">
-                    <div class="yarn-row d-flex form-control justify-content-between gap-3">
+                    <div class="yarn-row d-flex form-control gold-border justify-content-between gap-3">
                         {{-- Filato --}}
                         <div class="yarn-column">
-                            <label class="text-danger" for="yarn_id_0">
+                            <label for="yarn_id_0">
                                 Filato
                             </label>
                             <select class="ms-2 form-select" name="yarns[0][yarn_id]" id="yarn_id_0">
@@ -161,7 +161,7 @@
                         </div>
                         {{-- Colore --}}
                         <div class="yarn-column">
-                            <label class="text-danger" for="colorway_id_0">
+                            <label for="colorway_id_0">
                                 Colore
                             </label>
                             <select class="ms-2 form-select" name="yarns[0][colorway_id]" id="colorway_id_0">
@@ -177,7 +177,7 @@
                         </div>
                         {{-- Quantità --}}
                         <div class="yarn-column">
-                            <label class="text-danger" for="quantity_0">
+                            <label for="quantity_0">
                                 Quantità
                             </label>
                             <input class="ms-2 form-select" type="number" name="yarns[0][quantity]" id="quantity_0"/>
@@ -192,82 +192,82 @@
                         Aggiungi nuovo filato
                     </button>
                 </div>
-                <div class="create-yarn-form my-4 form-control" style="display: none;">
+                <div class="create-yarn-form my-4 form-control blue-border" style="display: none;">
                             <div class="mb-3 py-3 px-3 d-flex flex-column gap-4">
                                 <div>
-                                    <label class="text-danger" for="new_yarn[name]">
+                                    <label for="new_yarn[name]">
                                         Nome
                                     </label>
                                     <input class="ms-2" type="text" name="new_yarn[name]" id="new_yarn[name]">
                                 </div>
                                 <div>
-                                    <label class="text-danger" for="new_yarn[brand]">
+                                    <label for="new_yarn[brand]">
                                         Marca
                                     </label>
                                     <input class="ms-2" type="text" name="new_yarn[brand]" id="new_yarn[brand]">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="weight">
+                                    <label for="weight">
                                         Peso
                                     </label>
                                     <input class="ms-2" type="text" name="weight" id="weight">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="category">
+                                    <label for="category">
                                         Categoria
                                     </label>
                                     <input class="ms-2" type="text" name="category" id="category">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="ply">
+                                    <label for="ply">
                                         Fili
                                     </label>
                                     <input class="ms-2" type="number" name="ply" id="ply">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="unit_weight">
+                                    <label for="unit_weight">
                                         Peso unitario
                                     </label>
                                     <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="meterage">
+                                    <label for="meterage">
                                         Metraggio
                                     </label>
                                     <input class="ms-2" type="number" name="meterage" id="meterage">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="fiber_types_number">
+                                    <label for="fiber_types_number">
                                         Tipologie di fibra
                                     </label>
                                     <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="min_hook_size">
+                                    <label for="min_hook_size">
                                         Misura uncinetto minima
                                     </label>
                                     <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="max_hook_size">
+                                    <label for="max_hook_size">
                                         Misura uncinetto massima
                                     </label>
                                     <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="min_needle_size">
+                                    <label for="min_needle_size">
                                         Misura ferri minima
                                     </label>
                                     <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="max_needle_size">
+                                    <label for="max_needle_size">
                                         Misura ferri massima
                                     </label>
                                     <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
                                 </div>
                                 <div class="d-flex align-items-center">
-                                    <label class="text-danger" for="color_type">
+                                    <label for="color_type">
                                         Tipologia colore
                                     </label>
                                     <input class="ms-2" type="number" name="color_type" id="color_type">
@@ -291,10 +291,10 @@
                 <label for="notes">
                     Note
                 </label>
-                <textarea class="mt-2 form-control" name="notes" id="notes" rows="5"></textarea>
+                <textarea class="mt-2 form-control gold-border" name="notes" id="notes" rows="5"></textarea>
             </div>
         </div>
-        <button type="submit" class="btn btn-info">
+        <button type="submit" class="btn btn-form">
             Salva
         </button>
     </form>

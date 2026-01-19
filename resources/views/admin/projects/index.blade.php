@@ -7,8 +7,9 @@
 @section('content')
 
 <x-admin.resource-table
-  title="Projects"
+  title="Progetti"
   :createRoute="route('projects.create')"
+  action="+ Nuovo Progetto"
 >
 
 <x-slot name="head">

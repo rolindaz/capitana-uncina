@@ -4,23 +4,12 @@
 
 {{-- @dd($yarns); --}}
 
-@section('actions')
-
-<div class="m-4">
-    <a href="{{ route('yarns.create') }}">
-            <button class="btn btn-success">
-                + New Yarn
-            </button>
-    </a>  
-</div>
-
-@endsection
-
 @section('content')
 
 <x-admin.resource-table
-title="Yarns"
+title="Filati"
 :createRoute="route('yarns.create')"
+action="+ Nuovo Filato"
 >
 
 <x-slot name="head">

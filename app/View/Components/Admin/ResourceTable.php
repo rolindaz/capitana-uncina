@@ -10,11 +10,13 @@ class ResourceTable extends Component
 {
     public string $title;
     public ?string $createRoute;
+    public ?string $action;
 
-    public function __construct(string $title, ?string $createRoute = null)
+    public function __construct(string $title, ?string $createRoute = null, ?string $action = null)
     {
         $this->title = $title;
         $this->createRoute = $createRoute;
+        $this->action = $action;
     }
 
     public function render(): View|Closure|string

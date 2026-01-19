@@ -3,7 +3,7 @@
 
     @isset($createRoute)
         <a href="{{ $createRoute }}" class="create-btn">
-                + New Project
+                {{ $action ?? '+ Nuovo' }}
         </a>
     @endisset
 </div>
