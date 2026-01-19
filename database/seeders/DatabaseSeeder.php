@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CategoriesTableSeeder::class,
             CategoryTranslationsTableSeeder::class,
+            ColorwaysTableSeeder::class,
             ProjectsTableSeeder::class,
             ProjectTranslationsTableSeeder::class,
             FibersTableSeeder::class,
@@ -24,7 +25,7 @@ class DatabaseSeeder extends Seeder
             ProjectYarnTableSeeder::class,
             FiberYarnTableSeeder::class,
             CraftsTableSeeder::class,
-            CraftTranslationsTableSeeder::class
+            CraftTranslationsTableSeeder::class,
         ]);
     }
 }

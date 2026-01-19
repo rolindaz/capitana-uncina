@@ -12,7 +12,6 @@ class YarnController extends Controller
 
     $yarns = Yarn::query()
     ->with([
-        'translation',
         'projectYarns.project.translation',
         'fiberYarns.fiber.translation'
     ])
@@ -27,7 +26,6 @@ class YarnController extends Controller
     public function show(Yarn $yarn) {
 
     $yarn->load([
-        'translation',
         'projectYarns.project.translation',
         'fiberYarns.fiber.translation'
     ]);
