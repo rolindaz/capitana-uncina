@@ -163,4 +163,13 @@ return [
         'destination_use' => 'For me',
         'slug' => 'wool-sunset',
     ],
+    [   
+        'project_id' => 19,
+        'locale' => 'en',
+        'name' => 'Alberello di Natale',
+        'notes' => "Uno dei primi esperimenti con gli amigurumi, troppo carino. L'avevo dimenticato finché non l'ho rivisto da mia mamma lo scorso natale!",
+        'status' => 'Completato',
+        'destination_use' => 'Per mia mamma',
+        'slug' => 'alberello-di-natale',
+    ],
 ];

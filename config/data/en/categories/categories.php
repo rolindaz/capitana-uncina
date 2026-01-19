@@ -640,4 +640,22 @@ return [
         'name' => 'Electronics',
         'slug' => 'electronics'
     ],
+
+    // Children categories of Softies
+
+    [
+        'category_id' => 101,
+        'locale' => 'en',
+        'name' => 'Seasonal',
+        'slug' => 'seasonal'
+    ],
+
+    // Children categories of Seasonal
+
+    [
+        'category_id' => 102,
+        'locale' => 'en',
+        'name' => 'Christmas',
+        'slug' => 'christmas'
+    ],
 ];

@@ -181,5 +181,14 @@ return [
         'pattern_url' => 'https://www.ravelry.com/patterns/library/confetti-dk-pullover-adult',
         'size' => 'S',
     ],
-
+    [
+        'category_id' => 102,
+        'started' => null,
+        'completed' => null,
+        'execution_time' => 5,
+        'image_path' => 'projects/xmas.jpeg',
+        'pattern_name' => null,
+        'pattern_url' => null,
+        'size' => null,
+    ],
 ];

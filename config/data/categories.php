@@ -443,4 +443,18 @@ return [
         'key' => 'electronics',
         'parent_id' => 65
     ],
+
+    // Children categories, Softies:
+
+    [
+        'key' => 'seasonal',
+        'parent_id' => 98
+    ],
+
+    // Children categories, Seasonal:
+
+    [
+        'key' => 'christmas',
+        'parent_id' => 101
+    ],
 ];

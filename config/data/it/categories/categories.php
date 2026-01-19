@@ -640,4 +640,22 @@ return [
         'name' => 'Elettronica',
         'slug' => 'elettronica'
     ],
+
+    // Children categories of Softies
+
+    [
+        'category_id' => 101,
+        'locale' => 'en',
+        'name' => 'Stagionale',
+        'slug' => 'stagionale'
+    ],
+
+    // Children categories of Seasonal
+
+    [
+        'category_id' => 102,
+        'locale' => 'en',
+        'name' => 'Natale',
+        'slug' => 'natale'
+    ],
 ];
