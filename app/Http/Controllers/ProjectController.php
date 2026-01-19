@@ -219,10 +219,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(Project $project)
     {
-        $project = Project::query()
-        ->with([
+        $project->load([
             'translation',
             'category.translation',
             'category.parent.translation',
@@ -230,12 +229,7 @@ class ProjectController extends Controller
             'crafts.translation',
             'projectYarns.yarn.translation',
             'projectYarns.colorway.translation'
-            ])
-        ->whereHas('translation', function ($query) use ($slug) {
-            $query->where('slug', $slug)
-              ->where('locale', app()->getLocale());
-        })
-        ->firstOrFail();
+        ]);
 
         return view('admin.projects.show', compact('project'));
     }
@@ -243,17 +237,15 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Project $project)
     {
-        $project = Project::query()
-            ->with([
-                'translation',
-                'category.translation',
-                'crafts.translation',
-                'projectYarns.yarn.translation',
-                'projectYarns.colorway.translation'
-            ])
-            ->findOrFail($id);
+        $project->load([
+            'translation',
+            'category.translation',
+            'crafts.translation',
+            'projectYarns.yarn.translation',
+            'projectYarns.colorway.translation'
+        ]);
 
         $yarns = Yarn::all();
 

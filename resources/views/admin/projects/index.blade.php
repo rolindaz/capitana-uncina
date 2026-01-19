@@ -52,7 +52,7 @@
       </td>
       <td class="text-end">
         <div class="d-inline-flex gap-2">
-          <x-admin.edit-button label="Edit" :route="'project.edit'"/>
+          <x-admin.edit-button label="Edit" route="projects.edit" :model="$project" />
 
           <x-admin.delete-modal
             :id="'deleteProjectModal-'.$project->id"

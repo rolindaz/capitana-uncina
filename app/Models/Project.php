@@ -82,4 +82,9 @@ class Project extends Model
     public function getSlugAttribute() {
         return $this->translation?->slug;
     }
+
+    public function getRouteKey()
+    {
+        return $this->slug ?? $this->getKey();
+    }
 }
