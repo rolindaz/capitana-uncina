@@ -22,9 +22,9 @@ addFiberBtn.addEventListener('click', function(e) {
     const newFiberRow = document.createElement('div');
     newFiberRow.className = 'fibers d-flex align-items-center mt-3';
     newFiberRow.innerHTML = `
-        <div class="fiber-row d-flex form-control justify-content-between gap-3">
+        <div class="fiber-row gold-border d-flex form-control justify-content-between gap-3">
                     <div class="fiber-column">
-                        <label class="text-danger" for="fiber_id_${fiberRowCount}">
+                        <label for="fiber_id_${fiberRowCount}">
                             Fibra
                         </label>
                         <select class="ms-2 form-select" name="fibers[${fiberRowCount}][fiber_id]" id="fiber_id_${fiberRowCount}">
@@ -32,7 +32,7 @@ addFiberBtn.addEventListener('click', function(e) {
                         </select>
                     </div>
                     <div class="fiber-column">
-                        <label class="text-danger" for="percentage_${fiberRowCount}">
+                        <label for="percentage_${fiberRowCount}">
                             Percentuale
                         </label>
                         <input class="ms-2 form-select" type="number" name="fibers[${fiberRowCount}][percentage]" id="percentage_${fiberRowCount}"/>

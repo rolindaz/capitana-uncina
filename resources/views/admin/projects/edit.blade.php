@@ -256,7 +256,7 @@
                 <img class="img-fluid w-25" src="{{ asset('storage/' . $project->image_path) }}" alt="copertina">
             @endif
         </div>
-        <button type="submit" class="btn btn-warning">
+        <button type="submit" class="btn btn-form">
             Salva
         </button>
     </form> 
