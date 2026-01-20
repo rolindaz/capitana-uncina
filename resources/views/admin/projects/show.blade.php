@@ -6,10 +6,6 @@
 
 {{-- <x-projects.go-back-button/> --}}
 
-
-
-
-
 @section('content')
 
 <div class="row g-4 align-items-start mb-4">
@@ -84,14 +80,58 @@
                 </div>
             </div>
 
-            <div class="col-12">
+        </div>
+        <div class="row g-3 mt-2">
+            <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-head-font text-uppercase small text-muted mb-2">Filati usati</div>
+                        <div class="table-head-font text-uppercase small text-muted mb-2">Modello</div>
+                        <div>
+                            <strong class="me-2">
+                                Designer:
+                            </strong>
+                            {{ $project->designer_name? $project->designer_name : '-' }}
+                        </div>
+                        <div>
+                            <strong class="me-2">
+                                Schema:
+                            </strong>
+                            <a href={{ $project->pattern_url? $project->pattern_url : null}}>
+                                {{ $project->pattern_name? $project->pattern_name : '-' }}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        @forelse ($project->projectYarns as $used_yarn)
-                            <div class="d-flex flex-wrap align-items-center gap-2 py-2 {{ !$loop->last ? 'border-bottom' : '' }}">
-                                <strong>{{ $used_yarn->yarn->name ?? '—' }}</strong>
+            <div class="col-12 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-head-font text-uppercase small text-muted mb-2">Dettagli</div>
+                        @if($project->destination_use)
+                            <div>
+                                {{ $project->destination_use }}
+                            </div>
+                        @endif
+                        @if($project->size)
+                            <div>
+                                {{ $project->size }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="handwriting fs-3 text-center my-2">Filati usati</div>
+        <div class="row row-cols-2 flex-wrap" style="max-height: fit-content;">
+            @forelse ($project->projectYarns as $used_yarn)
+                <div class="card-body">
+                    <div class="d-flex flex-wrap align-items-center gap-2 py-2 border-bottom">
+                        <a href={{ env('VITE_BASE_URL') . '/yarns/' . $used_yarn?->yarn?->slug }} style="color: black;">
+                            <strong>{{ $used_yarn->yarn->name ?? '—' }}</strong>
+                        </a>
                                 <span class="text-muted">{{ $used_yarn->yarn->brand ?? '' }}</span>
                                 @if($used_yarn->colorway?->image_path)
                                     <img class="color-thumb" src="{{ asset('storage/' . $used_yarn->colorway->image_path) }}" alt="{{ $project->name }}">
@@ -105,16 +145,14 @@
                                 <span class="badge text-bg-light">
                                     {{ $used_yarn->meterage }} m
                                 </span>
-                            </div>
-                        @empty
-                            <div class="text-muted">Nessun filato associato.</div>
-                        @endforelse
                     </div>
                 </div>
-            </div>
+            @empty
+                <div class="text-muted">Nessun filato associato.</div>
+            @endforelse
         </div>
     </div>
-</div>
+    
 
 <section class="notebook-sheet">
     <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
