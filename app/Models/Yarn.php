@@ -54,4 +54,11 @@ class Yarn extends Model
     public function fiberYarns() {
         return $this->hasMany(FiberYarn::class);
     }
+
+    public function resolveRouteBinding($value, $field = null)
+    {
+        return $this->where('slug', $value)
+            ->orWhere($this->getKeyName(), $value)
+            ->first();
+    }
 }
