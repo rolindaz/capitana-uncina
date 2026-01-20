@@ -4,7 +4,7 @@ return [
     [
         'id' => 1,
         'color_code' => 'uni colour 66',
-        'key' => 'senape',
+        'key' => 'senape_safran',
         'image_path' => 'colorways/senape.png'
     ],
     [
@@ -174,5 +174,83 @@ return [
         'color_code' => '08363',
         'key' => 'ghiaccio',
         'image_path' => 'colorways/ghiaccio.png'
+    ],
+    [
+        'id' => 30,
+        'color_code' => '388',
+        'key' => 'ruggine-catona',
+        'image_path' => 'colorways/ruggine.png'
+    ],
+    [
+        'id' => 31,
+        'color_code' => '383',
+        'key' => 'ginger_gold',
+        'image_path' => 'colorways/ginger-gold.png'
+    ],
+    [
+        'id' => 32,
+        'color_code' => '504',
+        'key' => 'mattone',
+        'image_path' => 'colorways/mattone.png'
+    ],
+    [
+        'id' => 33,
+        'color_code' => '524',
+        'key' => 'albicocca',
+        'image_path' => 'colorways/albicocca.png'
+    ],
+    [
+        'id' => 34,
+        'color_code' => '391',
+        'key' => 'oceano_profondo',
+        'image_path' => 'colorways/oceano-profondo.png'
+    ],
+    [
+        'id' => 35,
+        'color_code' => '248',
+        'key' => 'champagne',
+        'image_path' => 'colorways/champagne.png'
+    ],
+    [
+        'id' => 36,
+        'color_code' => '395',
+        'key' => 'salice',
+        'image_path' => 'colorways/salice.png'
+    ],
+    [
+        'id' => 37,
+        'color_code' => '525',
+        'key' => 'abete',
+        'image_path' => 'colorways/abete.png'
+    ],
+    [
+        'id' => 38,
+        'color_code' => '027',
+        'key' => 'autunno',
+        'image_path' => 'colorways/autunno.png'
+    ],
+    [
+        'id' => 39,
+        'color_code' => null,
+        'key' => 'peony',
+        'image_path' => 'colorways/peony.jpg'
+    ],
+    [
+        'id' => 40,
+        'color_code' => 'uni colour 08',
+        'key' => 'viola_scuro',
+        'image_path' => 'colorways/viola-scuro.png'
+    ],
+    [
+        'id' => 41,
+        'color_code' => 'uni colour 65',
+        'key' => 'ruggine_paris',
+        'image_path' => 'colorways/ruggine2.png'
+    ],
+    [
+        'id' => 42,
+        'color_code' => 'uni colour 41',
+        'key' => 'senape_paris',
+        'image_path' => 'colorways/senape2.png'
     ],
 ];

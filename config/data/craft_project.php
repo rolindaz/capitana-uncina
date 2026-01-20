@@ -89,4 +89,73 @@ return [
         'project_id' => 19,
         'craft_id' => 1
     ],
+    [
+        'project_id' => 20,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 20,
+        'craft_id' => 3
+    ],
+    [
+        'project_id' => 21,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 21,
+        'craft_id' => 3
+    ],
+    [
+        'project_id' => 22,
+        'craft_id' => 7
+    ],
+    [
+        'project_id' => 23,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 24,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 25,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 26,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 27,
+        'craft_id' => 4
+    ],
+    [
+        'project_id' => 28,
+        'craft_id' => 7
+    ],
+    [
+        'project_id' => 29,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 30,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 31,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 32,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 33,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 34,
+        'craft_id' => 1
+    ],
+    
 ];

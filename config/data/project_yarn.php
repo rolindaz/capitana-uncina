@@ -331,4 +331,177 @@ return [
         'meterage' => null,
         'weight' => null
     ],
+
+    // Borsa Maya
+
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 22,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 30,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 31,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 32,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 33,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 34,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 35,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 36,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 6,
+        'colorway_id' => 37,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+    [
+        'project_id' => 20,
+        'yarn_id' => 9,
+        'colorway_id' => 38,
+        'quantity' => 1,
+        'meterage' => 62,
+        'weight' => 25
+    ],
+
+    // Borsetta Maya
+
+    [
+        'project_id' => 21,
+        'yarn_id' => 2,
+        'colorway_id' => 1,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 21,
+        'yarn_id' => 2,
+        'colorway_id' => 7,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 21,
+        'yarn_id' => 2,
+        'colorway_id' => 4,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 21,
+        'yarn_id' => 2,
+        'colorway_id' => 8,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 21,
+        'yarn_id' => 2,
+        'colorway_id' => 5,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+
+    // Borsetta macramè
+
+    [
+        'project_id' => 22,
+        'yarn_id' => 8,
+        'colorway_id' => 39,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+
+    // Cardigan Dandy
+    
+    [
+        'project_id' => 23,
+        'yarn_id' => 3,
+        'colorway_id' => 40,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 23,
+        'yarn_id' => 3,
+        'colorway_id' => 41,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 23,
+        'yarn_id' => 3,
+        'colorway_id' => 42,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 23,
+        'yarn_id' => 3,
+        'colorway_id' => 20,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+
 ];

@@ -5,7 +5,7 @@ return [
         'name' => 'Coco',
         'slug' => 'coco',
         'brand' => 'DIY Handmade',
-        'weight' => 'Macrame Cord',
+        'weight' => '2 - Fine',
         'category' => 'Sport, Baby',
         'ply' => null,
         'unit_weight' => 50,
@@ -128,5 +128,21 @@ return [
         'max_hook_size' => null,
         'min_needle_size' => null,
         'max_needle_size' => null
+    ],
+    [
+        'name' => 'Catona Chroma 25g',
+        'slug' => 'catona-chroma',
+        'brand' => 'Scheepjes',
+        'weight' => '1 - Super Fine',
+        'category' => 'Sock, Fingering, Baby',
+        'ply' => null,
+        'unit_weight' => 25,
+        'meterage' => 62,
+        'fiber_types_number' => 1,
+        'image_path' => 'yarns/chroma25.png',
+        'min_hook_size' => 2.5,
+        'max_hook_size' => 3.5,
+        'min_needle_size' => 2.5,
+        'max_needle_size' => 3.5
     ],
 ];

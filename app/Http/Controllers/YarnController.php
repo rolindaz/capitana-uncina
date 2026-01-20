@@ -129,7 +129,7 @@ class YarnController extends Controller
             ->with([
                 'fibers.translation',
                 'fiberYarns',
-                'colorways.translation',
+                'projectYarns',
             ])
             ->where('slug', $slug)
             ->first();

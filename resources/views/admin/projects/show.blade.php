@@ -93,6 +93,9 @@
                             <div class="d-flex flex-wrap align-items-center gap-2 py-2 {{ !$loop->last ? 'border-bottom' : '' }}">
                                 <strong>{{ $used_yarn->yarn->name ?? '—' }}</strong>
                                 <span class="text-muted">{{ $used_yarn->yarn->brand ?? '' }}</span>
+                                @if($used_yarn->colorway?->image_path)
+                                    <img class="color-thumb" src="{{ asset('storage/' . $used_yarn->colorway->image_path) }}" alt="{{ $project->name }}">
+                                @endif
                                 <span class="badge text-bg-light">
                                     Quantità: {{ (int) $used_yarn->quantity }} gomitoli
                                 </span>
