@@ -12,6 +12,12 @@ title="Filati"
 action="+ Nuovo Filato"
 >
 
+<x-slot name="paginationTop">
+  @if ($yarns->hasPages())
+    {{ $yarns->onEachSide(1)->links('vendor.pagination.admin') }}
+  @endif
+</x-slot>
+
 <x-slot name="head">
 
   <th scope="col">
@@ -68,6 +74,12 @@ action="+ Nuovo Filato"
     </tr>
     @endforeach
 
+</x-slot>
+
+<x-slot name="paginationBottom">
+  @if ($yarns->hasPages())
+    {{ $yarns->onEachSide(1)->links('vendor.pagination.admin') }}
+  @endif
 </x-slot>
 
 </x-admin.resource-table>

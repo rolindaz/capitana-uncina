@@ -1,4 +1,4 @@
-<div class="bg-white d-flex justify-content-between align-items-center p-3 mb-5 rounded-3">
+<div class="bg-white d-flex justify-content-between align-items-center p-3 mb-5 rounded-3" style="border: 3px solid #031963">
     <strong class="handwriting text-center fs-1">{{ $title }}</strong>
 
     @isset($createRoute)
@@ -7,6 +7,12 @@
         </a>
     @endisset
 </div>
+
+@isset($paginationTop)
+    <div class="my-4">
+        {{ $paginationTop }}
+    </div>
+@endisset
 
 <div class="card">
     <div class="table-responsive">
@@ -31,3 +37,9 @@
         </table>
     </div>
 </div>
+
+@isset($paginationBottom)
+    <div class="my-4">
+        {{ $paginationBottom }}
+    </div>
+@endisset

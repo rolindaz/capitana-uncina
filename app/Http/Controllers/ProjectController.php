@@ -65,7 +65,9 @@ class ProjectController extends Controller
             $query->orderBy($sort, $direction);
         }
 
-        $projects = $query->get();
+        $projects = $query
+            ->paginate(12)
+            ->withQueryString();
 
         return view('admin.projects.index', compact('projects'));
     }

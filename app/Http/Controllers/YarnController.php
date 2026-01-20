@@ -32,10 +32,11 @@ class YarnController extends Controller
         $direction = $direction === 'asc' ? 'asc' : 'desc';
 
         $yarns = Yarn::with([
-            'fibers.translation'
+            'fibers.translation',
         ])
             ->orderBy($sort, $direction)
-            ->get();
+            ->paginate(12)
+            ->withQueryString();
 
         return view('admin.yarns.index', compact('yarns'));
     }

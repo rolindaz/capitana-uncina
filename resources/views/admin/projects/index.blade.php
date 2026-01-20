@@ -12,6 +12,12 @@
   action="+ Nuovo Progetto"
 >
 
+<x-slot name="paginationTop">
+  @if ($projects->hasPages())
+    {{ $projects->onEachSide(1)->links('vendor.pagination.admin') }}
+  @endif
+</x-slot>
+
 <x-slot name="head">
 
   <th scope="col">
@@ -66,6 +72,12 @@
     </tr>
     @endforeach
 
+</x-slot>
+
+<x-slot name="paginationBottom">
+  @if ($projects->hasPages())
+    {{ $projects->onEachSide(1)->links('vendor.pagination.admin') }}
+  @endif
 </x-slot>
 
 </x-admin.resource-table>

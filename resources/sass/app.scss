@@ -161,6 +161,63 @@ aside {
    --bs-table-bg: #f6e7a8;
 }
 
+.admin-pagination {
+   background-color: #f6e7a8;
+   border: 3px solid #031963;
+   border-radius: 2rem;
+   padding: .5rem 1rem;
+}
+
+.admin-pagination-side {
+   width: 3rem;
+   flex: 0 0 3rem;
+}
+
+.admin-pagination .pagination {
+   --bs-pagination-bg: transparent;
+   --bs-pagination-border-color: transparent;
+   --bs-pagination-color: #031963;
+   --bs-pagination-hover-color: #031963;
+   --bs-pagination-hover-bg: rgba(3, 25, 99, 0.06);
+   --bs-pagination-active-bg: #031963;
+   --bs-pagination-active-border-color: #031963;
+   --bs-pagination-active-color: #f6e7a8;
+   --bs-pagination-disabled-color: rgba(3, 25, 99, 0.45);
+}
+
+.admin-pagination .page-link {
+   font-family: "Montserrat Alternates", sans-serif;
+   font-weight: 700;
+   border-radius: 1.25rem;
+}
+
+.admin-pagination-arrow {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   width: 2.5rem;
+   height: 2.5rem;
+   border-radius: 50%;
+   border: 3px solid #031963;
+   background-color: #efd87c;
+   color: #031963;
+   font-family: "Montserrat Alternates", sans-serif;
+   font-weight: 700;
+   font-size: 1.5rem;
+   line-height: 1;
+   text-decoration: none;
+}
+
+.admin-pagination-arrow:hover {
+   filter: brightness(0.98);
+   transform: scale(1.04);
+}
+
+.admin-pagination-arrow.is-disabled {
+   opacity: 0.5;
+   cursor: not-allowed;
+}
+
 .create-btn {
    text-decoration: none;
    border: 10px solid #0636c3fa;
