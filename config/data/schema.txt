@@ -1,5 +1,6 @@
 table projects {
   id integer [pk, increment]
+  designer_name varchar(255)
   pattern_name varchar(255)
   pattern_url varchar(2048)
   category_id integer [ref: > categories.id]
@@ -8,7 +9,6 @@ table projects {
   completed date
   execution_time integer
   size varchar(255)
-  correct boolean
 }
 
 table project_translations {
@@ -20,7 +20,7 @@ table project_translations {
   craft varchar(255)
   status varchar(255)
   destination_use varchar(255)
-  slug varchar(255)
+  slug varchar(255) unique
 }
 
 table crafts {
@@ -33,7 +33,8 @@ table craft_translations {
   craft_id integer [ref: > crafts.id]
   locale varchar(5)
   name varchar(255) [not null]
-  slug varchar(255)
+  description text
+  slug varchar(255) unique
 }
 
 table categories {
@@ -68,14 +69,6 @@ table yarns {
   max_needle_size decimal
 }
 
-table yarn_translations {
-  id integer [pk, increment]
-  yarn_id integer [ref: > yarns.id]
-  locale varchar(5)
-  color_type varchar(255)
-  slug varchar(255)
-}
-
 table fibers {
   id integer [pk, increment]
   key varchar(255) [unique]
@@ -86,7 +79,8 @@ table fiber_translations {
   fiber_id integer [ref: > fibers.id]
   locale varchar(5)
   name varchar(255) [not null]
-  slug varchar(255)
+  description mediumtext
+  slug varchar(255) unique
 }
 
 table tags {
@@ -100,7 +94,7 @@ table tag_translations {
   locale varchar(5)
   name varchar(255) [not null]
   description varchar(255)
-  slug varchar(255)
+  slug varchar(255) unique
 }
 
 table attributes {
@@ -115,31 +109,35 @@ table attribute_translations {
   locale varchar(5)
   name varchar(255) [not null]
   description varchar(255)
-  slug varchar(255)
+  slug varchar(255) unique
 }
 
 table colorways {
   id integer [pk, increment]
+  color_code varchar(255)
   key varchar(255)
+  image_path varchar(255)
 }
 
 table colorway_translations {
   id integer [pk, increment]
+  colorway_id integer [ref: > colorways.id]
   locale varchar(5)
   name varchar(255)
-  slug varchar(255)
+  slug varchar(255) unique
 }
 
 table project_yarn {
   id integer [pk, increment]
   project_id integer [ref: <> projects.id]
   yarn_id integer [ref: <> yarns.id]
+  colorway_id integer [ref: <> colorways.id]
   quantity decimal
   meterage integer
   weight integer
 }
 
-table project_craft {
+table craft_project {
   id integer [pk, increment]
   project_id integer [ref: <> projects.id]
   craft_id integer [ref: <> crafts.id]

@@ -12,9 +12,51 @@ use App\Models\Colorway;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use App\Models\Craft;
+use Illuminate\Database\QueryException;
 
 class ProjectController extends Controller
 {
+    private function isUniqueConstraintViolation(QueryException $e): bool
+    {
+        // Most DB drivers use SQLSTATE 23000 for integrity/unique violations.
+        return $e->getCode() === '23000';
+    }
+
+    private function uniqueProjectSlug(string $name, string $locale, ?int $ignoreProjectId = null): string
+    {
+        $base = Str::slug($name);
+        if ($base === '') {
+            $base = 'project';
+        }
+
+        $candidate = $this->truncateSlugBase($base, 0);
+        $counter = 2;
+
+        while (
+            ProjectTranslation::query()
+                ->where('locale', $locale)
+                ->where('slug', $candidate)
+                ->when($ignoreProjectId !== null, fn ($q) => $q->where('project_id', '!=', $ignoreProjectId))
+                ->exists()
+        ) {
+            $suffix = '-' . $counter;
+            $candidate = $this->truncateSlugBase($base, strlen($suffix)) . $suffix;
+            $counter++;
+        }
+
+        return $candidate;
+    }
+
+    private function truncateSlugBase(string $base, int $reservedSuffixLength): string
+    {
+        $max = 255 - $reservedSuffixLength;
+        if ($max < 1) {
+            return '';
+        }
+
+        return strlen($base) > $max ? substr($base, 0, $max) : $base;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -170,14 +212,29 @@ class ProjectController extends Controller
             $newProject->save();
         }
                 
-        $newProject->translation()->create([
-            'locale' => app()->getLocale(),
-            'name' => $validated_data['name'],
-            'notes' => $validated_data['notes'],
-            'status' => $validated_data['status'],
-            'destination_use' => $validated_data['destination_use'],
-            'slug' => Str::slug($validated_data['name'])
-        ]);
+        $locale = app()->getLocale();
+        $attempts = 0;
+        while (true) {
+            $attempts++;
+
+            $slug = $this->uniqueProjectSlug($validated_data['name'], $locale);
+
+            try {
+                $newProject->translation()->create([
+                    'locale' => $locale,
+                    'name' => $validated_data['name'],
+                    'notes' => $validated_data['notes'],
+                    'status' => $validated_data['status'],
+                    'destination_use' => $validated_data['destination_use'],
+                    'slug' => $slug,
+                ]);
+                break;
+            } catch (QueryException $e) {
+                if (!$this->isUniqueConstraintViolation($e) || $attempts >= 5) {
+                    throw $e;
+                }
+            }
+        }
 
         foreach($validated_data['yarns'] ?? [] as $yarnData) {
             $newProject->yarns()->attach(
@@ -353,19 +410,34 @@ class ProjectController extends Controller
 
         $project->save();
 
-        $project->project_translations()->updateOrCreate(
-            [
-                'locale' => app()->getLocale(),
-                'project_id' => $project->id
-            ],
-            [
-                'name' => $v_data['name'],
-                'notes' => $v_data['notes'],
-                'destination_use' => $v_data['destination_use'],
-                'status' => $v_data['status'],
-                'slug' => Str::slug($v_data['name']),
-            ]
-        );
+        $locale = app()->getLocale();
+        $attempts = 0;
+        while (true) {
+            $attempts++;
+
+            $slug = $this->uniqueProjectSlug($v_data['name'], $locale, $project->id);
+
+            try {
+                $project->project_translations()->updateOrCreate(
+                    [
+                        'locale' => $locale,
+                        'project_id' => $project->id,
+                    ],
+                    [
+                        'name' => $v_data['name'],
+                        'notes' => $v_data['notes'],
+                        'destination_use' => $v_data['destination_use'],
+                        'status' => $v_data['status'],
+                        'slug' => $slug,
+                    ]
+                );
+                break;
+            } catch (QueryException $e) {
+                if (!$this->isUniqueConstraintViolation($e) || $attempts >= 5) {
+                    throw $e;
+                }
+            }
+        }
 
         $project->crafts()->sync($v_data['craft_ids']);
 
@@ -384,7 +456,7 @@ class ProjectController extends Controller
         $project->unsetRelation('translation');
 
         return redirect()
-            ->route('projects.show', $project->slug ?? Str::slug($v_data['name']))
+            ->route('projects.show', $project)
             ->with('success', 'Project updated');
 
     }
