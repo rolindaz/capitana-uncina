@@ -81,9 +81,7 @@ class ProjectController extends Controller
         
         $yarns = Yarn::all();
 
-        $colorways = Colorway::query()
-            ->with('translation')
-            ->get();
+        $colorways = Colorway::all();
         
         $sizes = config('data.projects.sizes');
         $status = config('data.projects.status');

@@ -128,11 +128,21 @@
                     <div class="card-body">
                         <div class="table-head-font text-uppercase small text-muted mb-2">Progetti in cui l'ho usato</div>
 
-                        @forelse ($yarn->projectYarns as $usage)
+                        @php
+                            $usagesByProject = $yarn->projectYarns
+                                ->groupBy(fn ($usage) => $usage->project_id ?? ('missing-' . $usage->id));
+                        @endphp
+
+                        @forelse ($usagesByProject as $projectUsages)
                             @php
-                                $usedProject = $usage->project;
+                                $firstUsage = $projectUsages->first();
+                                $usedProject = $firstUsage?->project;
                                 $projectLabel = $usedProject?->name ?? $usedProject?->pattern_name ?? 'Progetto';
                                 $projectRouteParam = $usedProject?->slug ?? $usedProject?->id;
+
+                                $totalQuantity = (int) $projectUsages->sum('quantity');
+                                $totalWeight = (float) $projectUsages->sum('weight');
+                                $totalMeterage = (float) $projectUsages->sum('meterage');
                             @endphp
 
                             <div class="d-flex flex-wrap align-items-center gap-2 py-2 {{ !$loop->last ? 'border-bottom' : '' }}">
@@ -144,14 +154,14 @@
                                     <strong>{{ $projectLabel }}</strong>
                                 @endif
 
-                                @if(!empty($usage->quantity))
-                                    <span class="badge text-bg-light">Quantità: {{ (int) $usage->quantity }}</span>
+                                @if($totalQuantity > 0)
+                                    <span class="badge text-bg-light">Quantità: {{ $totalQuantity }}</span>
                                 @endif
-                                @if(!empty($usage->weight))
-                                    <span class="badge text-bg-light">{{ $usage->weight }} g</span>
+                                @if($totalWeight > 0)
+                                    <span class="badge text-bg-light">{{ rtrim(rtrim(number_format($totalWeight, 2, '.', ''), '0'), '.') }} g</span>
                                 @endif
-                                @if(!empty($usage->meterage))
-                                    <span class="badge text-bg-light">{{ $usage->meterage }} m</span>
+                                @if($totalMeterage > 0)
+                                    <span class="badge text-bg-light">{{ rtrim(rtrim(number_format($totalMeterage, 2, '.', ''), '0'), '.') }} m</span>
                                 @endif
                             </div>
                         @empty

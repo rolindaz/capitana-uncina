@@ -96,9 +96,13 @@
                             <strong class="me-2">
                                 Schema:
                             </strong>
-                            <a href={{ $project->pattern_url? $project->pattern_url : null}}>
+                            @if ($project->pattern_url)
+                            <a target="_blank" href={{ $project->pattern_url}}>
                                 {{ $project->pattern_name? $project->pattern_name : '-' }}
                             </a>
+                            @else
+                            {{ $project->pattern_name? $project->pattern_name : '-' }}
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -115,7 +119,7 @@
                         @endif
                         @if($project->size)
                             <div>
-                                {{ $project->size }}
+                                Taglia: {{ $project->size }}
                             </div>
                         @endif
                     </div>
@@ -148,7 +152,7 @@
                     </div>
                 </div>
             @empty
-                <div class="text-muted">Nessun filato associato.</div>
+                <div class="text-center precise-font text-muted mb-3">Nessun filato associato.</div>
             @endforelse
         </div>
     </div>

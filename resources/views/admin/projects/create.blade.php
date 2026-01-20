@@ -162,7 +162,7 @@
                                 </option>
                                 @foreach ($colorways as $colorway)
                                     <option value="{{ $colorway->id }}">
-                                        {{ $colorway->name }}
+                                        {{ $colorway->key }}
                                     </option>
                                 @endforeach
                             </select>
