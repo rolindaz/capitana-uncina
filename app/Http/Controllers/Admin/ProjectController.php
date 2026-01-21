@@ -78,10 +78,10 @@ class ProjectController extends Controller
 
         // Salvo la selezione dei progetti in una variabile "paginabile", con 12 elementi per pagina e che si trasporti la query da una pagina all'altra, così non mi perdo cose tipo ordinamento ecc.
         $projects = $query
-            ->paginate(12)
+            ->paginate(9)
             ->withQueryString();
 
-        return view('admin.projects.index', compact('projects'));
+        return view('admin.projects.index', compact('projects', 'sort', 'direction'));
     }
 
     /**

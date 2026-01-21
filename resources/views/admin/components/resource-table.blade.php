@@ -22,7 +22,6 @@
             <thead class="precise-font">
                 <tr>
                     {{ $head }}
-                    <th>Azioni</th>
                 </tr>
             </thead>
 

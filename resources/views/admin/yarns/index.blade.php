@@ -24,10 +24,10 @@ action="+ Nuovo Filato"
         Image
       </th>
 
-      <x-admin.sortable-th field="name" label="Name" />
-      <x-admin.sortable-th field="brand" label="Brand" />
-      <x-admin.sortable-th field="created_at" label="Added" />
-      <x-admin.sortable-th field="updated_at" label="Last updated" />
+      <x-admin.sortable-th field="name" label="Name" :currentSort="$sort" :currentDirection="$direction" />
+      <x-admin.sortable-th field="brand" label="Brand" :currentSort="$sort" :currentDirection="$direction" />
+      <x-admin.sortable-th field="created_at" label="Added" :currentSort="$sort" :currentDirection="$direction" />
+      <x-admin.sortable-th field="updated_at" label="Last updated" :currentSort="$sort" :currentDirection="$direction" />
 
 </x-slot>
 

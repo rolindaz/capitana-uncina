@@ -39,7 +39,7 @@ class YarnController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        return view('admin.yarns.index', compact('yarns'));
+        return view('admin.yarns.index', compact('yarns', 'sort', 'direction'));
     }
 
     /**

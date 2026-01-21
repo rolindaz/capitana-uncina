@@ -20,17 +20,21 @@
   @endif
 </x-slot>
 
-{{-- Slot dell'intestazione della tabella --}}
+{{-- Slot dell'intestazione della tabella con le colonne ordinabili --}}
 <x-slot name="head">
 
-    <th scope="col">
+    <th scope="col" class="text-center">
       Foto
     </th>
 
-    <x-admin.sortable-th field="name" label="Titolo" />
-    <x-admin.sortable-th field="category" label="Categoria" />
-    <x-admin.sortable-th field="created_at" label="Aggiunto" />
-    <x-admin.sortable-th field="updated_at" label="Aggiornato" />
+    <x-admin.sortable-th field="name" label="Titolo" :currentSort="$sort" :currentDirection="$direction" />
+    <x-admin.sortable-th field="category" label="Categoria" :currentSort="$sort" :currentDirection="$direction" />
+    <x-admin.sortable-th field="created_at" label="Aggiunto" :currentSort="$sort" :currentDirection="$direction" />
+    <x-admin.sortable-th field="updated_at" label="Aggiornato" :currentSort="$sort" :currentDirection="$direction" />
+
+    <th scope="col" class="text-center">
+      Azioni
+    </th>
 
 </x-slot>
 
@@ -45,22 +49,22 @@
           </div>
         </a>
       </td>
-      <td>
+      <td class="text-center">
         <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
           {{ $project->name }}
         </a>
       </td>
-      <td>
+      <td class="text-center">
           {{ $project->category->name }}
       </td>
-      <td>
+      <td class="text-center">
         {{ $project->created_at->diffForHumans() }}
       </td>
-      <td>
+      <td class="text-center">
         {{ $project->updated_at->diffForHumans() }}
       </td>
       <td class="text-end">
-        <div class="d-inline-flex gap-2">
+        <div class="d-flex gap-2 justify-content-evenly">
           <x-admin.edit-button label="Edit" route="projects.edit" :model="$project" />
 
           <x-admin.delete-modal
