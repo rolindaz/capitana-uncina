@@ -89,19 +89,16 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        $yarns = Yarn::all();
+        $colorways = Colorway::all();
         $categories = Category::query()
             ->with('translation')
             ->get();
-
-        $yarns = Yarn::all();
-
-        $colorways = Colorway::all();
-
-        $sizes = config('data.projects.sizes');
-        $status = config('data.projects.status');
         $crafts = Craft::query()
             ->with('translation')
             ->get();
+        $sizes = config('data.projects.sizes');
+        $status = config('data.projects.status');
 
         return view('admin.projects.create', compact([
             'categories',
@@ -232,12 +229,9 @@ class ProjectController extends Controller
     public function show(Project $project)
     {
         $project->load([
-            'translation',
-            'category.translation',
-            'category.parent.translation',
-            'category.parent.parent.translation',
-            'crafts.translation',
-            'projectYarns.colorway.translation'
+            'category',
+            'crafts',
+            'projectYarns.colorway'
         ]);
 
         return view('admin.projects.show', compact('project'));

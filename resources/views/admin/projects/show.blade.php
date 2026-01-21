@@ -4,11 +4,11 @@
 
 @section('title', $project->name)
 
-{{-- <x-projects.go-back-button/> --}}
-
 @section('content')
 
 <div class="row g-4 align-items-start mb-4">
+    
+    {{-- Immagine progetto --}}
     <div class="col-12 col-md-4 col-lg-3">
         @if($project->image_path)
             <figure class="polaroid mb-0">
@@ -33,15 +33,21 @@
         @endif
     </div>
 
+    {{-- Informazioni progetto --}}
     <div class="col-12 col-md-8 col-lg-9 precise-font">
+
+        {{-- Intestazione con titolo e pulsanti --}}
         <div class="d-flex justify-content-between align-items-start gap-3">
+
+            {{-- Titolo --}}
             <div>
                 <h1 class="h3 mb-1 handwriting">{{ $project->name }}</h1>
                 <div class="text-muted small">
                     Creato: {{ $project->created_at?->diffForHumans() ?? '—' }} · Ultima modifica: {{ $project->updated_at?->diffForHumans() ?? '—' }}
                 </div>
             </div>
-
+            
+            {{-- Pulsanti per modifica ed eliminazione --}}
             <div class="d-flex gap-2 flex-wrap justify-content-end">
                 <x-admin.edit-button route="projects.edit" :model="$project"/>
 
@@ -50,16 +56,21 @@
                     :action="route('projects.destroy', $project)"
                     message="Sei sicuro di voler eliminare questo progetto? L'azione è irreversibile."
                     triggerText="Elimina"
-                    triggerClass="btn btn-danger"
+                    triggerClass="action-button action-button--delete"
                 />
             </div>
         </div>
 
+        {{-- Card con dettagli --}}
         <div class="row g-3 mt-3">
+
+            {{-- Categoria --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-head-font text-uppercase small text-muted mb-2">Categoria</div>
+                        <div class="table-head-font text-uppercase small fw-semibold text-muted mb-2">
+                            Categoria
+                        </div>
                         <div class="fs-6">
                             {{ $project->category?->breadcrumb ?: '—' }}
                         </div>
@@ -67,10 +78,13 @@
                 </div>
             </div>
 
+            {{-- Tecniche --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-head-font text-uppercase small text-muted mb-2">Tecniche</div>
+                        <div class="table-head-font text-uppercase fw-semibold small text-muted mb-2">
+                            Tecniche
+                        </div>
                         @forelse ($project->crafts as $craft)
                             <span class="badge text-bg-light me-1 mb-1">{{ $craft->name ?? '—' }}</span>
                         @empty
@@ -85,7 +99,9 @@
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-head-font text-uppercase small text-muted mb-2">Modello</div>
+                        <div class="table-head-font text-uppercase fw-semibold small text-muted mb-2">
+                            Modello
+                        </div>
                         <div>
                             <strong class="me-2">
                                 Designer:
@@ -111,7 +127,9 @@
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <div class="table-head-font text-uppercase small text-muted mb-2">Dettagli</div>
+                        <div class="table-head-font text-uppercase fw-semibold small text-muted mb-2">
+                            Dettagli
+                        </div>
                         @if($project->destination_use)
                             <div>
                                 {{ $project->destination_use }}
@@ -127,8 +145,12 @@
             </div>
         </div>
     </div>
+
+    {{-- Filati usati --}}
     <div class="card">
-        <div class="handwriting fs-3 text-center my-2">Filati usati</div>
+        <div class="handwriting fs-3 text-center my-2">
+            Filati usati
+        </div>
         <div class="row row-cols-2 flex-wrap" style="max-height: fit-content;">
             @forelse ($project->projectYarns as $used_yarn)
                 <div class="card-body">
@@ -157,29 +179,31 @@
         </div>
     </div>
     
+    {{-- Note --}}
+    <section class="notebook-sheet">
+        <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
+            <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
+        </div>
 
-<section class="notebook-sheet">
-    <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
-        <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
+        <div class="notebook-sheet-body precise-font">
+            @php
+                $notes = $project->notes ?? null;
+            @endphp
+
+            @if(!empty($notes))
+                <p class="mb-0">{!! nl2br(e($notes)) !!}</p>
+            @else
+                <p class="mb-0 text-muted">
+                </p>
+            @endif
+        </div>
+    </section>
+
+    {{-- Pulsante torna indietro --}}
+    <div class="d-flex justify-content-start mt-4 precise-font">
+        <a href="{{ route('projects.index') }}" class="action-button action-button--go-back">
+            Torna ai progetti
+        </a>
     </div>
-
-    <div class="notebook-sheet-body precise-font">
-        @php
-            $notes = $project->notes ?? null;
-        @endphp
-
-        @if(!empty($notes))
-            <p class="mb-0">{!! nl2br(e($notes)) !!}</p>
-        @else
-            <p class="mb-0 text-muted">
-            </p>
-        @endif
-    </div>
-</section>
-
-<div class="d-flex justify-content-start mt-4 precise-font">
-    <a href="{{ route('projects.index') }}" class="action-button action-button--go-back">
-        Torna ai progetti
-    </a>
 </div>
 @endsection

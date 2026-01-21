@@ -490,8 +490,8 @@ return [
     [
         'category_id' => 77,
         'locale' => 'it',
-        'name' => 'Throw',
-        'slug' => 'throw'
+        'name' => 'Coperta da Divano',
+        'slug' => 'coperta-da-divano'
     ],
     [
         'category_id' => 78,
