@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Colorway extends Model
 {
+
+    protected $appends = [
+        'name',
+        'slug'
+    ];
+
     public function yarns() {
         return $this->belongsToMany(Yarn::class);
     }

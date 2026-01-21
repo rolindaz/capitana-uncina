@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class FiberYarn extends Pivot
 {
+    // Laravel deduce da FiberYarn come nome del modello 'fiber_yarns' come nome della relativa tabella, per cui è importante che gli specifico il nome corretto
+
     protected $table = 'fiber_yarn';
 
     public $timestamps = true;

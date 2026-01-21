@@ -32,19 +32,19 @@ class Yarn extends Model
     }
 
     public function colorways() {
-        return $this->belongsToMany(Colorway::class)
+        return $this->belongsToMany(Colorway::class);
+    }
+
+    public function projects() {
+        return $this->belongsToMany(Project::class)
             ->using(ProjectYarn::class)
             ->withPivot([
+                'colorway_id',
                 'quantity',
                 'meterage',
                 'weight'
             ])
             ->withTimestamps();
-    }
-
-    public function projects() {
-        return $this->belongsToMany(Project::class)
-        ->using(ProjectYarn::class);
     }
 
     public function projectYarns() {

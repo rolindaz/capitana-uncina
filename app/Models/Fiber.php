@@ -6,8 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fiber extends Model
 {
+
+    protected $appends = [
+        'name',
+        'slug'
+    ];
+
     public function yarns() {
-        return $this->belongsToMany(Yarn::class);
+        return $this->belongsToMany(Yarn::class)
+        ->using(FiberYarn::class)
+        ->withPivot('percentage')
+        ->withTimestamps();
     }
 
     public function fiber_translations() {

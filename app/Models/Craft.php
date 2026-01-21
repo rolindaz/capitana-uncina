@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Craft extends Model
 {
+
+    protected $appends = [
+        'name',
+        'slug'
+    ];
+
     public function projects() {
         return $this->belongsToMany(Project::class);
     }

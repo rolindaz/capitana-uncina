@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+
+    protected $appends = [
+        'name',
+        'slug'
+    ];
+
     public function projects() {
         return $this->hasMany(Project::class);
     }
@@ -14,6 +20,8 @@ class Category extends Model
     public function category_translations() {
         return $this->hasMany(CategoryTranslation::class);
     }
+
+    /* Stabilisco una relazione tra istanze dello stesso modello attraverso un id "genitore": le istanze che lo hanno nullo sono i "genitori", quelle che lo hanno compilato sono i figli */
 
     public function parent() {
         return $this->belongsTo(Category::class, 'parent_id');
@@ -39,6 +47,8 @@ class Category extends Model
         return $this->translation?->slug;
     }
 
+    // creo una funzione per ottenere l'"albero genealogico" di una categoria sotto forma di collezione (dall'antenato più antico all'istanza corrente)
+
     public function ancestorsAndSelf() {
         $nodes = collect();
 
@@ -56,6 +66,8 @@ class Category extends Model
         return $nodes;
     }
 
+    // infine creo l'accessore alla proprietà "genitori", calcolata e renderizzata al momento
+
     public function getBreadcrumbAttribute() {
         return $this->ancestorsAndSelf()
             ->map(function ($category) {
@@ -64,6 +76,6 @@ class Category extends Model
             })
             ->filter()
             ->values()
-            ->join(' -> ');
+            ->join(' ➪ ');
     }
 }
