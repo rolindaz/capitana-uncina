@@ -103,7 +103,7 @@
                 <label for="execution_time">
                     Ore di lavoro totali
                 </label>
-                <input class="w-25 ms-2" type="number" name="execution_time" id="execution_time">
+                <input class="w-25 ms-2" type="number" min="0" name="execution_time" id="execution_time">
             </div>
         </div>
         {{-- Informazioni schema --}}
@@ -189,7 +189,7 @@
                             <label for="quantity_0">
                                 Quantità
                             </label>
-                            <input class="ms-2 form-select" type="number" name="yarns[0][quantity]" id="quantity_0"/>
+                            <input class="ms-2 form-select" type="number" min="0" name="yarns[0][quantity]" id="quantity_0"/>
                         </div>
                         <button type="button" id="add-yarn-btn" class="btn btn-secondary">
                             +

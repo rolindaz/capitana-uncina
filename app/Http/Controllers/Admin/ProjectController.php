@@ -128,7 +128,7 @@ class ProjectController extends Controller
             'status' => ['required', 'string'],
             'started' => ['nullable', 'date'],
             'completed' => ['nullable', 'date'],
-            'execution_time' => ['nullable', 'numeric'],
+            'execution_time' => ['nullable', 'numeric', 'min:0'],
 
             'designer_name' => ['nullable', 'string'],
             'pattern_name' => ['nullable', 'string'],
@@ -253,9 +253,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        /* dd($request); */
 
-        dd($request);
-
+        /* Convalido i dati */
         $v_data = $request->validate([
             'name' => ['required', 'string'],
             'category_id' => ['required', 'exists:categories,id'],
@@ -265,7 +265,7 @@ class ProjectController extends Controller
             'status' => ['required', 'string'],
             'started' => ['nullable', 'date'],
             'completed' => ['nullable', 'date'],
-            'execution_time' => ['nullable', 'numeric'],
+            'execution_time' => ['nullable', 'numeric', 'min:0'],
 
             'designer_name' => ['nullable', 'string'],
             'pattern_name' => ['nullable', 'string'],
@@ -284,11 +284,13 @@ class ProjectController extends Controller
 
         /* dd($v_data); */
 
-        // If status is not completed, clear completed-specific fields
+        /* Se il valore di Stato è diverso da "Completato", alla data di completamento e al tempo totale di lavoro va attribuito in automatico un valore nullo */
         if (!in_array($v_data['status'], ['Completed', 'Completato'], true)) {
             $v_data['completed'] = null;
             $v_data['execution_time'] = null;
         }
+
+        /* Aggiorno tutti i campi del progetto con i valori forniti */
 
         $project->category_id = $v_data['category_id'];
         $project->started = $v_data['started'] ?? null;
@@ -299,7 +301,7 @@ class ProjectController extends Controller
         $project->pattern_url = $v_data['pattern_url'] ?? null;
         $project->size = $v_data['size'] ?? null;
 
-        // Aggiornamento immagine
+        /* Aggiornamento immagine */
         if ($request->hasFile('image_path')) {
             if (!empty($project->image_path)) {
                 Storage::delete($project->image_path);
@@ -309,9 +311,11 @@ class ProjectController extends Controller
 
         $project->save();
 
+        /* Prendo la locale corrente e genero lo slug */
         $locale = app()->getLocale();
         $slug = Str::slug($v_data['name']);
 
+        /* Aggiorno o creo - se non esiste già - la traduzione del progetto per la locale corrente e inserisco i campi pertinenti */
         $project->project_translations()->updateOrCreate(
             [
                 'locale' => $locale,
@@ -326,9 +330,10 @@ class ProjectController extends Controller
             ]
         );
 
+        /* Sincronizzo le tecniche */
         $project->crafts()->sync($v_data['craft_ids']);
 
-        // Rebuild pivot rows (supports multiple yarn rows)
+        /* Ricostruisco le righe della tabella project_yarn collegate al progetto corrente */
         $project->yarns()->detach();
         foreach ($v_data['yarns'] ?? [] as $yarnData) {
             $project->yarns()->attach(
@@ -340,8 +345,10 @@ class ProjectController extends Controller
             );
         }
 
+        /* Scollego la relazione precedente, che Eloquent trattiene. Così la prossima volta che voglio la translation di questo progetto verrà generata una nuova query che prende le informazioni aggiornate, invece di quelle vecchie */
         $project->unsetRelation('translation');
 
+        /* Torno alla show, dove visualizzo le informazioni aggiornate */
         return redirect()
             ->route('projects.show', $project)
             ->with('success', 'Project updated');

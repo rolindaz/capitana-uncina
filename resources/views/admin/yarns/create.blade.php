@@ -45,7 +45,7 @@
                 <label for="fiber_types_number">
                     Tipologie di fibra
                 </label>
-                <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
+                <input class="ms-2" type="number" min="0" name="fiber_types_number" id="fiber_types_number">
             </div>
             {{-- Contenitore input fibre complesso --}}
             <div id="fibers-container">
@@ -70,7 +70,7 @@
                             <label for="percentage_0">
                                 Percentuale
                             </label>
-                            <input class="ms-2 form-select" type="number" name="fibers[0][percentage]" id="percentage_0"/>
+                            <input class="ms-2 form-select" type="number" min="0" name="fibers[0][percentage]" id="percentage_0"/>
                         </div>
                         <button type="button" id="add-fiber-btn" class="btn btn-secondary">
                             +
@@ -84,19 +84,19 @@
                 <label for="unit_weight">
                     Peso Unitario
                 </label>
-                <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
+                <input class="ms-2" type="number" min="0" name="unit_weight" id="unit_weight">
             </div>
             <div>
                 <label for="meterage">
                     Metraggio
                 </label>
-                <input class="ms-2" type="number" name="meterage" id="meterage">
+                <input class="ms-2" type="number" min="0" name="meterage" id="meterage">
             </div>
             <div>
                 <label for="ply">
                     Fili
                 </label>
-                <input class="ms-2" type="number" name="ply" id="ply">
+                <input class="ms-2" type="number" min="0" name="ply" id="ply">
             </div>
             <div class="d-flex align-items-center">
                 <label for="weight">
@@ -138,14 +138,14 @@
                         <label for="min_hook_size">
                             Minimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_hook_size" id="min_hook_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="min_hook_size" id="min_hook_size"
                         style="width: 100px;">
                     </div>
                     <div class="col">
                         <label for="max_hook_size">
                             Massimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_hook_size" id="max_hook_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="max_hook_size" id="max_hook_size"
                         style="width: 100px;">
                     </div>
                 </div>
@@ -157,14 +157,14 @@
                         <label for="min_needle_size">
                             Minimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_needle_size" id="min_needle_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="min_needle_size" id="min_needle_size"
                         style="width: 100px;">
                     </div>
                     <div class="col">
                         <label for="max_needle_size">
                             Massimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_needle_size" id="max_needle_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="max_needle_size" id="max_needle_size"
                         style="width: 100px;">
                     </div>
                 </div>

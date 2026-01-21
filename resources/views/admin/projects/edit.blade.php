@@ -101,7 +101,7 @@
                 <label for="execution_time">
                     Ore di lavoro totali
                 </label>
-                <input class="w-25 ms-2" type="number" name="execution_time" id="execution_time" value="{{ old('execution_time', $project->execution_time) }}">
+                <input class="w-25 ms-2" type="number" min="0" name="execution_time" id="execution_time" value="{{ old('execution_time', $project->execution_time) }}">
             </div>
         </div>
         {{-- Informazioni schema --}}
@@ -227,7 +227,7 @@
                                 <label for="quantity_{{ $index }}">
                                     Quantità
                                 </label>
-                                <input class="ms-2 form-select" type="number" name="yarns[{{ $index }}][quantity]" id="quantity_{{ $index }}" value="{{ (int)$row['quantity'] ?? '' }}"/>
+                                <input class="ms-2 form-select" type="number" min="0" name="yarns[{{ $index }}][quantity]" id="quantity_{{ $index }}" value="{{ (int)$row['quantity'] ?? '' }}"/>
                             </div>
 
                             @if ($index === 0)

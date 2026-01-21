@@ -35,7 +35,7 @@ addFiberBtn.addEventListener('click', function(e) {
                         <label for="percentage_${fiberRowCount}">
                             Percentuale
                         </label>
-                        <input class="ms-2 form-select" type="number" name="fibers[${fiberRowCount}][percentage]" id="percentage_${fiberRowCount}"/>
+                        <input class="ms-2 form-select" type="number" min="0" name="fibers[${fiberRowCount}][percentage]" id="percentage_${fiberRowCount}"/>
                     </div>
                     <button type="button" class="btn btn-sm btn-danger remove-fiber-btn">Rimuovi</button>
                 </div>

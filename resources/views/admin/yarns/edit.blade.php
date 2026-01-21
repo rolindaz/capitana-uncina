@@ -48,7 +48,7 @@
                 <label for="fiber_types_number">
                 Tipologie di fibra
                 </label>
-                <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number" value="{{ old('fiber_types_number', $yarn->fiber_types_number) }}">
+                <input class="ms-2" type="number" min="0" name="fiber_types_number" id="fiber_types_number" value="{{ old('fiber_types_number', $yarn->fiber_types_number) }}">
             </div>
             {{-- Contenitore input fibre complesso --}}
             <div id="fibers-container" class="mb-3">
@@ -93,7 +93,7 @@
                             <label for="percentage_{{ $index }}">
                                 Percentuale
                             </label>
-                            <input class="ms-2 form-select" type="number" name="fibers[{{ $index }}][percentage]" id="percentage_{{ $index }}" value="{{ $selectedPercentage }}"/>
+                            <input class="ms-2 form-select" type="number" min="0" name="fibers[{{ $index }}][percentage]" id="percentage_{{ $index }}" value="{{ $selectedPercentage }}"/>
                         </div>
 
                         @if ($index === 0)
@@ -113,19 +113,19 @@
                 <label for="unit_weight">
                 Peso Unitario
                 </label>
-                <input class="ms-2" type="number" name="unit_weight" id="unit_weight" value="{{ old('unit_weight', $yarn->unit_weight) }}">
+                <input class="ms-2" type="number" min="0" name="unit_weight" id="unit_weight" value="{{ old('unit_weight', $yarn->unit_weight) }}">
             </div>
             <div>
                 <label for="meterage">
                     Metraggio
                 </label>
-                <input class="ms-2" type="number" name="meterage" id="meterage" value="{{ old('meterage', $yarn->meterage) }}">
+                <input class="ms-2" type="number" min="0" name="meterage" id="meterage" value="{{ old('meterage', $yarn->meterage) }}">
             </div>
             <div>
                 <label for="ply">
                     Fili
                 </label>
-                <input class="ms-2" type="number" name="ply" id="ply" value="{{ old('ply', $yarn->ply) }}">
+                <input class="ms-2" type="number" min="0" name="ply" id="ply" value="{{ old('ply', $yarn->ply) }}">
             </div>
             <div class="d-flex align-items-center">
                 <label for="weight">
@@ -161,7 +161,7 @@
                         <label for="min_hook_size">
                             Minimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_hook_size" id="min_hook_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="min_hook_size" id="min_hook_size"
                         style="width: 100px;"
                         value="{{ old('min_hook_size', $yarn->min_hook_size) }}">
                     </div>
@@ -169,7 +169,7 @@
                         <label for="max_hook_size">
                             Massimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_hook_size" id="max_hook_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="max_hook_size" id="max_hook_size"
                         style="width: 100px;"
                         value="{{ old('max_hook_size', $yarn->max_hook_size) }}">
                     </div>
@@ -182,7 +182,7 @@
                         <label for="min_needle_size">
                             Minimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="min_needle_size" id="min_needle_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="min_needle_size" id="min_needle_size"
                         style="width: 100px;"
                         value="{{ old('min_needle_size', $yarn->min_needle_size) }}">
                     </div>
@@ -190,7 +190,7 @@
                         <label for="max_needle_size">
                             Massimo
                         </label>
-                        <input class="ms-2" type="number" step="0.01" inputmode="decimal" name="max_needle_size" id="max_needle_size"
+                        <input class="ms-2" type="number" min="0" step="0.01" inputmode="decimal" name="max_needle_size" id="max_needle_size"
                         style="width: 100px;"
                         value="{{ old('max_needle_size', $yarn->max_needle_size) }}">
                     </div>

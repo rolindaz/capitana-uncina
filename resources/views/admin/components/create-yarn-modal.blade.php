@@ -48,55 +48,55 @@
                                 <label class="text-danger" for="ply">
                                     Fili
                                 </label>
-                                <input class="ms-2" type="number" name="ply" id="ply">
+                                <input class="ms-2" type="number" min="0" name="ply" id="ply">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="unit_weight">
                                     Peso unitario
                                 </label>
-                                <input class="ms-2" type="number" name="unit_weight" id="unit_weight">
+                                <input class="ms-2" type="number" min="0" name="unit_weight" id="unit_weight">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="meterage">
                                     Metraggio
                                 </label>
-                                <input class="ms-2" type="number" name="meterage" id="meterage">
+                                <input class="ms-2" type="number" min="0" name="meterage" id="meterage">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="fiber_types_number">
                                     Tipologie di fibra
                                 </label>
-                                <input class="ms-2" type="number" name="fiber_types_number" id="fiber_types_number">
+                                <input class="ms-2" type="number" min="0" name="fiber_types_number" id="fiber_types_number">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="min_hook_size">
                                     Misura uncinetto minima
                                 </label>
-                                <input class="ms-2" type="number" name="min_hook_size" id="min_hook_size">
+                                <input class="ms-2" type="number" min="0" name="min_hook_size" id="min_hook_size">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="max_hook_size">
                                     Misura uncinetto massima
                                 </label>
-                                <input class="ms-2" type="number" name="max_hook_size" id="max_hook_size">
+                                <input class="ms-2" type="number" min="0" name="max_hook_size" id="max_hook_size">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="min_needle_size">
                                     Misura ferri minima
                                 </label>
-                                <input class="ms-2" type="number" name="min_needle_size" id="min_needle_size">
+                                <input class="ms-2" type="number" min="0" name="min_needle_size" id="min_needle_size">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="max_needle_size">
                                     Misura ferri massima
                                 </label>
-                                <input class="ms-2" type="number" name="max_needle_size" id="max_needle_size">
+                                <input class="ms-2" type="number" min="0" name="max_needle_size" id="max_needle_size">
                             </div>
                             <div class="d-flex align-items-center">
                                 <label class="text-danger" for="color_type">
                                     Tipologia colore
                                 </label>
-                                <input class="ms-2" type="number" name="color_type" id="color_type">
+                                <input class="ms-2" type="number" min="0" name="color_type" id="color_type">
                             </div>
                             <div>
                                 <label for="image_path">

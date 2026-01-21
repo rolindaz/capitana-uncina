@@ -70,19 +70,19 @@ class YarnController extends Controller
             'brand' => ['required', 'string', 'max:255'],
             'weight' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
-            'ply' => ['nullable', 'numeric'],
-            'unit_weight' => ['required', 'numeric'],
+            'ply' => ['nullable', 'numeric', 'min:0'],
+            'unit_weight' => ['required', 'numeric', 'min:0'],
             'color_type' => ['nullable', 'string', 'max:255'],
-            'meterage' => ['nullable', 'numeric'],
-            'fiber_types_number' => ['required', 'numeric'],
+            'meterage' => ['nullable', 'numeric', 'min:0'],
+            'fiber_types_number' => ['required', 'numeric', 'min:0'],
             'fibers' => ['required', 'array'],
             'fibers.*.fiber_id' => ['required', 'exists:fibers,id'],
-            'fibers.*.percentage' => ['nullable', 'numeric'],
+            'fibers.*.percentage' => ['nullable', 'numeric', 'min:0'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
-            'min_hook_size' => ['nullable', 'decimal:0,2'],
-            'max_hook_size' => ['nullable', 'decimal:0,2'],
-            'min_needle_size' => ['nullable', 'decimal:0,2'],
-            'max_needle_size' => ['nullable', 'decimal:0,2']
+            'min_hook_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'max_hook_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'min_needle_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'max_needle_size' => ['nullable', 'decimal:0,2', 'min:0']
         ]);
 
         /* dd($v_data); */
@@ -192,19 +192,19 @@ class YarnController extends Controller
             'brand' => ['required', 'string', 'max:255'],
             'weight' => ['required', 'string', 'max:255'],
             'category' => ['required', 'string', 'max:255'],
-            'ply' => ['nullable', 'numeric'],
-            'unit_weight' => ['required', 'numeric'],
+            'ply' => ['nullable', 'numeric', 'min:0'],
+            'unit_weight' => ['required', 'numeric', 'min:0'],
             'color_type' => ['nullable', 'string', 'max:255'],
-            'meterage' => ['nullable', 'numeric'],
-            'fiber_types_number' => ['required', 'numeric'],
+            'meterage' => ['nullable', 'numeric', 'min:0'],
+            'fiber_types_number' => ['required', 'numeric', 'min:0'],
             'fibers' => ['required', 'array'],
             'fibers.*.fiber_id' => ['required', 'exists:fibers,id'],
-            'fibers.*.percentage' => ['nullable', 'numeric'],
+            'fibers.*.percentage' => ['nullable', 'numeric', 'min:0'],
             'image_path' => ['nullable', 'image', 'mimes:png,jpg,jpeg'],
-            'min_hook_size' => ['nullable', 'decimal:0,2'],
-            'max_hook_size' => ['nullable', 'decimal:0,2'],
-            'min_needle_size' => ['nullable', 'decimal:0,2'],
-            'max_needle_size' => ['nullable', 'decimal:0,2']
+            'min_hook_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'max_hook_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'min_needle_size' => ['nullable', 'decimal:0,2', 'min:0'],
+            'max_needle_size' => ['nullable', 'decimal:0,2', 'min:0']
         ]);
 
         $yarn->fill([

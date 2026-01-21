@@ -70,7 +70,7 @@ if (addYarnBtn && yarnsContainer) {
                     <label for="quantity_${yarnRowCount}">
                         Quantità
                     </label>
-                    <input class="ms-2 form-select" type="number" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>
+                    <input class="ms-2 form-select" type="number" min="0" name="yarns[${yarnRowCount}][quantity]" id="quantity_${yarnRowCount}"/>
                 </div>
                 <button type="button" class="btn btn-sm btn-danger remove-yarn-btn">Rimuovi</button>
             </div>
