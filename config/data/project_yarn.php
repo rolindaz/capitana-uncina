@@ -504,4 +504,92 @@ return [
         'weight' => null
     ],
 
+    // Cardigan Fatih uguale al mio maglione
+
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 13,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 26,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 27,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 28,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 29,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 35,
+        'yarn_id' => 5,
+        'colorway_id' => 18,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+
+    // Vestitino Loupy Studio 
+
+    [
+        'project_id' => 36,
+        'yarn_id' => 10,
+        'colorway_id' => 43,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 36,
+        'yarn_id' => 11,
+        'colorway_id' => 44,
+        'quantity' => 1,
+        'meterage' => 140,
+        'weight' => 50
+    ],
+
+    // Mio maglione rombi blu ai ferri
+
+    [
+        'project_id' => 37,
+        'yarn_id' => 5,
+        'colorway_id' => 29,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 37,
+        'yarn_id' => 5,
+        'colorway_id' => 45,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
 ];

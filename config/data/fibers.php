@@ -79,4 +79,7 @@ return [
     [
         'key' => 'yak'
     ],
+    [
+        'key' => 'polyamide'
+    ],
 ];

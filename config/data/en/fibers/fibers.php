@@ -183,4 +183,11 @@ return [
         'slug' => 'yak',
         'description' => 'Warm, soft bovine undercoat fiber.'
     ],
+    [
+        'fiber_id' => 27,
+        'locale' => 'en',
+        'name' => 'Polyamide',
+        'slug' => 'polyamide',
+        'description' => 'Synthetic fiber (nylon family) used to add strength and durability.'
+    ],
 ];

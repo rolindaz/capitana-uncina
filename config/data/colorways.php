@@ -253,4 +253,22 @@ return [
         'key' => 'senape_paris',
         'image_path' => 'colorways/senape2.png'
     ],
+    [
+        'id' => 43,
+        'color_code' => '1371',
+        'key' => 'glicine',
+        'image_path' => 'colorways/glicine.png'
+    ],
+    [
+        'id' => 44,
+        'color_code' => 'uni colour 18',
+        'key' => 'senape_melody',
+        'image_path' => 'colorways/senape-melody.png'
+    ],
+    [
+        'id' => 45,
+        'color_code' => '08211',
+        'key' => 'royal',
+        'image_path' => 'colorways/royal.png'
+    ],
 ];

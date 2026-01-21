@@ -145,4 +145,36 @@ return [
         'min_needle_size' => 2.5,
         'max_needle_size' => 3.5
     ],
+    [
+        'name' => 'Versailles',
+        'slug' => 'versailles',
+        'brand' => 'Sesia',
+        'weight' => '2 - Fine',
+        'category' => 'Sport, Baby',
+        'ply' => null,
+        'unit_weight' => 50,
+        'meterage' => 155,
+        'fiber_types_number' => 2,
+        'image_path' => 'yarns/versailles.jpg',
+        'min_hook_size' => 4,
+        'max_hook_size' => 4.5,
+        'min_needle_size' => 4,
+        'max_needle_size' => 4.5
+    ],
+    [
+        'name' => 'Melody',
+        'slug' => 'melody',
+        'brand' => 'Drops',
+        'weight' => '5 - Bulky',
+        'category' => 'Chunky, Craft, Rug',
+        'ply' => 12,
+        'unit_weight' => 50,
+        'meterage' => 140,
+        'fiber_types_number' => 3,
+        'image_path' => 'yarns/melody.jpg',
+        'min_hook_size' => 8,
+        'max_hook_size' => 8,
+        'min_needle_size' => 8,
+        'max_needle_size' => 8
+    ],
 ];

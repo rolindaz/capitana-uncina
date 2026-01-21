@@ -157,5 +157,17 @@ return [
         'project_id' => 34,
         'craft_id' => 1
     ],
+    [
+        'project_id' => 35,
+        'craft_id' => 4
+    ],
+    [
+        'project_id' => 36,
+        'craft_id' => 1
+    ],
+    [
+        'project_id' => 37,
+        'craft_id' => 4
+    ],
     
 ];

@@ -183,4 +183,11 @@ return [
         'slug' => 'yak',
         'description' => 'Sottovello caldo e morbido di yak.'
     ],
+    [
+        'fiber_id' => 27,
+        'locale' => 'it',
+        'name' => 'Poliammide',
+        'slug' => 'poliammide',
+        'description' => 'Fibra sintetica (famiglia nylon) usata per aumentare resistenza e durata.'
+    ],
 ];
