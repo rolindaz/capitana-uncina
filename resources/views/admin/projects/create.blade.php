@@ -52,7 +52,7 @@
                     Categoria
                 </label>
                 <select class="ms-2 w-50 form-select" name="category_id" id="category">
-                    <option selected>
+                    <option selected value="">
                         Seleziona la categoria
                     </option>
                     <x-category-options :categories="$categories" />
@@ -74,7 +74,7 @@
                     Stato
                 </label>
                 <select class="status ms-2 w-50 form-select" name="status" id="status">
-                    <option selected>
+                    <option selected value="">
                         Seleziona
                     </option>
                     @foreach ($status as $data)
@@ -138,7 +138,7 @@
                     Taglia
                 </label>
                 <select class="ms-2 w-50 form-select" name="size" id="size">
-                    <option selected>
+                    <option selected value="">
                         Seleziona la taglia
                     </option>
                     @foreach ($sizes as $size)
@@ -158,7 +158,7 @@
                                 Filato
                             </label>
                             <select class="ms-2 form-select" name="yarns[0][yarn_id]" id="yarn_id_0">
-                                <option selected>
+                                <option selected value="">
                                     Seleziona il filato
                                 </option>
                                 @foreach ($yarns as $yarn)
@@ -174,7 +174,7 @@
                                 Colore
                             </label>
                             <select class="ms-2 form-select" name="yarns[0][colorway_id]" id="colorway_id_0">
-                                <option selected>
+                                <option selected value="">
                                     Seleziona il colore
                                 </option>
                                 @foreach ($colorways as $colorway)

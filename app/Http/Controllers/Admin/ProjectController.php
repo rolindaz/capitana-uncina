@@ -117,23 +117,8 @@ class ProjectController extends Controller
     {
         /* dd($request); */
 
-        // Clean up placeholder values
-        $yarns = $request->input('yarns', []);
-        foreach ($yarns as &$yarn) {
-            // If colorway_id is the placeholder text, set it to null
-            if (isset($yarn['colorway_id']) && !is_numeric($yarn['colorway_id'])) {
-                $yarn['colorway_id'] = null;
-            }
-        }
-        $request->merge(['yarns' => $yarns]);
-
-        // Clean up size if it's a placeholder
-        $size = $request->input('size');
-        if ($size && !is_numeric($size) && strpos($size, 'Seleziona') !== false) {
-            $request->merge(['size' => null]);
-        }
-
-        $validated_data = $request->validate([
+        /* Convalido i dati */
+        $v_data = $request->validate([
             'name' => ['required', 'string'],
             'craft_ids' => ['required', 'array'],
             'craft_ids.*' => ['exists:crafts,id'],
@@ -150,7 +135,6 @@ class ProjectController extends Controller
             'pattern_url' => ['nullable', 'url'],
 
             'size' => ['nullable', 'string'],
-            /* 'yarn_id' => ['required', 'exists:yarns,id'], */
             'yarns' => ['nullable', 'array'],
             'yarns.*.yarn_id' => ['required', 'exists:yarns,id'],
             'yarns.*.colorway_id' => ['nullable', 'sometimes', 'exists:colorways,id'],
@@ -159,65 +143,59 @@ class ProjectController extends Controller
             'notes' => ['nullable', 'string']
         ]);
 
-        /* dd($validated_data); */
+        /* dd($v_data); */
 
+        /* Creo una nuova istanza del progetto, in cui inserisco solo i valori pertinenti al modello Project - gli altri si riferiscono a ProjectTranslation e vanno appesi */
         $newProject = Project::create([
-            'designer_name' => $validated_data['designer_name'],
-            'pattern_name' => $validated_data['pattern_name'],
-            'pattern_url' => $validated_data['pattern_url'],
-            'category_id' => $validated_data['category_id'],
-            'started' => $validated_data['started'],
-            'completed' => $validated_data['completed'],
-            'execution_time' => $validated_data['execution_time'],
-            'size' => $validated_data['size']
+            'designer_name' => $v_data['designer_name'],
+            'pattern_name' => $v_data['pattern_name'],
+            'pattern_url' => $v_data['pattern_url'],
+            'category_id' => $v_data['category_id'],
+            'started' => $v_data['started'],
+            'completed' => $v_data['completed'],
+            'execution_time' => $v_data['execution_time'],
+            'size' => $v_data['size']
         ]);
 
-        if (array_key_exists('image_path', $validated_data)) {
+        /* Salvo l'immagine, se fornita */
+        if (array_key_exists('image_path', $v_data)) {
             // dump("l'immagine c'è");
-            $img_url = Storage::putFile('projects', $validated_data['image_path']);
+            $img_url = Storage::putFile('projects', $v_data['image_path']);
             $newProject->image_path = $img_url;
             $newProject->save();
         }
 
+        /* Mi prendo la locale e genero lo slug */
         $locale = app()->getLocale();
-        $slug = Str::slug($validated_data['name']);
+        $slug = Str::slug($v_data['name']);
 
+        /* Creo una nuova istanza di projectTranslation attraverso la relazione translation() del progetto appena creato */
         $newProject->translation()->create([
             'locale' => $locale,
-            'name' => $validated_data['name'],
-            'notes' => $validated_data['notes'],
-            'status' => $validated_data['status'],
-            'destination_use' => $validated_data['destination_use'],
+            'name' => $v_data['name'],
+            'notes' => $v_data['notes'],
+            'status' => $v_data['status'],
+            'destination_use' => $v_data['destination_use'],
             'slug' => $slug,
         ]);
 
-        foreach ($validated_data['yarns'] ?? [] as $yarnData) {
+        /* Se fornito, ciclo l'array di filati utilizzati per salvare le rispettive voci in una nuova istanza di ProjectYarn a partire dalla relazione yarns() del progetto appena creato */
+        foreach ($v_data['yarns'] ?? [] as $usedYarnData) {
             $newProject->yarns()->attach(
-                $yarnData['yarn_id'],
+                $usedYarnData['yarn_id'],
                 [
-                    'colorway_id' => $yarnData['colorway_id'] ?? null,
-                    'quantity' => $yarnData['quantity'] ?? null
+                    'colorway_id' => $usedYarnData['colorway_id'] ?? null,
+                    'quantity' => $usedYarnData['quantity'] ?? null
                 ]
             );
         }
 
-        /* // creazione del nuovo filato, se inserito:
-
-        if ($request->filled('new_yarn_name')) {
-            $yarn = Yarn::create([
-                'name' => $request->input('new_yarn_name'),
-                'brand' => $request->input('new_yarn_brand')
-            ]);
-
-            // e lo attacco al progetto
-
-            $newProject->yarns()->attach($yarn->id);
-        } */
-
-        if (!empty($validated_data['craft_ids'])) {
-            $newProject->crafts()->attach($validated_data['craft_ids']);
+        /* Se fornito, uso l'array di id delle tecniche per creare nuove righe nella pivot craftProject */
+        if (!empty($v_data['craft_ids'])) {
+            $newProject->crafts()->attach($v_data['craft_ids']);
         }
 
+        /* Torno alla index, dove vedo il mio nuovo progetto nella lista */
         return redirect()
             ->route('projects.index')
             ->with('success', 'Project created');
