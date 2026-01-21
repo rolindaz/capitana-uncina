@@ -13,6 +13,7 @@ class Project extends Model
         'completed' => 'datetime',
     ]; */
 
+    // Implemento uno strato di salvaguardia per l'assegnazione di massa di valori alle colonne della tabella nel db - intesa cioè come effettuata attraverso create(), update() o fill() - l'assegnazione manuale funziona comunque!
     protected $fillable = [
         'designer_name',
         'pattern_name',
