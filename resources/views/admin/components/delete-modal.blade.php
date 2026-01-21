@@ -1,10 +1,12 @@
+{{-- Modale per l'eliminazione della risorsa --}}
+
 @props([
     'id',
     'action',
     'title' => 'Conferma eliminazione',
     'message' => "Sei sicuro di voler eliminare questo elemento? Questa azione è irreversibile.",
     'triggerText' => 'Elimina',
-    'triggerClass' => 'btn btn-danger precise-font',
+    'triggerClass' => 'action-button action-button--delete',
     'confirmText' => 'Elimina definitivamente',
     'cancelText' => 'Annulla',
 ])

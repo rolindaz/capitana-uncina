@@ -6,17 +6,17 @@
 
 @section('content')
 
-{{-- Importo la tabella risorse con i parametri relativi ai progetti --}}
+{{-- Tabella risorse con i parametri relativi ai progetti --}}
 <x-admin.resource-table
   title="Progetti"
   :createRoute="route('projects.create')"
   action="+ Nuovo Progetto"
 >
 
-{{-- Slot della paginazione --}}
+{{-- Slot per la prima barra di paginazione --}}
 <x-slot name="paginationTop">
   @if ($projects->hasPages())
-    {{ $projects->onEachSide(1)->links('vendor.pagination.admin') }}
+    {{ $projects->onEachSide(1)->links('admin.pagination.index') }}
   @endif
 </x-slot>
 
@@ -38,6 +38,7 @@
 
 </x-slot>
 
+{{-- Slot del corpo con le informazioni dei progetti --}}
 <x-slot name="body">
 
   @foreach ($projects as $project)
@@ -81,9 +82,10 @@
 
 </x-slot>
 
+{{-- Slot per la seconda barra di paginazione --}}
 <x-slot name="paginationBottom">
   @if ($projects->hasPages())
-    {{ $projects->onEachSide(1)->links('vendor.pagination.admin') }}
+    {{ $projects->onEachSide(1)->links('admin.pagination.index') }}
   @endif
 </x-slot>
 

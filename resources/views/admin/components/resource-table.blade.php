@@ -1,3 +1,4 @@
+{{-- Sezione con nome risorsa e pulsante crea nuovo --}}
 <div class="bg-white d-flex justify-content-between align-items-center p-3 mb-5 rounded-3" style="border: 3px solid #031963">
     <strong class="handwriting text-center fs-1">
         {{ $title }}
@@ -10,12 +11,14 @@
     @endisset
 </div>
 
+{{-- Prima barra di paginazione --}}
 @isset($paginationTop)
     <div class="my-4">
         {{ $paginationTop }}
     </div>
 @endisset
 
+{{-- Tabella risorsa --}}
 <div class="card">
     <div class="table-responsive">
         <table class="table table-hover mb-0 admin-resource-table">
@@ -39,6 +42,7 @@
     </div>
 </div>
 
+{{-- Seconda barra di paginazione --}}
 @isset($paginationBottom)
     <div class="my-4">
         {{ $paginationBottom }}
