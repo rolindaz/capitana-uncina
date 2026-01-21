@@ -29,7 +29,6 @@ class Project extends Model
     ];
 
     /* Creo un array con le etichette dei dati della translation per cui ho creato gli accessori, da appendere al progetto nella chiamata API */
-
     protected $appends = [
         'name',
         'notes',
