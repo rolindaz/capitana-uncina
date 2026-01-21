@@ -17,6 +17,7 @@ class YarnController extends Controller
      */
     public function index(Request $request)
     {
+        /* definisco l'array di parametri accettati per l'ordinamento dei filati */
         $allowedSorts = [
             'name',
             'brand',
@@ -24,21 +25,23 @@ class YarnController extends Controller
             'updated_at',
         ];
 
+        /* verifico che il parametro per l'ordinamento presente nella request sia uno di quelli che ho definito io, sennò di default va comunque a data di creazione */
         $sort = $request->query('sort', 'created_at');
         if (!in_array($sort, $allowedSorts, true)) {
             $sort = 'created_at';
         }
 
+        /* Stessa cosa per la direzione dell'ordinamento (ascendente o discendente) */
         $direction = $request->query('direction', 'desc');
         $direction = $direction === 'asc' ? 'asc' : 'desc';
 
-        $yarns = Yarn::with([
-            'fibers.translation',
-        ])
+        /* Prendo i filati e li ordino per il parametro di default nella direzione di default - con paginate li rendo una variabile paginabile  */
+        $yarns = Yarn::query()
             ->orderBy($sort, $direction)
-            ->paginate(12)
+            ->paginate(9)
             ->withQueryString();
 
+        /* Vado alla lista di filati */
         return view('admin.yarns.index', compact('yarns', 'sort', 'direction'));
     }
 

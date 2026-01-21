@@ -43,6 +43,7 @@
 
   @foreach ($projects as $project)
     <tr>
+      {{-- Immagine --}}
       <td>
         <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
           <div class="thumbnail">
@@ -50,24 +51,32 @@
           </div>
         </a>
       </td>
+      {{-- Nome progetto --}}
       <td class="text-center">
         <a class="text-decoration-none text-black" href="{{ route('projects.show', $project->slug) }}">
           {{ $project->name }}
         </a>
       </td>
+      {{-- Categoria --}}
       <td class="text-center">
           {{ $project->category->name }}
       </td>
+      {{-- Data di creazione --}}
       <td class="text-center">
         {{ $project->created_at->diffForHumans() }}
       </td>
+      {{-- Ultimo aggiornamento --}}
       <td class="text-center">
         {{ $project->updated_at->diffForHumans() }}
       </td>
-      <td class="text-end">
+      {{-- Azioni --}}
+      <td>
         <div class="d-flex gap-2 justify-content-evenly">
+
+          {{-- Pulsante di modifica --}}
           <x-admin.edit-button label="Modifica" route="projects.edit" :model="$project" />
 
+          {{-- Pulsante di eliminazione che triggera la modale --}}
           <x-admin.delete-modal
             :id="'deleteProjectModal-'.$project->id"
             :action="route('projects.destroy', $project)"

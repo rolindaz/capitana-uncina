@@ -21,8 +21,7 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {   
-        // definisco l'array di parametri accettati per l'ordinamento dei progetti
-
+        /* definisco l'array di parametri accettati per l'ordinamento dei progetti */
         $allowedSorts = [
             'name',
             'category',
@@ -30,30 +29,29 @@ class ProjectController extends Controller
             'updated_at',
         ];
 
-        // verifico che il parametro per l'ordinamento presente nella request sia uno di quelli che ho definito io, sennò di default va comunque a data di creazione
-
+        /* verifico che il parametro per l'ordinamento presente nella request sia uno di quelli che ho definito io, sennò di default va comunque a data di creazione */
         $sort = $request->query('sort', 'created_at');
         if (!in_array($sort, $allowedSorts, true)) {
             $sort = 'created_at';
         }
 
-        // Stessa cosa per la direzione dell'ordinamento (ascendente o discendente)
+        /* Stessa cosa per la direzione dell'ordinamento (ascendente o discendente) */
 
         $direction = $request->query('direction', 'desc');
         $direction = $direction === 'asc' ? 'asc' : 'desc';
 
         /* dd($request); */
 
-        // Salvo la lingua corrente
+        /* Salvo la lingua corrente */
         $locale = app()->getLocale();
 
-        // Salvo la selezione di relazioni + Progetti
+        /* Salvo la selezione di relazioni + Progetti */
         $query = Project::query()->with([
             'translation',
             'category.translation'
         ]);
 
-        // Imposto le regole per decidere cosa mostrare, in base alla lingua corrente e all'ordinamento e direzione richiesti
+        /* Imposto le regole per decidere cosa mostrare, in base alla lingua corrente e all'ordinamento e direzione richiesti */
         if ($sort === 'name') {
             $query->orderBy(
                 ProjectTranslation::query()
@@ -76,7 +74,7 @@ class ProjectController extends Controller
             $query->orderBy($sort, $direction);
         }
 
-        // Salvo la selezione dei progetti in una variabile "paginabile", con 12 elementi per pagina e che si trasporti la query da una pagina all'altra, così non mi perdo cose tipo ordinamento ecc.
+        /* Salvo la selezione dei progetti in una variabile "paginabile", con 12 elementi per pagina e che si trasporti la query da una pagina all'altra, così non mi perdo cose tipo ordinamento ecc. */
         $projects = $query
             ->paginate(9)
             ->withQueryString();
@@ -359,18 +357,21 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Project $project)
-    {
+    {   
+        /* Elimino l'immagine collegata al progetto */
         if (!empty($project->image_path)) {
             Storage::delete($project->image_path);
         }
 
-        // Prevent FK constraint failures (no cascade configured in migrations)
+        /* Elimino tutte le relazioni del progetto */
         $project->crafts()->detach();
         $project->projectYarns()->delete();
         $project->project_translations()->delete();
 
+        /* DeleteOrFail lancia un errore in caso di fallimento, a differenza di delete(), per cui posso accorgermi subito se qualcosa è andato storto */
         $project->deleteOrFail();
 
+        /* Torno alla index */
         return redirect()->route('projects.index');
     }
 }
