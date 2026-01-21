@@ -5,7 +5,7 @@
     'route' => null,
     'model' => null,
     'label' => 'Modifica',
-    'class' => 'edit-btn',
+    'class' => 'action-button action-button--edit',
 ])
 
 @php

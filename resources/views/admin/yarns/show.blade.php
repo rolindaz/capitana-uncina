@@ -193,7 +193,7 @@
 </section>
 
 <div class="d-flex justify-content-start mt-4 precise-font">
-    <a href="{{ route('yarns.index') }}" class="go-back-button">
+    <a href="{{ route('yarns.index') }}" class="action-button action-button--go-back">
         Torna ai filati
     </a>
 </div>

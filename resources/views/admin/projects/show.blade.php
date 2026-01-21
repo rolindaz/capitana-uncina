@@ -178,7 +178,7 @@
 </section>
 
 <div class="d-flex justify-content-start mt-4 precise-font">
-    <a href="{{ route('projects.index') }}" class="go-back-button">
+    <a href="{{ route('projects.index') }}" class="action-button action-button--go-back">
         Torna ai progetti
     </a>
 </div>

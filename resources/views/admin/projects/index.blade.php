@@ -65,14 +65,14 @@
       </td>
       <td class="text-end">
         <div class="d-flex gap-2 justify-content-evenly">
-          <x-admin.edit-button label="Edit" route="projects.edit" :model="$project" />
+          <x-admin.edit-button label="Modifica" route="projects.edit" :model="$project" />
 
           <x-admin.delete-modal
             :id="'deleteProjectModal-'.$project->id"
             :action="route('projects.destroy', $project)"
             message="Sei sicuro di voler eliminare questo progetto? L'azione è irreversibile."
             triggerText="Elimina"
-            triggerClass="btn btn-danger btn-sm"
+            triggerClass="action-button action-button--delete"
           />
         </div>
       </td>

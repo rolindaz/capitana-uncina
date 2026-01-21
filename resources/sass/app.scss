@@ -16,6 +16,7 @@
    width: 100%;
    height: 100%;
    object-fit: cover;
+   border-radius: 1rem;
  }
  
 }
@@ -234,31 +235,31 @@ aside {
    transform: scale(1.08);
 }
 
-.edit-btn {
-   background-color: #47df47;
+.action-button {
    color: #fff;
+   font-size: 15px;
+   font-weight: 500;
    border-radius: 2rem;
-   display: inline-flex;
-   align-items: center;
-   justify-content: center;
-   padding-inline: 1rem;
+   padding-inline: .75rem;
    padding-block: .5rem;
-   line-height: 1.2;
    text-decoration: none;
+   border: none;
 }
 
-.go-back-button:hover,
-.edit-btn:hover {
-   filter: brightness(95%);
+.action-button--edit {
+   background-color: #3b7a3b;
 }
 
-.go-back-button {
+.action-button--delete {
+   background-color: #943838;
+}
+
+.action-button--go-back {
    background-color: #F4B327;
-   color: #fff;
-   border-radius: 2rem;
-   padding-inline: 1rem;
-   padding-block: 1rem;
-   text-decoration: none;
+}
+
+.action-button:hover {
+   filter: brightness(90%);
 }
 
 .welcome {
