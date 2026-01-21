@@ -1,5 +1,7 @@
 <div class="bg-white d-flex justify-content-between align-items-center p-3 mb-5 rounded-3" style="border: 3px solid #031963">
-    <strong class="handwriting text-center fs-1">{{ $title }}</strong>
+    <strong class="handwriting text-center fs-1">
+        {{ $title }}
+    </strong>
 
     @isset($createRoute)
         <a href="{{ $createRoute }}" class="create-btn">

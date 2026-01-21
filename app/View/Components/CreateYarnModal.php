@@ -21,6 +21,6 @@ class CreateYarnModal extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.create-yarn-modal');
+        return view('admin.components.create-yarn-modal');
     }
 }

@@ -6,22 +6,25 @@
 
 @section('content')
 
+{{-- Importo la tabella risorse con i parametri relativi ai progetti --}}
 <x-admin.resource-table
   title="Progetti"
   :createRoute="route('projects.create')"
   action="+ Nuovo Progetto"
 >
 
+{{-- Slot della paginazione --}}
 <x-slot name="paginationTop">
   @if ($projects->hasPages())
     {{ $projects->onEachSide(1)->links('vendor.pagination.admin') }}
   @endif
 </x-slot>
 
+{{-- Slot dell'intestazione della tabella --}}
 <x-slot name="head">
 
-  <th scope="col">
-        Foto
+    <th scope="col">
+      Foto
     </th>
 
     <x-admin.sortable-th field="name" label="Titolo" />
