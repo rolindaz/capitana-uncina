@@ -289,7 +289,6 @@ class ProjectController extends Controller
         }
 
         /* Aggiorno tutti i campi del progetto con i valori forniti */
-
         $project->category_id = $v_data['category_id'];
         $project->started = $v_data['started'] ?? null;
         $project->completed = $v_data['completed'] ?? null;
@@ -307,6 +306,7 @@ class ProjectController extends Controller
             $project->image_path = Storage::putFile('projects', $v_data['image_path']);
         }
 
+        /* Salvo il progetto */
         $project->save();
 
         /* Prendo la locale corrente e genero lo slug */

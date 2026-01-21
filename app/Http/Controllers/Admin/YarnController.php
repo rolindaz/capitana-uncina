@@ -173,6 +173,7 @@ class YarnController extends Controller
      */
     public function update(Request $request, Yarn $yarn)
     {
+        /* Convalido i dati */
         $v_data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'brand' => ['required', 'string', 'max:255'],
@@ -193,6 +194,7 @@ class YarnController extends Controller
             'max_needle_size' => ['nullable', 'decimal:0,2', 'min:0']
         ]);
 
+        /* Riempio il filato con i dati derivanti dal form */
         $yarn->fill([
             'name' => $v_data['name'],
             'slug' => Str::slug($v_data['name']),
@@ -209,6 +211,7 @@ class YarnController extends Controller
             'max_needle_size' => $v_data['max_needle_size'] ?? null,
         ]);
 
+        /* Salvo l'immagine, se presente */
         if ($request->hasFile('image_path')) {
             if (!empty($yarn->image_path)) {
                 Storage::delete($yarn->image_path);
@@ -217,9 +220,10 @@ class YarnController extends Controller
             $yarn->image_path = Storage::putFile('yarns', $v_data['image_path']);
         }
 
+        /* Salvo il nuovo filato */
         $yarn->save();
 
-        // Sync fibers composition (fiber_yarn)
+        /* Sincronizzo le fibre */
         $fiberSyncData = [];
         foreach ($v_data['fibers'] ?? [] as $fiberData) {
             if (empty($fiberData['fiber_id'])) {
@@ -231,6 +235,7 @@ class YarnController extends Controller
         }
         $yarn->fibers()->sync($fiberSyncData);
 
+        /* Torno alla show, dove visualizzo le informazioni aggiornate */
         return redirect()
             ->route('yarns.show', $yarn->slug ?? $yarn->id)
             ->with('success', 'Yarn updated');
@@ -241,21 +246,22 @@ class YarnController extends Controller
      */
     public function destroy(Yarn $yarn)
     {
+        /* Elimino l'immagine collegata al filato */
         if (!empty($yarn->image_path)) {
             Storage::delete($yarn->image_path);
         }
 
-        // Prevent FK constraint failures (no cascade configured in migrations)
-
-        // Pivot tables
+        /* Elimino tutte le relazioni del filato */
         $yarn->projects()->detach();
         $yarn->projectYarns()->delete();
         $yarn->colorways()->detach();
         $yarn->fibers()->detach();
         $yarn->fiberYarns()->delete();
 
+        /* DeleteOrFail lancia un errore in caso di fallimento, a differenza di delete(), per cui posso accorgermi subito se qualcosa è andato storto */
         $yarn->deleteOrFail();
 
+        /* Torno alla index */
         return redirect()->route('yarns.index');
     }
 }

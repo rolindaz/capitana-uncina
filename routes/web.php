@@ -21,9 +21,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/projects', ProjectController::class)
-->middleware(['auth', /* 'verified' */])
-/* ->name('index', 'projects') */;
+->middleware(['auth', /* 'verified' */]);
 
-Route::resource('/yarns', YarnController::class)->middleware(['auth', /* 'verified' */]);
+Route::resource('/yarns', YarnController::class)
+->middleware(['auth', /* 'verified' */]);
 
 require __DIR__.'/auth.php';
