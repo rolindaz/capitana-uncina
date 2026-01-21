@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use App\Models\Category;
@@ -122,11 +123,11 @@ class ProjectController extends Controller
         $categories = Category::query()
             ->with('translation')
             ->get();
-        
+
         $yarns = Yarn::all();
 
         $colorways = Colorway::all();
-        
+
         $sizes = config('data.projects.sizes');
         $status = config('data.projects.status');
         $crafts = Craft::query()
@@ -140,7 +141,7 @@ class ProjectController extends Controller
             'colorways',
             'status',
             'crafts'
-            ]));
+        ]));
     }
 
     /**
@@ -191,7 +192,7 @@ class ProjectController extends Controller
             'destination_use' => ['nullable', 'string'],
             'notes' => ['nullable', 'string']
         ]);
-        
+
         /* dd($validated_data); */
 
         $newProject = Project::create([
@@ -203,15 +204,15 @@ class ProjectController extends Controller
             'completed' => $validated_data['completed'],
             'execution_time' => $validated_data['execution_time'],
             'size' => $validated_data['size']
-            ]);
-            
-        if(array_key_exists('image_path', $validated_data)) {
+        ]);
+
+        if (array_key_exists('image_path', $validated_data)) {
             // dump("l'immagine c'è");
             $img_url = Storage::putFile('projects', $validated_data['image_path']);
             $newProject->image_path = $img_url;
             $newProject->save();
         }
-                
+
         $locale = app()->getLocale();
         $attempts = 0;
         while (true) {
@@ -236,7 +237,7 @@ class ProjectController extends Controller
             }
         }
 
-        foreach($validated_data['yarns'] ?? [] as $yarnData) {
+        foreach ($validated_data['yarns'] ?? [] as $yarnData) {
             $newProject->yarns()->attach(
                 $yarnData['yarn_id'],
                 [
@@ -304,8 +305,8 @@ class ProjectController extends Controller
             ->get();
 
         $colorways = Colorway::query()
-        ->with('translation')
-        ->get();
+            ->with('translation')
+            ->get();
 
         $crafts = Craft::query()
             ->with('translation')
@@ -367,7 +368,7 @@ class ProjectController extends Controller
             'started' => ['nullable', 'date'],
             'completed' => ['nullable', 'date'],
             'execution_time' => ['nullable', 'numeric'],
-            
+
             'designer_name' => ['nullable', 'string'],
             'pattern_name' => ['nullable', 'string'],
             'pattern_url' => ['nullable', 'url'],
@@ -476,7 +477,7 @@ class ProjectController extends Controller
         $project->project_translations()->delete();
 
         $project->deleteOrFail();
-        
+
         return redirect()->route('projects.index');
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\YarnController;
+use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\YarnController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 

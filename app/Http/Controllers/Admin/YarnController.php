@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Yarn;
 use App\Models\Fiber;
@@ -158,16 +159,16 @@ class YarnController extends Controller
     public function edit($id)
     {
         $yarn = Yarn::query()
-        ->with('fibers')
-        ->findOrFail($id);
+            ->with('fibers')
+            ->findOrFail($id);
 
         $fibers = Fiber::query()
-        ->with('translation')
-        ->get();
+            ->with('translation')
+            ->get();
 
         $colorways = Colorway::query()
-        ->with('translation')
-        ->get();
+            ->with('translation')
+            ->get();
 
         $weight = config('data.yarns.weight');
         $categories = config('data.yarns.category');
@@ -268,7 +269,7 @@ class YarnController extends Controller
         $yarn->fiberYarns()->delete();
 
         $yarn->deleteOrFail();
-        
+
         return redirect()->route('yarns.index');
     }
 }
