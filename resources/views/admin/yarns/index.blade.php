@@ -16,7 +16,7 @@ action="+ Nuovo Filato"
 {{-- Slot per la prima barra di paginazione --}}
 <x-slot name="paginationTop">
   @if ($yarns->hasPages())
-    {{ $yarns->onEachSide(1)->links('vendor.pagination.admin') }}
+    {{ $yarns->onEachSide(1)->links('admin.pagination.index') }}
   @endif
 </x-slot>
 
@@ -96,7 +96,7 @@ action="+ Nuovo Filato"
 {{-- Slot per la seconda barra di paginazione --}}
 <x-slot name="paginationBottom">
   @if ($yarns->hasPages())
-    {{ $yarns->onEachSide(1)->links('vendor.pagination.admin') }}
+    {{ $yarns->onEachSide(1)->links('admin.pagination.index') }}
   @endif
 </x-slot>
 

@@ -5,7 +5,6 @@
 @section('content')
 
 {{-- Mostra errori di validazione --}}
-
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Validation Errors:</strong>
@@ -17,22 +16,27 @@
     </div>
 @endif
 
+{{-- Contenitore form --}}
 <div class="container d-flex justify-content-center">
     <form class="precise-font w-75 mb-5" action="{{ route('yarns.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+        {{-- Informazioni principali / obbligatorie --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Nome --}}
             <div>
                 <label for="name">
                     Nome
                 </label>
                 <input class="ms-2" type="text" name="name" id="name">
             </div>
+            {{-- Marca --}}
             <div>
                 <label for="brand">
                     Marca
                 </label>
                 <input class="ms-2" type="text" name="brand" id="brand">
             </div>
+            {{-- Immagine --}}
             <div>
                 <label for="image_path">
                     Immagine
@@ -40,14 +44,16 @@
                 <input class="ms-2" type="file" name="image_path" id="image_path">
             </div>
         </div>
+        {{-- Informazioni sulle fibre --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Numero di tipologie di fibra --}}
             <div>
                 <label for="fiber_types_number">
                     Tipologie di fibra
                 </label>
                 <input class="ms-2" type="number" min="0" name="fiber_types_number" id="fiber_types_number">
             </div>
-            {{-- Contenitore input fibre complesso --}}
+            {{-- Fibre e relativa percentuale --}}
             <div id="fibers-container">
                 <div class="fibers d-flex align-items-center">
                     <div class="fiber-row gold-border d-flex form-control justify-content-between gap-3">
@@ -56,7 +62,7 @@
                                 Fibra
                             </label>
                             <select class="ms-2 form-select" name="fibers[0][fiber_id]" id="fiber_id_0">
-                                <option selected>
+                                <option selected value="">
                                     Seleziona la fibra
                                 </option>
                                 @foreach ($fibers as $fiber)
@@ -80,30 +86,34 @@
             </div>
         </div>
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Peso gomitolo --}}
             <div>
                 <label for="unit_weight">
                     Peso Unitario
                 </label>
                 <input class="ms-2" type="number" min="0" name="unit_weight" id="unit_weight">
             </div>
+            {{-- Metraggio --}}
             <div>
                 <label for="meterage">
                     Metraggio
                 </label>
                 <input class="ms-2" type="number" min="0" name="meterage" id="meterage">
             </div>
+            {{-- Numero fili --}}
             <div>
                 <label for="ply">
                     Fili
                 </label>
                 <input class="ms-2" type="number" min="0" name="ply" id="ply">
             </div>
+            {{-- Peso standard --}}
             <div class="d-flex align-items-center">
                 <label for="weight">
                     Standard Peso
                 </label>
                 <select class="weight ms-2 w-50 form-select" name="weight" id="weight">
-                    <option selected>
+                    <option selected value="">
                         Seleziona
                     </option>
                     @foreach ($weight as $data)
@@ -113,12 +123,13 @@
                     @endforeach
                 </select>
             </div>
+            {{-- Categoria standard --}}
             <div class="d-flex align-items-center">
                 <label for="category">
                     Standard Categoria
                 </label>
                 <select class="category ms-2 w-50 form-select" name="category" id="category">
-                    <option selected>
+                    <option selected value="">
                         Seleziona
                     </option>
                     @foreach ($category as $data)
@@ -128,8 +139,10 @@
                     @endforeach
                 </select>
             </div>
-            </div>
-            <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
+        </div>
+        {{-- Misure consigliate --}}
+        <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
+                {{-- Misure consigliate uncinetto --}}
                 <div class="row row-cols-3 px-5 align-items-center">
                     <h6 class="col mb-0 border-end">
                         Uncinetto
@@ -149,6 +162,7 @@
                         style="width: 100px;">
                     </div>
                 </div>
+                {{-- Misure consigliate ferri --}}
                 <div class="row row-cols-3 px-5 align-items-center">
                     <h6 class="col mb-0 border-end">
                         Ferri
@@ -168,10 +182,11 @@
                         style="width: 100px;">
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-form">
+        </div>
+        {{-- Pulsante salva --}}
+        <button type="submit" class="btn btn-form">
                 Salva
-            </button>
+        </button>
         </div>
     </form>
 </div>

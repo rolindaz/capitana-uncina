@@ -18,6 +18,7 @@
     </div>
 @endif
 
+{{-- Contenitore form --}}
 <div class="container d-flex justify-content-center">
     <form class="precise-font w-75 mb-5" action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
