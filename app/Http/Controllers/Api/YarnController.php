@@ -12,17 +12,29 @@ class YarnController extends Controller
         $yarns = Yarn::query()
             ->with([
                 'projectYarns.project.translation',
-                'projectYarns.colorway',
+                'projectYarns.colorway.translation',
                 'fiberYarns.fiber.translation',
             ])
             ->get();
 
-        // Hide nested translations (Projects still expose accessor fields via $appends).
+        // Hide nested translations (name/slug are exposed via $appends on related models).
         foreach ($yarns as $yarn) {
             foreach ($yarn->projectYarns as $projectYarn) {
                 $project = $projectYarn->project;
                 if ($project) {
                     $project->makeHidden(['translation']);
+                }
+
+                $colorway = $projectYarn->colorway;
+                if ($colorway) {
+                    $colorway->makeHidden(['translation']);
+                }
+            }
+
+            foreach ($yarn->fiberYarns as $fiberYarn) {
+                $fiber = $fiberYarn->fiber;
+                if ($fiber) {
+                    $fiber->makeHidden(['translation']);
                 }
             }
         }
@@ -38,13 +50,25 @@ class YarnController extends Controller
         $yarn->load([
             'projectYarns.project.translation',
             'fiberYarns.fiber.translation',
-            'projectYarns.colorway',
+            'projectYarns.colorway.translation',
         ]);
 
         foreach ($yarn->projectYarns as $projectYarn) {
             $project = $projectYarn->project;
             if ($project) {
                 $project->makeHidden(['translation']);
+            }
+
+            $colorway = $projectYarn->colorway;
+            if ($colorway) {
+                $colorway->makeHidden(['translation']);
+            }
+        }
+
+        foreach ($yarn->fiberYarns as $fiberYarn) {
+            $fiber = $fiberYarn->fiber;
+            if ($fiber) {
+                $fiber->makeHidden(['translation']);
             }
         }
 

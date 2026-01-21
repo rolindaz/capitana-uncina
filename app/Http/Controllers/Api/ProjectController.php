@@ -15,12 +15,27 @@ class ProjectController extends Controller
                 'translation',
                 'category.translation',
                 'crafts.translation',
-                'projectYarns.yarn'
+                'projectYarns.yarn',
+                'projectYarns.colorway.translation',
             ])
             ->get();
 
         $projects->each(function (Project $project) {
             $project->makeHidden(['translation']);
+
+            if ($project->category) {
+                $project->category->makeHidden(['translation']);
+            }
+
+            $project->crafts->each(function ($craft) {
+                $craft->makeHidden(['translation']);
+            });
+
+            $project->projectYarns->each(function ($projectYarn) {
+                if ($projectYarn->colorway) {
+                    $projectYarn->colorway->makeHidden(['translation']);
+                }
+            });
         });
 
         return response()->json(
@@ -38,10 +53,24 @@ class ProjectController extends Controller
             'category.translation',
             'crafts.translation',
             'projectYarns.yarn',
-            'projectYarns.colorway'
+            'projectYarns.colorway.translation'
         ]);
 
         $project->makeHidden(['translation']);
+
+        if ($project->category) {
+            $project->category->makeHidden(['translation']);
+        }
+
+        $project->crafts->each(function ($craft) {
+            $craft->makeHidden(['translation']);
+        });
+
+        $project->projectYarns->each(function ($projectYarn) {
+            if ($projectYarn->colorway) {
+                $projectYarn->colorway->makeHidden(['translation']);
+            }
+        });
 
         return response()->json(
             [
