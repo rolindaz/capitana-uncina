@@ -16,11 +16,14 @@
     </div>
 @endif
 
+{{-- Form di modifica filato --}}
 <div class="container d-flex justify-content-center">
     <form class="precise-font w-75 mb-5" action="{{ route('yarns.update', $yarn) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+        {{-- Informazioni principali / obbligatorie --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Nome --}}
             <div>
                 <label for="name">
                     Nome
@@ -32,6 +35,7 @@
                 id="name"
                 value="{{ old('name', $yarn->name) }}">
             </div>
+            {{-- Marca --}}
             <div>
                 <label for="brand">
                     Marca
@@ -43,14 +47,16 @@
                 value="{{ old('brand', $yarn->brand) }}">
             </div>
         </div>
+        {{-- Informazioni sulle fibre --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Numero Tipologie di fibra --}}
             <div>
                 <label for="fiber_types_number">
                 Tipologie di fibra
                 </label>
                 <input class="ms-2" type="number" min="0" name="fiber_types_number" id="fiber_types_number" value="{{ old('fiber_types_number', $yarn->fiber_types_number) }}">
             </div>
-            {{-- Contenitore input fibre complesso --}}
+            {{-- Fibre e relativa percentuale --}}
             <div id="fibers-container" class="mb-3">
             @php
                 $fiberRows = old('fibers');
@@ -108,25 +114,30 @@
             @endforeach
             </div>
         </div>
+        {{-- Misure e altre info --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Peso gomitolo --}}
             <div>
                 <label for="unit_weight">
                 Peso Unitario
                 </label>
                 <input class="ms-2" type="number" min="0" name="unit_weight" id="unit_weight" value="{{ old('unit_weight', $yarn->unit_weight) }}">
             </div>
+            {{-- Metraggio --}}
             <div>
                 <label for="meterage">
                     Metraggio
                 </label>
                 <input class="ms-2" type="number" min="0" name="meterage" id="meterage" value="{{ old('meterage', $yarn->meterage) }}">
             </div>
+            {{-- Fili --}}
             <div>
                 <label for="ply">
                     Fili
                 </label>
                 <input class="ms-2" type="number" min="0" name="ply" id="ply" value="{{ old('ply', $yarn->ply) }}">
             </div>
+            {{-- Peso standard --}}
             <div class="d-flex align-items-center">
                 <label for="weight">
                 Peso Standard
@@ -139,6 +150,7 @@
                     @endforeach
                 </select>
             </div>
+            {{-- Categoria standard --}}            
             <div class="d-flex align-items-center">
                 <label for="category">
                     Categoria Standard
@@ -152,8 +164,10 @@
                 </select>
             </div>
         </div>
+        {{-- Misure consigliate --}}
         <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
-                <div class="row row-cols-3 px-5 align-items-center">
+            {{-- Misure consigliate uncinetto --}}
+            <div class="row row-cols-3 px-5 align-items-center">
                     <h6 class="col mb-0 border-end">
                         Uncinetto
                     </h6>
@@ -173,8 +187,9 @@
                         style="width: 100px;"
                         value="{{ old('max_hook_size', $yarn->max_hook_size) }}">
                     </div>
-                </div>
-                <div class="row row-cols-3 px-5 align-items-center">
+            </div>
+            {{-- Misure consigliate ferri --}}
+            <div class="row row-cols-3 px-5 align-items-center">
                     <h6 class="col mb-0 border-end">
                         Ferri
                     </h6>
@@ -194,8 +209,9 @@
                         style="width: 100px;"
                         value="{{ old('max_needle_size', $yarn->max_needle_size) }}">
                     </div>
-                </div>
+            </div>
         </div>
+        {{-- Immagine --}}
         <div class="form-control blue-border mb-3 py-3 px-5 d-flex flex-column gap-4">
             <label for="image_path">
                 Immagine
@@ -205,6 +221,7 @@
                 <img class="img-fluid w-25" src="{{ asset('storage/' . $yarn->image_path) }}" alt="copertina">
             @endif
         </div>
+        {{-- Pulsante salva --}}
         <button type="submit" class="btn btn-form">
             Salva
         </button>

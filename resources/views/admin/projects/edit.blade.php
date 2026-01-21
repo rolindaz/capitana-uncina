@@ -18,6 +18,7 @@
     </div>
 @endif
 
+{{-- Form di modifica progetto --}}
 <div class="container d-flex justify-content-center">
     <form class="precise-font w-75 mb-5" action="{{ route('projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf

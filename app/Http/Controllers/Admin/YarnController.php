@@ -70,6 +70,7 @@ class YarnController extends Controller
     {
         /* dd($request); */
 
+        /* Convalido i dati */
         $v_data = $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'brand' => ['required', 'string', 'max:255'],
@@ -92,11 +93,13 @@ class YarnController extends Controller
 
         /* dd($v_data); */
 
+        /* Verifico che la request abbia effettivamente un file al suo interno e ne salvo il percorso validato dentro una variabile per l'immagine */
         $imagePath = null;
         if ($request->hasFile('image_path')) {
             $imagePath = Storage::putFile('yarns', $v_data['image_path']);
         }
 
+        /* Creo una nuova istanza di Yarn con i valori convalidati */
         $newYarn = Yarn::create([
             'name' => $v_data['name'],
             'slug' => Str::slug($v_data['name']),
@@ -114,7 +117,7 @@ class YarnController extends Controller
             'max_needle_size' => $v_data['max_needle_size'] ?? null,
         ]);
 
-        // Attach fibers to pivot table (fiber_yarn)
+        /* Uso attach per compilare le righe della pivot fiber_yarn a partire dalla relazione fibers() del filato appena creato */
         foreach ($v_data['fibers'] ?? [] as $fiberData) {
             $newYarn->fibers()->attach(
                 $fiberData['fiber_id'],
@@ -122,6 +125,7 @@ class YarnController extends Controller
             );
         }
 
+        /* Torno alla index, dove vedo il nuovo filato nella lista */
         return redirect()
             ->route('yarns.index')
             ->with('success', 'Yarn created');
@@ -145,20 +149,13 @@ class YarnController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Yarn $yarn )
     {
-        $yarn = Yarn::query()
-            ->with('fibers')
-            ->findOrFail($id);
-
+        $yarn->load(['fibers']);
         $fibers = Fiber::query()
             ->with('translation')
             ->get();
-
-        $colorways = Colorway::query()
-            ->with('translation')
-            ->get();
-
+        $colorways = Colorway::all();
         $weight = config('data.yarns.weight');
         $categories = config('data.yarns.category');
 

@@ -113,7 +113,7 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        /* dd($request); */
+        //dd($request);
 
         /* Convalido i dati */
         $v_data = $request->validate([
@@ -141,9 +141,9 @@ class ProjectController extends Controller
             'notes' => ['nullable', 'string']
         ]);
 
-        /* dd($v_data); */
+        //dd($v_data);
 
-        /* Creo una nuova istanza del progetto, in cui inserisco solo i valori pertinenti al modello Project - gli altri si riferiscono a ProjectTranslation e vanno appesi */
+        /* Creo una nuova istanza del progetto, in cui inserisco solo i valori pertinenti al modello Project - gli altri si riferiscono a ProjectTranslation e vanno attribuiti tramite la relazione */
         $newProject = Project::create([
             'designer_name' => $v_data['designer_name'],
             'pattern_name' => $v_data['pattern_name'],
