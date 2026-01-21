@@ -11,13 +11,17 @@ class ProjectController extends Controller
     public function index() {
 
         $projects = Project::query()
-        ->with([
-            'translation',
-            'category.translation',
-            'crafts.translation',
-            'projectYarns.yarn'
-        ])
-        ->get();
+            ->with([
+                'translation',
+                'category.translation',
+                'crafts.translation',
+                'projectYarns.yarn'
+            ])
+            ->get();
+
+        $projects->each(function (Project $project) {
+            $project->makeHidden(['translation']);
+        });
 
         return response()->json(
             [
@@ -36,6 +40,8 @@ class ProjectController extends Controller
             'projectYarns.yarn',
             'projectYarns.colorway'
         ]);
+
+        $project->makeHidden(['translation']);
 
         return response()->json(
             [

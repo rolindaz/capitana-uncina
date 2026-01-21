@@ -14,6 +14,7 @@ class Project extends Model
     ]; */
 
     // Implemento uno strato di salvaguardia per l'assegnazione di massa di valori alle colonne della tabella nel db - intesa cioè come effettuata attraverso create(), update() o fill() - l'assegnazione manuale funziona comunque!
+
     protected $fillable = [
         'designer_name',
         'pattern_name',
@@ -27,13 +28,33 @@ class Project extends Model
         'correct'
     ];
 
+    protected $appends = [
+        'name',
+        'notes',
+        'status',
+        'destination_use',
+        'slug',
+    ];
+
     public function category() {
         return $this->belongsTo(Category::class);
     }
 
+    /* Tra progetti e filati la relazione è più complessa e ho bisogno di:
+    - using(), che indica una classe Pivot (non più semplicemente Model) per rappresentare la relazione, così che ProjectYarn non sia più trattato come una semplice pivot - posso avere relazioni, accessori ecc.
+    - withPivot(), che indica a Laravel di prendere altre colonne dalla pivot - che altrimenti ignorerebbe
+    - withTimestamps(), che gli dice di riempire e aggiornare automaticamente le due colonne creato e aggiornato - che altrimenti ignorerebbe nella pivot
+    */
     public function yarns() {
         return $this->belongsToMany(Yarn::class)
-            ->withPivot(['colorway_id', 'quantity']);
+            ->using(ProjectYarn::class)
+            ->withPivot([
+                'colorway_id',
+                'quantity',
+                'meterage',
+                'weight'
+            ])
+            ->withTimestamps();
     }
 
     public function crafts() {

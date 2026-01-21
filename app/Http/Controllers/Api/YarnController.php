@@ -3,39 +3,54 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Yarn;
-use App\Models\Colorway;
 
 class YarnController extends Controller
 {
-    public function index() {
+    public function index()
+    {
+        $yarns = Yarn::query()
+            ->with([
+                'projectYarns.project.translation',
+                'projectYarns.colorway',
+                'fiberYarns.fiber.translation',
+            ])
+            ->get();
 
-    $yarns = Yarn::query()
-    ->with([
-        'projectYarns.project.translation',
-        'projectYarns.colorway',
-        'fiberYarns.fiber.translation'
-    ])
-    ->get();
+        // Hide nested translations (Projects still expose accessor fields via $appends).
+        foreach ($yarns as $yarn) {
+            foreach ($yarn->projectYarns as $projectYarn) {
+                $project = $projectYarn->project;
+                if ($project) {
+                    $project->makeHidden(['translation']);
+                }
+            }
+        }
 
-    return response()->json([
-        "success" => true,
-        "data" => $yarns
-    ]);
+        return response()->json([
+            'success' => true,
+            'data' => $yarns,
+        ]);
     }
 
-    public function show(Yarn $yarn) {
+    public function show(Yarn $yarn)
+    {
+        $yarn->load([
+            'projectYarns.project.translation',
+            'fiberYarns.fiber.translation',
+            'projectYarns.colorway',
+        ]);
 
-    $yarn->load([
-        'projectYarns.project.translation',
-        'fiberYarns.fiber.translation',
-        'projectYarns.colorway'
-    ]);
+        foreach ($yarn->projectYarns as $projectYarn) {
+            $project = $projectYarn->project;
+            if ($project) {
+                $project->makeHidden(['translation']);
+            }
+        }
 
-    return response()->json([
-        "success" => true,
-        "data" => $yarn
-    ]);
+        return response()->json([
+            'success' => true,
+            'data' => $yarn,
+        ]);
     }
 }
