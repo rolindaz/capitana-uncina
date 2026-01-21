@@ -19,6 +19,9 @@ return new class extends Migration
             $table->text('description');
             $table->string('slug', 255);
             $table->timestamps();
+            $table->unique(['fiber_id', 'locale']);
+            $table->unique(['locale', 'name']);
+            $table->unique(['locale', 'slug']);
         });
     }
 

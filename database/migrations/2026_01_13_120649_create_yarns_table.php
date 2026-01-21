@@ -28,6 +28,8 @@ return new class extends Migration
             $table->decimal('min_needle_size')->nullable();
             $table->decimal('max_needle_size')->nullable();
             $table->timestamps();
+            $table->unique(['id', 'name']);
+            $table->unique(['id', 'slug']);
         });
     }
 

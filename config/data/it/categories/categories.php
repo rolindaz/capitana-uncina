@@ -52,8 +52,8 @@ return [
     [
         'category_id' => 8,
         'locale' => 'it',
-        'name' => 'Leggings',
-        'slug' => 'leggings'
+        'name' => 'Fuseaux',
+        'slug' => 'fuseaux'
     ],
     [
         'category_id' => 9,
@@ -124,8 +124,8 @@ return [
     [
         'category_id' => 20,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'altro'
+        'name' => 'Altro Abbigliamento',
+        'slug' => 'altro-abbigliamento'
     ],
 
     // Children categories, intimate apparel:
@@ -151,8 +151,8 @@ return [
     [
         'category_id' => 24,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Abbigliamento Intimo',
+        'slug' => 'altro-abbigliamento-intimo'
     ],
 
         // Children categories, sweater:
@@ -172,8 +172,8 @@ return [
     [
         'category_id' => 27,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Maglione',
+        'slug' => 'altro-maglione'
     ],
 
         // Children categories, tops:
@@ -199,8 +199,8 @@ return [
     [
         'category_id' => 31,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Maglia',
+        'slug' => 'altro-maglia'
     ],
 
     // Children categories, Accessories:
@@ -256,8 +256,8 @@ return [
     [
         'category_id' => 40,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'altro'
+        'name' => 'Altro Accessori',
+        'slug' => 'altro-accessori'
     ],
 
     // Children categories, Bag
@@ -331,8 +331,8 @@ return [
     [
         'category_id' => 52,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Borsa',
+        'slug' => 'altro-borsa'
     ],
     
     // Children categories, Feet / Leg
@@ -376,8 +376,8 @@ return [
     [
         'category_id' => 59,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Feet / Legs',
+        'slug' => 'altro-feet-legs'
     ],
     
     // Children categories, Home:
@@ -469,8 +469,8 @@ return [
     [
         'category_id' => 74,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'altro'
+        'name' => 'Altro Casa',
+        'slug' => 'altro-casa'
     ],
 
     // Children categories, Blanket:
@@ -496,8 +496,8 @@ return [
     [
         'category_id' => 78,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'altro'
+        'name' => 'Altro Coperta',
+        'slug' => 'altro-coperta'
     ],
     
     // Children categories, Decorative:
@@ -547,8 +547,8 @@ return [
     [
         'category_id' => 86,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'Altro'
+        'name' => 'Altro Decorazioni',
+        'slug' => 'altro-decorazioni'
     ],
 
     // Children categories, Hanging Ornament:
@@ -631,8 +631,8 @@ return [
     [
         'category_id' => 99,
         'locale' => 'it',
-        'name' => 'Altro',
-        'slug' => 'altro'
+        'name' => 'Altro Giochi e Hobby',
+        'slug' => 'altro-giochi-e-hobby'
     ],
     [
         'category_id' => 100,

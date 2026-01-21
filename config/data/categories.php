@@ -84,7 +84,7 @@ return [
         'parent_id' => 1
     ],
     [
-        'key' => 'other',
+        'key' => 'other_clothing',
         'parent_id' => 1
     ],
 
@@ -103,7 +103,7 @@ return [
         'parent_id' => 7
     ],
     [
-        'key' => 'other',
+        'key' => 'other_intimate_apparel',
         'parent_id' => 7
     ],
 
@@ -118,7 +118,7 @@ return [
         'parent_id' => 16
     ],
     [
-        'key' => 'other',
+        'key' => 'other_sweater',
         'parent_id' => 16
     ],
 
@@ -137,7 +137,7 @@ return [
         'parent_id' => 18
     ],
     [
-        'key' => 'other',
+        'key' => 'other_tops',
         'parent_id' => 18
     ],
 
@@ -176,7 +176,7 @@ return [
         'parent_id' => 2
     ],
     [
-        'key' => 'other',
+        'key' => 'other_accessories',
         'parent_id' => 2
     ],
 
@@ -227,7 +227,7 @@ return [
         'parent_id' => 32
     ],
     [
-        'key' => 'other',
+        'key' => 'other_bag',
         'parent_id' => 32
     ],
 
@@ -258,7 +258,7 @@ return [
         'parent_id' => 34
     ],
     [
-        'key' => 'other',
+        'key' => 'other_feet_legs',
         'parent_id' => 34
     ],
     
@@ -321,7 +321,7 @@ return [
         'parent_id' => 3
     ],
     [
-        'key' => 'other',
+        'key' => 'other_home',
         'parent_id' => 3
     ],
 
@@ -340,7 +340,7 @@ return [
         'parent_id' => 60
     ],
     [
-        'key' => 'other',
+        'key' => 'other_blanket',
         'parent_id' => 60
     ],
 
@@ -375,7 +375,7 @@ return [
         'parent_id' => 67
     ],
     [
-        'key' => 'other',
+        'key' => 'other_decorative',
         'parent_id' => 67
     ],
     
@@ -433,7 +433,7 @@ return [
         'parent_id' => 4
     ],
     [
-        'key' => 'other',
+        'key' => 'other_toys_and_hobbies',
         'parent_id' => 4
     ],
     

@@ -19,6 +19,7 @@ return new class extends Migration
             ->constrained('categories')
             ->nullOnDelete();;
             $table->timestamps();
+            $table->unique(['id', 'key']);
         });
     }
 

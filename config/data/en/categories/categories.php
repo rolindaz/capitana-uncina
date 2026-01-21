@@ -124,8 +124,8 @@ return [
     [
         'category_id' => 20,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Clothing',
+        'slug' => 'other-clothing'
     ],
 
     // Children categories, intimate apparel:
@@ -151,8 +151,8 @@ return [
     [
         'category_id' => 24,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Intimate Apparel',
+        'slug' => 'other-intimate-apparel'
     ],
 
         // Children categories, sweater:
@@ -172,8 +172,8 @@ return [
     [
         'category_id' => 27,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Sweater',
+        'slug' => 'other-sweater'
     ],
 
         // Children categories, tops:
@@ -199,8 +199,8 @@ return [
     [
         'category_id' => 31,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Tops',
+        'slug' => 'other-tops'
     ],
 
     // Children categories, Accessories:
@@ -256,8 +256,8 @@ return [
     [
         'category_id' => 40,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Accessories',
+        'slug' => 'other-accessories'
     ],
 
     // Children categories, Bag
@@ -331,8 +331,8 @@ return [
     [
         'category_id' => 52,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Bag',
+        'slug' => 'other-bag'
     ],
     
     // Children categories, Bag
@@ -376,8 +376,8 @@ return [
     [
         'category_id' => 59,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Feet / Legs',
+        'slug' => 'other-feet-legs'
     ],
     
     // Children categories, Home:
@@ -469,8 +469,8 @@ return [
     [
         'category_id' => 74,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Home',
+        'slug' => 'other-home'
     ],
 
     // Children categories, Blanket:
@@ -496,8 +496,8 @@ return [
     [
         'category_id' => 78,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Blanket',
+        'slug' => 'other-blanket'
     ],
     
     // Children categories, Decorative:
@@ -547,8 +547,8 @@ return [
     [
         'category_id' => 86,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Decorative',
+        'slug' => 'other-decorative'
     ],
 
     // Children categories, Hanging Ornament:
@@ -631,8 +631,8 @@ return [
     [
         'category_id' => 99,
         'locale' => 'en',
-        'name' => 'Other',
-        'slug' => 'other'
+        'name' => 'Other Toys and Hobbies',
+        'slug' => 'other-toys-and-hobbies'
     ],
     [
         'category_id' => 100,

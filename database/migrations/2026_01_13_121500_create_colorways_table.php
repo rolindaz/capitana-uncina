@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('colorways', function (Blueprint $table) {
             $table->id();
             $table->string('color_code', 255)->nullable();
-            $table->string('key', 255);
+            $table->string('key', 255)->unique();
             $table->string('image_path', 255)->nullable();
             $table->timestamps();
+            $table->unique(['id', 'key']);
         });
     }
 

@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('status', 255);
             $table->string('destination_use', 255)->nullable();
             $table->string('slug', 255);
+            $table->unique(['project_id', 'locale']);
+            $table->unique(['locale', 'name']);
+            $table->unique(['locale', 'slug']);
             $table->timestamps();
         });
     }

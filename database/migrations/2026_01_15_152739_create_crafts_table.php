@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('key', 255);
             $table->timestamps();
+            $table->unique(['id', 'key']);;
         });
     }
 

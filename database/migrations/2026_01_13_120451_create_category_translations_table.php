@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('slug', 255);
             $table->timestamps();
+            $table->unique(['category_id', 'locale']);
+            $table->unique(['locale', 'name']);
+            $table->unique(['locale', 'slug']);
         });
     }
 
