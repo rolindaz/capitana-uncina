@@ -3,13 +3,13 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Project;
 
 class ProjectController extends Controller
 {
     public function index() {
 
+        /* Prendo tutti i miei progetti */
         $projects = Project::query()
             ->with([
                 'translation',
@@ -20,6 +20,7 @@ class ProjectController extends Controller
             ])
             ->get();
 
+        /* Nascondo la relazione traduzione per una visualizzazione più immediata e lineare delle informazioni dall'API */
         $projects->each(function (Project $project) {
             $project->makeHidden(['translation']);
 
@@ -38,6 +39,7 @@ class ProjectController extends Controller
             });
         });
 
+        /* Ritorno una risposta in formato json con i progetti */
         return response()->json(
             [
                 "success" => true,
@@ -48,6 +50,7 @@ class ProjectController extends Controller
 
     public function show(Project $project) {
 
+        /* Prendo il mio progetto */
         $project->load([
             'translation',
             'category.translation',
@@ -56,6 +59,7 @@ class ProjectController extends Controller
             'projectYarns.colorway.translation'
         ]);
 
+        /* Nascondo la relazione traduzione del progetto e dei modelli associati */
         $project->makeHidden(['translation']);
 
         if ($project->category) {
@@ -72,6 +76,7 @@ class ProjectController extends Controller
             }
         });
 
+        /* Ritorno una risposta in formato json con il progetto */
         return response()->json(
             [
                 "success" => true,
