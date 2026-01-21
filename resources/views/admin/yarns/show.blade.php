@@ -4,20 +4,20 @@
 
 @section('title', $yarn->brand . ' - ' . $yarn->name)
 
-{{-- <x-yarns.go-back-button/> --}}
-
-
-
-
-
 @section('content')
 
+{{-- Dati filato e progetti correlati --}}
 <div class="row g-4 align-items-start mb-4">
+
+    {{-- Polaroid con immagine ed etichetta del filato --}}
     <div class="col-12 col-md-4 col-lg-3">
+
+        {{-- Creo l'etichetta del filato unendo nome e marca --}}
         @php
             $yarnTitle = trim(($yarn->name ?? '').' - '.($yarn->brand ?? ''));
         @endphp
 
+        {{-- Immagine filato --}}
         @if($yarn->image_path)
             <figure class="polaroid mb-0">
                 <img
@@ -41,8 +41,13 @@
         @endif
     </div>
 
+    {{-- Informazioni filato --}}
     <div class="col-12 col-md-8 col-lg-9 precise-font">
+
+        {{-- Intestazione con nome e pulsanti --}}
         <div class="d-flex justify-content-between align-items-start gap-3">
+
+            {{-- Nome filato --}}
             <div>
                 <h1 class="h3 mb-1 handwriting">{{ $yarn->name }} <span class="text-muted">{{ $yarn->brand }}</span></h1>
                 <div class="text-muted small">
@@ -50,6 +55,7 @@
                 </div>
             </div>
 
+            {{-- Pulsanti modifica ed eliminazione --}}
             <div class="d-flex gap-2 flex-wrap justify-content-end">
                 <x-admin.edit-button route="yarns.edit" :model="$yarn"/>
 
@@ -63,7 +69,9 @@
             </div>
         </div>
 
+        {{-- Card con dettagli --}}
         <div class="row g-3 mt-3">
+            {{-- Marca --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -73,6 +81,7 @@
                 </div>
             </div>
 
+            {{-- Categoria --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -82,6 +91,7 @@
                 </div>
             </div>
 
+            {{-- Fibre --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -98,6 +108,7 @@
                 </div>
             </div>
 
+            {{-- Altri dati --}}
             <div class="col-12 col-lg-6">
                 <div class="card">
                     <div class="card-body">
@@ -123,6 +134,7 @@
                 </div>
             </div>
 
+            {{-- Progetti in cui il filato è stato utilizzato --}}
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
@@ -172,29 +184,32 @@
             </div>
         </div>
     </div>
+    
+    {{-- Note --}}
+    <section class="notebook-sheet">
+        <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
+            <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
+        </div>
+    
+        <div class="notebook-sheet-body precise-font">
+            @php
+                $notes = $yarn->notes ?? null;
+            @endphp
+    
+            @if(!empty($notes))
+                <p class="mb-0">{!! nl2br(e($notes)) !!}</p>
+            @else
+                <p class="mb-0 text-muted">Nessuna nota ancora.</p>
+            @endif
+        </div>
+    </section>
+    
+    {{-- Pulsante torna indietro --}}
+    <div class="d-flex justify-content-start mt-4 precise-font">
+        <a href="{{ route('yarns.index') }}" class="action-button action-button--go-back">
+            Torna ai filati
+        </a>
+    </div>
 </div>
 
-<section class="notebook-sheet">
-    <div class="notebook-sheet-header d-flex justify-content-between align-items-center gap-3">
-        <h2 class="h5 mb-0 table-head-font text-uppercase">Note</h2>
-    </div>
-
-    <div class="notebook-sheet-body precise-font">
-        @php
-            $notes = $yarn->notes ?? null;
-        @endphp
-
-        @if(!empty($notes))
-            <p class="mb-0">{!! nl2br(e($notes)) !!}</p>
-        @else
-            <p class="mb-0 text-muted">Nessuna nota ancora.</p>
-        @endif
-    </div>
-</section>
-
-<div class="d-flex justify-content-start mt-4 precise-font">
-    <a href="{{ route('yarns.index') }}" class="action-button action-button--go-back">
-        Torna ai filati
-    </a>
-</div>
 @endsection

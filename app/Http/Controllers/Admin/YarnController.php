@@ -128,30 +128,14 @@ class YarnController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(Yarn $yarn)
     {
-        $yarn = Yarn::query()
-            ->with([
-                'fibers.translation',
-                'fiberYarns',
-                'projectYarns',
-            ])
-            ->where('slug', $slug)
-            ->first();
-
-        // Fallback: allow linking by numeric id when a slug is missing
-        if (!$yarn && ctype_digit($slug)) {
-            $yarn = Yarn::query()
-                ->with([
-                    'fibers.translation',
-                    'colorways.translation',
-                ])
-                ->findOrFail((int) $slug);
-        }
-
-        if (!$yarn) {
-            abort(404);
-        }
+        $yarn->load
+        (  [
+            'fibers.translation',
+            'fiberYarns',
+            'projectYarns',
+        ]);
 
         return view('admin.yarns.show', compact('yarn'));
     }
