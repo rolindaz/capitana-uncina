@@ -220,27 +220,20 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $yarns = Yarn::all();
+        $colorways = Colorway::all();
         $project->load([
             'translation',
             'category.translation',
             'crafts.translation',
-            'projectYarns.colorway.translation'
+            'projectYarns.colorway'
         ]);
-
-        $yarns = Yarn::all();
-
         $categories = Category::query()
             ->with('translation')
             ->get();
-
-        $colorways = Colorway::query()
-            ->with('translation')
-            ->get();
-
         $crafts = Craft::query()
             ->with('translation')
             ->get();
-
         $status = config('data.projects.status');
         $sizes = config('data.projects.sizes');
 
@@ -261,31 +254,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
 
-        /* dd($project); */
-
-        // Clean up placeholder values (same idea as store)
-        $yarns = $request->input('yarns', []);
-        $yarns = array_values(array_filter($yarns, function ($yarn) {
-            return isset($yarn['yarn_id']) && is_numeric($yarn['yarn_id']);
-        }));
-
-        foreach ($yarns as &$yarn) {
-            if (isset($yarn['colorway_id']) && !is_numeric($yarn['colorway_id'])) {
-                $yarn['colorway_id'] = null;
-            }
-
-            if (array_key_exists('quantity', $yarn) && ($yarn['quantity'] === '' || $yarn['quantity'] === null)) {
-                $yarn['quantity'] = null;
-            }
-        }
-        unset($yarn);
-
-        $request->merge(['yarns' => $yarns]);
-
-        $size = $request->input('size');
-        if ($size && !is_numeric($size) && strpos($size, 'Seleziona') !== false) {
-            $request->merge(['size' => null]);
-        }
+        dd($request);
 
         $v_data = $request->validate([
             'name' => ['required', 'string'],

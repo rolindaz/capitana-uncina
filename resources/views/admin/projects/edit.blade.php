@@ -6,8 +6,7 @@
 
 {{-- @dd($project) --}}
 
-{{-- Controllo errori di valutazione --}}
-
+{{-- Controllo errori di validazione --}}
 @if ($errors->any())
     <div class="alert alert-danger">
         <strong>Validation Errors:</strong>
@@ -23,7 +22,9 @@
     <form class="precise-font w-75 mb-5" action="{{ route('projects.update', $project) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+        {{-- Informazioni principali / obbligatorie --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Nome --}}
             <div>
                 <label for="name">
                     Nome
@@ -34,6 +35,7 @@
                 id="name"
                 value="{{ old('name', $project->name) }}">
             </div>
+            {{-- Tecniche --}}
             <div>
                 <label for="craft">
                 Tecniche utilizzate
@@ -49,6 +51,7 @@
                     @endforeach
                 </div>
             </div>
+            {{-- Categoria --}}
             <div class="d-flex align-items-center">
                 <label for="category_id">
                     Categoria
@@ -61,13 +64,15 @@
                 </select>
             </div>
         </div>
+        {{-- Informazioni tempistiche progetto --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Stato --}}
             <div class="d-flex align-items-center">
                 <label for="status">
                     Stato
                 </label>
                 <select class="status ms-2 w-50 form-select" name="status" id="status">
-                    <option selected {{ old('status', $project->status) ? $project->status : 'selected' }}>
+                    <option selected value="" {{ old('status', $project->status) ? $project->status : 'selected' }}>
                         Seleziona lo stato
                     </option>
                     @foreach ($status as $data)
@@ -77,18 +82,21 @@
                     @endforeach
                 </select>
             </div>
+            {{-- Iniziato --}}
             <div class="started">
                 <label for="started">
                     Iniziato
                 </label>
                 <input class="ms-2" type="date" name="started" id="started" value="{{ old('started', $project->started) }}">
             </div>
+            {{-- Completato --}}
             <div class="completed align-items-center">
                 <label for="completed">
                     Completato
                 </label>
                 <input class="ms-2" type="date" name="completed" id="completed" value="{{ old('completed', $project->completed) }}">
             </div>
+            {{-- Tempo totale di lavoro --}}
             <div class="execution_time">
                 <label for="execution_time">
                     Ore di lavoro totali
@@ -96,7 +104,9 @@
                 <input class="w-25 ms-2" type="number" name="execution_time" id="execution_time" value="{{ old('execution_time', $project->execution_time) }}">
             </div>
         </div>
+        {{-- Informazioni schema --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Nome designer --}}
             <div>
                 <label for="designer_name">
                     Nome del(la) designer
@@ -108,6 +118,7 @@
                 id="designer_name"
                 value="{{ old('designer_name', $project->designer_name) }}">
             </div>
+            {{-- Nome schema --}}
             <div>
                 <label for="pattern_name">
                     Nome dello schema
@@ -119,6 +130,7 @@
                 id="pattern_name"
                 value="{{ old('pattern_name', $project->pattern_name) }}">
             </div>
+            {{-- Link schema --}}
             <div class="d-flex align-items-center">
                 <label for="pattern_url">
                     Link dello schema
@@ -131,13 +143,15 @@
                 value="{{ old('pattern_url', $project->pattern_url) }}">
             </div>
         </div>
+        {{-- Informazioni aggiuntive --}}
         <div class="form-control blue-border mb-3 py-3 px-3 d-flex flex-column gap-4">
+            {{-- Taglia --}}
             <div class="d-flex align-items-center">
                 <label for="size">
                     Taglia
                 </label>
                 <select class="ms-2 w-50 form-select" name="size" id="size">
-                    <option {{ old('size', $project->size) ? '' : 'selected' }}>
+                    <option value="" {{ old('size', $project->size) ? '' : 'selected' }}>
                         Seleziona la taglia
                     </option>
                     @foreach ($sizes as $size)
@@ -147,8 +161,9 @@
                     @endforeach
                 </select>
             </div>
-            {{-- Contenitore input filati complesso --}}
+            {{-- Filati utilizzati --}}
             <div id="yarns-container">
+                {{-- Se esistono, prendo i filati utilizzati già presenti --}}
                 @php
                     $yarnRows = old('yarns');
                     if (!is_array($yarnRows)) {
@@ -171,6 +186,7 @@
                     }
                 @endphp
 
+                {{-- Altrimenti, creo il campo form per selezionarli --}}
                 @foreach ($yarnRows as $index => $row)
                     <div class="yarns d-flex align-items-center {{ $index > 0 ? 'mt-3' : '' }}">
                         <div class="yarn-row d-flex form-control gold-border justify-content-between gap-3">
@@ -180,7 +196,7 @@
                                     Filato
                                 </label>
                                 <select class="ms-2 form-select" name="yarns[{{ $index }}][yarn_id]" id="yarn_id_{{ $index }}">
-                                    <option {{ empty($row['yarn_id']) ? 'selected' : '' }}>
+                                    <option value="" {{ empty($row['yarn_id']) ? 'selected' : '' }}>
                                         Seleziona il filato
                                     </option>
                                     @foreach ($yarns as $yarn)
@@ -196,12 +212,12 @@
                                     Colore
                                 </label>
                                 <select class="ms-2 form-select" name="yarns[{{ $index }}][colorway_id]" id="colorway_id_{{ $index }}">
-                                    <option {{ empty($row['colorway_id']) ? 'selected' : '' }}>
+                                    <option value="" {{ empty($row['colorway_id']) ? 'selected' : '' }}>
                                         Seleziona il colore
                                     </option>
                                     @foreach ($colorways as $colorway)
                                         <option value="{{ $colorway->id }}" {{ (string)($row['colorway_id'] ?? '') === (string)$colorway->id ? 'selected' : '' }}>
-                                            {{ $colorway->name }}
+                                            {{ $colorway->key }}
                                         </option>
                                     @endforeach
                                 </select>
@@ -211,7 +227,7 @@
                                 <label for="quantity_{{ $index }}">
                                     Quantità
                                 </label>
-                                <input class="ms-2 form-select" type="number" name="yarns[{{ $index }}][quantity]" id="quantity_{{ $index }}" value="{{ $row['quantity'] ?? '' }}" />
+                                <input class="ms-2 form-select" type="number" name="yarns[{{ $index }}][quantity]" id="quantity_{{ $index }}" value="{{ (int)$row['quantity'] ?? '' }}"/>
                             </div>
 
                             @if ($index === 0)
@@ -225,6 +241,7 @@
                     </div>
                 @endforeach
             </div>
+            {{-- Per chi è --}}
             <div>
                 <label for="destination_use">
                     Per chi è?
@@ -236,6 +253,7 @@
                 id="destination_use"
                 value="{{ old('destination_use', $project->destination_use) }}">
             </div>
+            {{-- Note --}}
             <div>
                 <label for="notes">
                     Note
@@ -247,6 +265,7 @@
                 rows="5">{{ old('notes', $project->notes) }}</textarea>
             </div>
         </div>
+        {{-- Immagine --}}
         <div class="form-control blue-border mb-3 d-flex gap-4 flex-wrap">
             <label for="image_path">
                 Immagine
@@ -256,6 +275,7 @@
                 <img class="img-fluid w-25" src="{{ asset('storage/' . $project->image_path) }}" alt="copertina">
             @endif
         </div>
+        {{-- Pulsante salva --}}
         <button type="submit" class="btn btn-form">
             Salva
         </button>
