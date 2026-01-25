@@ -184,14 +184,14 @@ return [
         'meterage' => 469.5
     ],
     [
-        'colorway_id' => 64,
+        'colorway_id' => 40,
         'yarn_id' => 3,
         'quantity' => 5.44,
         'weight' => 272,
         'meterage' => 408
     ],
     [
-        'colorway_id' => 65,
+        'colorway_id' => 64,
         'yarn_id' => 3,
         'quantity' => 5,
         'weight' => 250,

@@ -444,13 +444,6 @@ return [
     ],
     [
         'id' => 64,
-        'color_code' => 'uni colour 08',
-        'key' => 'viola-scuro',
-        'image_path' => 'colorways/viola-scuro.png',
-        'production_status' => 'Attivo'
-    ],
-    [
-        'id' => 65,
         'color_code' => 'uni colour 28',
         'key' => 'blu-marina-paris',
         'image_path' => 'colorways/blu-marina-paris.png',

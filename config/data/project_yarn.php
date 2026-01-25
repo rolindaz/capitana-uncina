@@ -490,7 +490,7 @@ return [
     [
         'project_id' => 23,
         'yarn_id' => 3,
-        'colorway_id' => 42,
+        'colorway_id' => 63,
         'quantity' => null,
         'meterage' => null,
         'weight' => null
@@ -499,6 +499,14 @@ return [
         'project_id' => 23,
         'yarn_id' => 3,
         'colorway_id' => 20,
+        'quantity' => null,
+        'meterage' => null,
+        'weight' => null
+    ],
+    [
+        'project_id' => 23,
+        'yarn_id' => 3,
+        'colorway_id' => 64,
         'quantity' => null,
         'meterage' => null,
         'weight' => null
