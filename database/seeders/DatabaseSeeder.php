@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             FibersTableSeeder::class,
             FiberTranslationsTableSeeder::class,
             YarnsTableSeeder::class,
+            ColorwayYarnTableSeeder::class,
             ProjectYarnTableSeeder::class,
             FiberYarnTableSeeder::class,
             CraftsTableSeeder::class,

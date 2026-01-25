@@ -53,8 +53,7 @@ table category_translations {
 
 table yarns {
   id integer [pk, increment]
-  key varchar(255) [unique]
-  name varchar(255) [not null]
+  name varchar(255) [not null, unique]
   brand varchar(255)
   weight varchar(255)
   category varchar(255)
@@ -150,10 +149,13 @@ table fiber_yarn {
   percentage integer
 }
 
-table colorway_yarn {
+table colorway_yarn as stash {
   id integer [pk, increment]
   colorway_id integer [ref: <> colorways.id]
   yarn_id integer [ref: <> yarns.id]
+  quantity decimal
+  meterage decimal
+  weight decimal
 }
 
 table project_tag {

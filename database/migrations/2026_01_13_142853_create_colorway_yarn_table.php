@@ -18,6 +18,9 @@ return new class extends Migration
             ->constrained();
             $table->foreignId('yarn_id')
             ->constrained();
+            $table->decimal('quantity')->nullable();
+            $table->decimal('meterage')->nullable();
+            $table->decimal('weight')->nullable();
             $table->timestamps();
         });
     }

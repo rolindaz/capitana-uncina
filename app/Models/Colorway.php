@@ -13,11 +13,22 @@ class Colorway extends Model
     ];
 
     public function yarns() {
-        return $this->belongsToMany(Yarn::class);
+        return $this->belongsToMany(Yarn::class)
+        ->using(ColorwayYarn::class)
+        ->withPivot([
+            'quantity',
+            'meterage',
+            'weight'
+        ])
+        ->withTimestamps();
     }
 
     public function project_yarn() {
         return $this->hasMany(ProjectYarn::class);
+    }
+
+    public function colorway_yarn() {
+        return $this->hasMany(ColorwayYarn::class);
     }
 
     // collego il colore alla sua traduzione per la lingua corrente
