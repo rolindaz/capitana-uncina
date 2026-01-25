@@ -177,4 +177,20 @@ return [
         'min_needle_size' => 8,
         'max_needle_size' => 8
     ],
+    [
+        'name' => 'Essentials - Cotton Silk Cashmere DK',
+        'slug' => 'essentials-cotton-silk-cashmere-dk',
+        'brand' => 'Rico Design',
+        'weight' => '3 - Light',
+        'category' => 'DK, Light, Worsted',
+        'ply' => null,
+        'unit_weight' => 50,
+        'meterage' => 140,
+        'fiber_types_number' => 3,
+        'image_path' => 'yarns/rico.jpevg',
+        'min_hook_size' => 4,
+        'max_hook_size' => 4,
+        'min_needle_size' => 4,
+        'max_needle_size' => 4
+    ],
 ];

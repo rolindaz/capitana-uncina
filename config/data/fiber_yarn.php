@@ -71,4 +71,19 @@ return [
         'yarn_id' => 11,
         'percentage' => 4
     ],
+    [
+        'fiber_id' => 8,
+        'yarn_id' => 12,
+        'percentage' => 75
+    ],
+    [
+        'fiber_id' => 22,
+        'yarn_id' => 12,
+        'percentage' => 15
+    ],
+    [
+        'fiber_id' => 7,
+        'yarn_id' => 12,
+        'percentage' => 10
+    ],
 ];
