@@ -126,6 +126,19 @@ table colorway_translations {
   slug varchar(255) unique
 }
 
+table productions_statuses {
+  id integer [pk, increment]
+  key varchar(255)
+}
+
+table productions_status_translations {
+  id integer [pk, increment]
+  production_status_id integer [ref: > productions_statuses.id]
+  locale varchar(5)
+  name varchar(255)
+  slug varchar(255) unique
+}
+
 table project_yarn {
   id integer [pk, increment]
   project_id integer [ref: <> projects.id]
@@ -149,10 +162,12 @@ table fiber_yarn {
   percentage integer
 }
 
-table colorway_yarn as stash {
+table colorway_yarn {
   id integer [pk, increment]
   colorway_id integer [ref: <> colorways.id]
   yarn_id integer [ref: <> yarns.id]
+  production_status_id integer [ref: > productions_statuses.id]
+  in_stash boolean
   quantity decimal
   meterage decimal
   weight decimal

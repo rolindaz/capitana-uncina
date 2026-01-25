@@ -187,7 +187,7 @@ return [
         'unit_weight' => 50,
         'meterage' => 140,
         'fiber_types_number' => 3,
-        'image_path' => 'yarns/rico.jpevg',
+        'image_path' => 'yarns/rico.jpeg',
         'min_hook_size' => 4,
         'max_hook_size' => 4,
         'min_needle_size' => 4,
