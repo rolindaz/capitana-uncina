@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name', 255);
             $table->string('slug', 255);
             $table->string('brand', 255);
+            $table->string('collection', 255);
             $table->string('weight', 255)->nullable();
             $table->string('category', 255)->nullable();
             $table->integer('ply')->nullable();
