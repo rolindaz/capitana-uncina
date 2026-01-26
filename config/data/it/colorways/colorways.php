@@ -23,7 +23,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Limone (Safran)',
+        'name' => 'Limone',
         'locale' => 'it',
         'colorway_id' => 4,
         'slug' => 'limone-safran',
@@ -37,7 +37,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Verde Mare (Safran)',
+        'name' => 'Verde Mare',
         'locale' => 'it',
         'colorway_id' => 6,
         'slug' => 'verde-mare-safran',
@@ -100,14 +100,14 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Giallo (Bravo)',
+        'name' => 'Giallo',
         'locale' => 'it',
         'colorway_id' => 15,
         'slug' => 'giallo-bravo',
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Oro (Bravo)',
+        'name' => 'Oro',
         'locale' => 'it',
         'colorway_id' => 16,
         'slug' => 'oro-bravo',
@@ -121,7 +121,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Lilla (Bravo)',
+        'name' => 'Lilla',
         'locale' => 'it',
         'colorway_id' => 18,
         'slug' => 'lilla-bravo',
@@ -135,14 +135,14 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Pistacchio (Paris)',
+        'name' => 'Pistacchio',
         'locale' => 'it',
         'colorway_id' => 20,
         'slug' => 'pistacchio-paris',
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Corallo (Loves You 9)',
+        'name' => 'Corallo',
         'locale' => 'it',
         'colorway_id' => 21,
         'slug' => 'corallo-loves-you-9',
@@ -156,14 +156,14 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Bianco (Bravo)',
+        'name' => 'Bianco',
         'locale' => 'it',
         'colorway_id' => 23,
         'slug' => 'bianco-bravo',
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Verde Mare (Bravo)',
+        'name' => 'Verde Mare',
         'locale' => 'it',
         'colorway_id' => 24,
         'slug' => 'verde-mare-bravo',
@@ -177,7 +177,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Limone (Bravo)',
+        'name' => 'Limone',
         'locale' => 'it',
         'colorway_id' => 26,
         'slug' => 'limone-bravo',
@@ -205,7 +205,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Ruggine (Catona)',
+        'name' => 'Ruggine',
         'locale' => 'it',
         'colorway_id' => 30,
         'slug' => 'ruggine-catona',
@@ -282,14 +282,14 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Ruggine (Paris)',
+        'name' => 'Ruggine',
         'locale' => 'it',
         'colorway_id' => 41,
         'slug' => 'ruggine-paris',
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Senape (Paris)',
+        'name' => 'Senape',
         'locale' => 'it',
         'colorway_id' => 42,
         'slug' => 'senape-paris',
@@ -317,7 +317,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Rosso (Safran)',
+        'name' => 'Rosso',
         'locale' => 'it',
         'colorway_id' => 46,
         'slug' => 'rosso-safran',
@@ -366,7 +366,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Blu Marina (Safran)',
+        'name' => 'Blu Marina',
         'locale' => 'it',
         'colorway_id' => 53,
         'slug' => 'blu-marina-safran',
@@ -443,7 +443,7 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Blu Marina (Paris)',
+        'name' => 'Blu Marina',
         'locale' => 'it',
         'colorway_id' => 64,
         'slug' => 'blu-marina-paris',

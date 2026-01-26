@@ -20,7 +20,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Lemon (Safran)',
+        'name' => 'Lemon',
         'colorway_id' => 4,
         'slug' => 'lemon-safran',
         'production_status' => 'Active'
@@ -32,7 +32,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Sea Green (Safran)',
+        'name' => 'Sea Green',
         'colorway_id' => 6,
         'slug' => 'sea-green-safran',
         'production_status' => 'Active'
@@ -86,13 +86,13 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Yellow (Bravo)',
+        'name' => 'Yellow',
         'colorway_id' => 15,
         'slug' => 'yellow-bravo',
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Gold (Bravo)',
+        'name' => 'Gold',
         'colorway_id' => 16,
         'slug' => 'gold-bravo',
         'production_status' => 'Active'
@@ -104,7 +104,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Lilac (Bravo)',
+        'name' => 'Lilac',
         'colorway_id' => 18,
         'slug' => 'lilac-bravo',
         'production_status' => 'Active'
@@ -116,13 +116,13 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Pistachio (Paris)',
+        'name' => 'Pistachio',
         'colorway_id' => 20,
         'slug' => 'pistachio-paris',
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Coral (Loves You 9)',
+        'name' => 'Coral',
         'colorway_id' => 21,
         'slug' => 'coral-loves-you-9',
         'production_status' => 'Active'
@@ -134,13 +134,13 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'White (Bravo)',
+        'name' => 'White',
         'colorway_id' => 23,
         'slug' => 'white-bravo',
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Sea Green (Bravo)',
+        'name' => 'Sea Green',
         'colorway_id' => 24,
         'slug' => 'sea-green-bravo',
         'production_status' => 'Active'
@@ -152,7 +152,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Lemon (Bravo)',
+        'name' => 'Lemon',
         'colorway_id' => 26,
         'slug' => 'lemon-bravo',
         'production_status' => 'Active'
@@ -176,7 +176,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Rust (Catona)',
+        'name' => 'Rust',
         'colorway_id' => 30,
         'slug' => 'rust-catona',
         'production_status' => 'Active'
@@ -242,13 +242,13 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Rust (Paris)',
+        'name' => 'Rust',
         'colorway_id' => 41,
         'slug' => 'rust-paris',
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Mustard (Paris)',
+        'name' => 'Mustard',
         'colorway_id' => 42,
         'slug' => 'mustard-paris',
         'production_status' => 'Active'
@@ -272,7 +272,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Red (Safran)',
+        'name' => 'Red',
         'colorway_id' => 46,
         'slug' => 'red-safran',
         'production_status' => 'Active'
@@ -314,7 +314,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Navy Blue (Safran)',
+        'name' => 'Navy Blue',
         'colorway_id' => 53,
         'slug' => 'navy-blue-safran',
         'production_status' => 'Active'
@@ -380,7 +380,7 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Navy Blue (Paris)',
+        'name' => 'Navy Blue',
         'colorway_id' => 64,
         'slug' => 'navy-blue-paris',
         'production_status' => 'Active'

@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             CategoriesTableSeeder::class,
             CategoryTranslationsTableSeeder::class,
             ColorwaysTableSeeder::class,
+            ColorwayTranslationsTableSeeder::class,
             ProjectsTableSeeder::class,
             ProjectTranslationsTableSeeder::class,
             FibersTableSeeder::class,

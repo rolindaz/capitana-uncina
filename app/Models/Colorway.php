@@ -9,7 +9,8 @@ class Colorway extends Model
 
     protected $appends = [
         'name',
-        'slug'
+        'slug',
+        'production_status'
     ];
 
     public function yarns() {
@@ -45,5 +46,9 @@ class Colorway extends Model
 
     public function getSlugAttribute() {
         return $this->translation?->slug;
+    }
+
+    public function getProductionStatusAttribute() {
+        return $this->translation?->production_status;
     }
 }

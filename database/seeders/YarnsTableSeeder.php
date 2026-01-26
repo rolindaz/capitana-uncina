@@ -21,7 +21,7 @@ class YarnsTableSeeder extends Seeder
             $newYarn->name = $yarn['name'];
             $newYarn->slug = $yarn['slug'];
             $newYarn->brand = $yarn['brand'];
-            $newYarn->brand = $yarn['collection'];
+            $newYarn->collection = $yarn['collection'];
             $newYarn->weight = $yarn['weight'];
             $newYarn->category = $yarn['category'];
             $newYarn->ply = $yarn['ply'];

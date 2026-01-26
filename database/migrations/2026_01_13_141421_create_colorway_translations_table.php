@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('locale', 5);
             $table->string('name', 255);
             $table->string('slug', 255);
+            $table->string('production_status', 255)->nullable();
             $table->timestamps();
             $table->unique(['colorway_id', 'locale']);
-            $table->unique(['locale', 'name']);
             $table->unique(['locale', 'slug']);
         });
     }
