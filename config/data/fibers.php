@@ -82,4 +82,10 @@ return [
     [
         'key' => 'polyamide'
     ],
+    [
+        'key' => 'dralon'
+    ],
+    [
+        'key' => 'viscose'
+    ],
 ];

@@ -25,7 +25,7 @@ return [
     [
         'id' => 4,
         'color_code' => 'uni colour 62',
-        'key' => 'limone-safran',
+        'key' => 'limone_safran',
         'image_path' => 'colorways/limone.png',
         'production_status' => 'Attivo'
     ],
@@ -53,7 +53,7 @@ return [
     [
         'id' => 8,
         'color_code' => 'uni colour 31',
-        'key' => 'pistacchio-safran',
+        'key' => 'pistacchio_safran',
         'image_path' => 'colorways/pistacchio.png',
         'production_status' => 'Attivo'
     ],
@@ -67,14 +67,14 @@ return [
     [
         'id' => 10,
         'color_code' => 'uni colour 16',
-        'key' => 'nero-safran',
+        'key' => 'nero_safran',
         'image_path' => 'colorways/nero.png',
         'production_status' => 'Attivo'
     ],
     [
         'id' => 11,
         'color_code' => 'uni colour 17',
-        'key' => 'bianco-safran',
+        'key' => 'bianco_safran',
         'image_path' => 'colorways/bianco.png',
         'production_status' => 'Attivo'
     ],
@@ -137,14 +137,14 @@ return [
     [
         'id' => 20,
         'color_code' => 'uni colour 69',
-        'key' => 'pistacchio-paris',
+        'key' => 'pistacchio_paris',
         'image_path' => 'colorways/pistacchio2.png',
         'production_status' => 'Attivo'
     ],
     [
         'id' => 21,
         'color_code' => 'uni colour 108',
-        'key' => 'corallo-loves-you-9',
+        'key' => 'corallo_loves_you_9',
         'image_path' => 'colorways/corallo.png',
         'production_status' => 'Attivo'
     ],
@@ -158,7 +158,7 @@ return [
     [
         'id' => 23,
         'color_code' => '08224',
-        'key' => 'bianco-bravo',
+        'key' => 'bianco_bravo',
         'image_path' => 'colorways/bianco2.png',
         'production_status' => 'Attivo'
     ],
@@ -207,7 +207,7 @@ return [
     [
         'id' => 30,
         'color_code' => '388',
-        'key' => 'ruggine-catona',
+        'key' => 'ruggine_catona',
         'image_path' => 'colorways/ruggine.png',
         'production_status' => 'Attivo'
     ],
@@ -347,7 +347,7 @@ return [
     [
         'id' => 50,
         'color_code' => 'uni colour 07',
-        'key' => 'grigio-medio',
+        'key' => 'grigio_medio',
         'image_path' => 'colorways/grigio-medio.png',
         'production_status' => 'Attivo'
     ],
@@ -361,21 +361,21 @@ return [
     [
         'id' => 52,
         'color_code' => 'uni colour 13',
-        'key' => 'corallo-safran',
+        'key' => 'corallo_safran',
         'image_path' => 'colorways/corallo-safran.png',
         'production_status' => 'Attivo'
     ],
     [
         'id' => 53,
         'color_code' => 'uni colour 09',
-        'key' => 'blu-marina',
+        'key' => 'blu_marina',
         'image_path' => 'colorways/blu-marina.png',
         'production_status' => 'Attivo'
     ],
     [
         'id' => 54,
         'color_code' => 'uni colour 56',
-        'key' => 'rosa-cipria',
+        'key' => 'rosa_cipria',
         'image_path' => 'colorways/rosa-cipria.png',
         'production_status' => 'Attivo'
     ],
@@ -410,7 +410,7 @@ return [
     [
         'id' => 59,
         'color_code' => 'uni colour 06',
-        'key' => 'blu-denim',
+        'key' => 'blu_denim',
         'image_path' => 'colorways/blu-denim.png',
         'production_status' => 'Attivo'
     ],
@@ -431,22 +431,57 @@ return [
     [
         'id' => 62,
         'color_code' => '004',
-        'key' => 'rosa-freddo',
+        'key' => 'rosa_freddo',
         'image_path' => 'colorways/rosa-freddo.jpeg',
         'production_status' => 'Terminata'
     ],
     [
         'id' => 63,
         'color_code' => 'uni colour 14',
-        'key' => 'dente-di-leone',
+        'key' => 'dente_di_leone',
         'image_path' => 'colorways/dente-di-leone.png',
         'production_status' => 'Attivo'
     ],
     [
         'id' => 64,
         'color_code' => 'uni colour 28',
-        'key' => 'blu-marina-paris',
+        'key' => 'blu_marina_paris',
         'image_path' => 'colorways/blu-marina-paris.png',
+        'production_status' => 'Attivo'
+    ],
+    [
+        'id' => 65,
+        'color_code' => '535',
+        'key' => 'rosso_spendobenemini',
+        'image_path' => 'colorways/rosso-spendobenemini.png',
+        'production_status' => 'Attivo'
+    ],
+    [
+        'id' => 66,
+        'color_code' => '06',
+        'key' => 'green_natural_raffia',
+        'image_path' => 'colorways/green-natural-raffia.png',
+        'production_status' => 'Attivo'
+    ],
+    [
+        'id' => 67,
+        'color_code' => '11',
+        'key' => 'purple_natural_raffia',
+        'image_path' => 'colorways/purple-natural-raffia.png',
+        'production_status' => 'Attivo'
+    ],
+    [
+        'id' => 68,
+        'color_code' => '30',
+        'key' => 'light_green_natural_raffia',
+        'image_path' => 'colorways/light-green-natural-raffia.png',
+        'production_status' => 'Terminato'
+    ],
+    [
+        'id' => 69,
+        'color_code' => 'uni colour 08',
+        'key' => 'petrolio',
+        'image_path' => 'colorways/petrolio.png',
         'production_status' => 'Attivo'
     ],
 ];

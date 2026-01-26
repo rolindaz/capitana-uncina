@@ -190,4 +190,18 @@ return [
         'slug' => 'poliammide',
         'description' => 'Fibra sintetica (famiglia nylon) usata per aumentare resistenza e durata.'
     ],
+    [
+        'fiber_id' => 28,
+        'locale' => 'it',
+        'name' => 'Dralon',
+        'slug' => 'dralon',
+        'description' => 'Acrilico di marca: morbido, resistente e facile da lavare.'
+    ],
+    [
+        'fiber_id' => 29,
+        'locale' => 'it',
+        'name' => 'Viscosa',
+        'slug' => 'viscosa',
+        'description' => 'Fibra cellulosica rigenerata: morbida, traspirante e con bel drappeggio.'
+    ],
 ];

@@ -190,4 +190,18 @@ return [
         'slug' => 'polyamide',
         'description' => 'Synthetic fiber (nylon family) used to add strength and durability.'
     ],
+    [
+        'fiber_id' => 28,
+        'locale' => 'en',
+        'name' => 'Dralon',
+        'slug' => 'dralon',
+        'description' => 'Branded acrylic fiber: soft, durable, easy-care, wool-like feel.'
+    ],
+    [
+        'fiber_id' => 29,
+        'locale' => 'en',
+        'name' => 'Viscose',
+        'slug' => 'viscose',
+        'description' => 'Regenerated cellulose fiber: soft, breathable, with beautiful drape.'
+    ],
 ];

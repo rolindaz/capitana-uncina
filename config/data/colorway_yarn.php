@@ -197,5 +197,40 @@ return [
         'weight' => 250,
         'meterage' => 375
     ],
+    [
+        'colorway_id' => 65,
+        'yarn_id' => 13,
+        'quantity' => 1,
+        'weight' => 50,
+        'meterage' => 180
+    ],
+    [
+        'colorway_id' => 66,
+        'yarn_id' => 14,
+        'quantity' => 1,
+        'weight' => 150,
+        'meterage' => 230
+    ],
+    [
+        'colorway_id' => 67,
+        'yarn_id' => 14,
+        'quantity' => 1,
+        'weight' => 150,
+        'meterage' => 230
+    ],
+    [
+        'colorway_id' => 68,
+        'yarn_id' => 14,
+        'quantity' => 1,
+        'weight' => 150,
+        'meterage' => 230
+    ],
+    [
+        'colorway_id' => 69,
+        'yarn_id' => 11,
+        'quantity' => 2,
+        'weight' => 100,
+        'meterage' => 280
+    ],
     
 ];
