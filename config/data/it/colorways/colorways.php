@@ -65,14 +65,14 @@ return [
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Nero Safran',
+        'name' => 'Nero',
         'locale' => 'it',
         'colorway_id' => 10,
         'slug' => 'nero-safran',
         'production_status' => 'Attivo'
     ],
     [
-        'name' => 'Bianco Safran',
+        'name' => 'Bianco',
         'locale' => 'it',
         'colorway_id' => 11,
         'slug' => 'bianco-safran',

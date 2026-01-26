@@ -56,13 +56,13 @@ return [
         'production_status' => 'Active'
     ],
     [
-        'name' => 'Black Safran',
+        'name' => 'Black',
         'colorway_id' => 10,
         'slug' => 'black-safran',
         'production_status' => 'Active'
     ],
     [
-        'name' => 'White Safran',
+        'name' => 'White',
         'colorway_id' => 11,
         'slug' => 'white-safran',
         'production_status' => 'Active'
