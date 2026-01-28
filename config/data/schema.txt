@@ -1,3 +1,10 @@
+table users {
+  id integer [pk, increment]
+  name varchar(255)
+  email varchar(255)
+  password varchar(255)
+}
+
 table projects {
   id integer [pk, increment]
   designer_name varchar(255)
@@ -55,17 +62,11 @@ table yarns {
   id integer [pk, increment]
   name varchar(255) [not null, unique]
   brand varchar(255)
-  weight varchar(255)
-  category varchar(255)
-  ply integer
+  yarn_type_id integer [ref: > yarn_types.id]
   unit_weight integer
   meterage integer
   fiber_types_number integer [default: 1]
   image_path varchar(255)
-  min_hook_size decimal
-  max_hook_size decimal
-  min_needle_size decimal
-  max_needle_size decimal
 }
 
 table fibers {
@@ -135,8 +136,51 @@ table productions_status_translations {
   id integer [pk, increment]
   production_status_id integer [ref: > productions_statuses.id]
   locale varchar(5)
-  name varchar(255)
-  slug varchar(255) unique
+  label varchar(255)
+}
+
+table yarn_standards {
+  id integer [pk, increment]
+  code integer
+  key varchar(255)
+}
+
+table yarn_standard_translations {
+  id integer [pk, increment]
+  yarn_standard_id integer [ref: > yarn_standards.id]
+  locale varchar(5)
+  label varchar(255)
+}
+
+table yarn_standard_specs {
+  id integer [pk, increment]
+  yarn_standard_id integer [ref: > yarn_standards.id]
+  ply integer
+  min_wpi integer
+  max_wpi integer
+  knit_gauge varchar(255)
+  min_needle_metric decimal
+  max_needle_metric decimal
+  min_needle_us integer
+  max_needle_us integer
+  crochet_gauge varchar(255)
+  min_hook_metric decimal
+  max_hook_metric decimal
+  min_hook_us integer
+  max_hook_us integer
+}
+
+table yarn_types {
+  id integer [pk, increment]
+  yarn_standard_id integer [ref:> yarn_standards.id]
+  key varchar(255)
+}
+
+table yarn_type_translations {
+  id integer [pk, increment]
+  yarn_type_id integer [ref: > yarn_types.id]
+  locale varchar(5)
+  label varchar(255)
 }
 
 table project_yarn {
@@ -167,7 +211,12 @@ table colorway_yarn {
   colorway_id integer [ref: <> colorways.id]
   yarn_id integer [ref: <> yarns.id]
   production_status_id integer [ref: > productions_statuses.id]
-  in_stash boolean
+}
+
+table stash_items {
+  id integer [pk, increment]
+  user_id integer [ref: > users.id]
+  colorway_yarn_id integer [ref: > colorway_yarn.id]
   quantity decimal
   meterage decimal
   weight decimal
