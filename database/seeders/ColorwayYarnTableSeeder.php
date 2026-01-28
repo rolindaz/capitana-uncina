@@ -20,9 +20,6 @@ class ColorwayYarnTableSeeder extends Seeder
             $newCy->colorway_id = $cy['colorway_id'];
             $newCy->yarn_id = $cy['yarn_id'];
             $newCy->production_status_id = $cy['production_status_id'];
-            $newCy->quantity = $cy['quantity'];
-            $newCy->meterage = $cy['meterage'];
-            $newCy->weight = $cy['weight'];
 
             $newCy->save();
         }

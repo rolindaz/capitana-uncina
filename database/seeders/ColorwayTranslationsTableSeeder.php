@@ -26,7 +26,6 @@ class ColorwayTranslationsTableSeeder extends Seeder
                 $newData->locale = $locale;
                 $newData->name = $data['name'];
                 $newData->slug = $data['slug'];
-                $newData->production_status = $data['production_status'];
     
                 $newData->save();
             }

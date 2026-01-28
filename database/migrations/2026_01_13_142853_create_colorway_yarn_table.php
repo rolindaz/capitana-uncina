@@ -21,9 +21,6 @@ return new class extends Migration
             $table->foreignId('production_status_id')
             ->nullable()
             ->constrained();
-            $table->decimal('quantity')->nullable();
-            $table->decimal('meterage')->nullable();
-            $table->decimal('weight')->nullable();
             $table->timestamps();
         });
     }
