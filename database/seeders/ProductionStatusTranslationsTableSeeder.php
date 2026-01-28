@@ -22,9 +22,10 @@ class ProductionStatusTranslationsTableSeeder extends Seeder
 
             foreach ($psTranslation as $data) {
                 $newPst = new ProductionStatusTranslation;
-    
+
+                $newPst->productions_status_id = $data['production_status_id'];
                 $newPst->locale = $locale;
-                $newPst->label = $data;
+                $newPst->label = $data['label'];
 
                 $newPst->save();
             }
