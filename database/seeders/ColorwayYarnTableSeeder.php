@@ -12,13 +12,14 @@ class ColorwayYarnTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $stash = config('data.colorway_yarn');
+        $colorway_yarns = config('data.colorway_yarn');
 
-        foreach ($stash as $cy) {
+        foreach ($colorway_yarns as $cy) {
             $newCy = new ColorwayYarn;
 
             $newCy->colorway_id = $cy['colorway_id'];
             $newCy->yarn_id = $cy['yarn_id'];
+            $newCy->production_status_id = $cy['production_status_id'];
             $newCy->quantity = $cy['quantity'];
             $newCy->meterage = $cy['meterage'];
             $newCy->weight = $cy['weight'];

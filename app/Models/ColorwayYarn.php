@@ -18,4 +18,9 @@ class ColorwayYarn extends Pivot
     public function colorways() {
         return $this->BelongsToMany(Colorway::class);
     }
+
+    public function productionStatuses() {
+        return $this->BelongsToMany(ProductionStatus::class);
+    }
+
 }

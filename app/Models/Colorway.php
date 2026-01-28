@@ -17,6 +17,7 @@ class Colorway extends Model
         return $this->belongsToMany(Yarn::class)
         ->using(ColorwayYarn::class)
         ->withPivot([
+            'production_status_id',
             'quantity',
             'meterage',
             'weight'
@@ -46,9 +47,5 @@ class Colorway extends Model
 
     public function getSlugAttribute() {
         return $this->translation?->slug;
-    }
-
-    public function getProductionStatusAttribute() {
-        return $this->translation?->production_status;
     }
 }
