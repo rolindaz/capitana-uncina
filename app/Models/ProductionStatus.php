@@ -11,6 +11,7 @@ class ProductionStatus extends Model
     }
 
     public function translation() {
-        return $this->hasOne(ProductionStatusTranslation::class);
+        return $this->hasOne(ProductionStatusTranslation::class)
+        ->where('locale', app()->getLocale());
     }
 }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('production_status_translations', function (Blueprint $table) {
             $table->id();
+            $table->string('locale', 5);
+            $table->string('label', 255);
             $table->timestamps();
         });
     }
