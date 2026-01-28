@@ -45,4 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function stashItems() {
+        return $this->hasMany(StashItem::class);
+    }
+
+    public function colorwayYarns() {
+        return $this->belongsToMany(ColorwayYarn::class)
+        ->using('stash_items')
+        ->withPivot([
+            'quantity',
+            'meterage',
+            'weight'
+        ])
+        ->withTimestamps();
+    }
 }

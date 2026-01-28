@@ -2,235 +2,202 @@
 
 return [
     [
+        'id' => 1,
         'colorway_id' => 46,
         'yarn_id' => 2,
-        'quantity' => 2,
-        'weight' => 100,
-        'meterage' => 320
+        'production_status_id' => 1
     ],
     [
+        'id' => 2,
         'colorway_id' => 47,
         'yarn_id' => 2,
-        'quantity' => 1.5,
-        'weight' => 75,
-        'meterage' => 240
+        'production_status_id' => 1
     ],
     [
+        'id' => 3,
         'colorway_id' => 48,
         'yarn_id' => 2,
-        'quantity' => 2,
-        'weight' => 100,
-        'meterage' => 320
+        'production_status_id' => 1
     ],
     [
+        'id' => 4,
         'colorway_id' => 49,
         'yarn_id' => 2,
-        'quantity' => 0.8,
-        'weight' => 40,
-        'meterage' => 128
+        'production_status_id' => 1
     ],
     [
+        'id' => 5,
         'colorway_id' => 50,
         'yarn_id' => 2,
-        'quantity' => 1.8,
-        'weight' => 92,
-        'meterage' => 294.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 6,
         'colorway_id' => 51,
         'yarn_id' => 2,
-        'quantity' => 2,
-        'weight' => 100,
-        'meterage' => 320
+        'production_status_id' => 2
     ],
     [
+        'id' => 7,
         'colorway_id' => 52,
         'yarn_id' => 2,
-        'quantity' => 1.36,
-        'weight' => 68,
-        'meterage' => 217.6
+        'production_status_id' => 1
     ],
     [
+        'id' => 8,
         'colorway_id' => 53,
         'yarn_id' => 2,
-        'quantity' => 1.9,
-        'weight' => 95,
-        'meterage' => 304
+        'production_status_id' => 1
     ],
     [
+        'id' => 9,
         'colorway_id' => 54,
         'yarn_id' => 2,
-        'quantity' => 2,
-        'weight' => 100,
-        'meterage' => 320
+        'production_status_id' => 1
     ],
     [
+        'id' => 10,
         'colorway_id' => 10,
         'yarn_id' => 2,
-        'quantity' => 1.6,
-        'weight' => 80,
-        'meterage' => 256
+        'production_status_id' => 1
     ],
     [
+        'id' => 11,
         'colorway_id' => 55,
         'yarn_id' => 2,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 160
+        'production_status_id' => 1
     ],
     [
+        'id' => 12,
         'colorway_id' => 11,
         'yarn_id' => 2,
-        'quantity' => 0.84,
-        'weight' => 42,
-        'meterage' => 134.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 13,
         'colorway_id' => 56,
         'yarn_id' => 2,
-        'quantity' => 0.24,
-        'weight' => 12,
-        'meterage' => 38.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 14,
         'colorway_id' => 12,
         'yarn_id' => 2,
-        'quantity' => 0.36,
-        'weight' => 18,
-        'meterage' => 57.6
+        'production_status_id' => 1
     ],
     [
+        'id' => 15,
         'colorway_id' => 57,
         'yarn_id' => 2,
-        'quantity' => 0.24,
-        'weight' => 12,
-        'meterage' => 38.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 16,
         'colorway_id' => 6,
         'yarn_id' => 2,
-        'quantity' => 0.44,
-        'weight' => 22,
-        'meterage' => 70.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 17,
         'colorway_id' => 2,
         'yarn_id' => 2,
-        'quantity' => 0.3,
-        'weight' => 15,
-        'meterage' => 48
+        'production_status_id' => 1
     ],
     [
+        'id' => 18,
         'colorway_id' => 58,
         'yarn_id' => 2,
-        'quantity' => 1.54,
-        'weight' => 77,
-        'meterage' => 246.4
+        'production_status_id' => 1
     ],
     [
+        'id' => 19,
         'colorway_id' => 3,
         'yarn_id' => 2,
-        'quantity' => 1.72,
-        'weight' => 86,
-        'meterage' => 275.2
+        'production_status_id' => 1
     ],
     [
+        'id' => 20,
         'colorway_id' => 59,
         'yarn_id' => 2,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 160
+        'production_status_id' => 1
     ],
     [
+        'id' => 21,
         'colorway_id' => 60,
         'yarn_id' => 2,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 160
+        'production_status_id' => 1
     ],
     [
+        'id' => 22,
         'colorway_id' => 61,
         'yarn_id' => 2,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 160
+        'production_status_id' => 1
     ],
     [
+        'id' => 23,
         'colorway_id' => 9,
         'yarn_id' => 2,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 160
+        'production_status_id' => 1
     ],
     [
+        'id' => 24,
         'colorway_id' => 62,
         'yarn_id' => 12,
-        'quantity' => 3,
-        'weight' => 150,
-        'meterage' => 390
+        'production_status_id' => 1
     ],
     [
+        'id' => 25,
         'colorway_id' => 63,
         'yarn_id' => 3,
-        'quantity' => 3,
-        'weight' => 150,
-        'meterage' => 225
+        'production_status_id' => 1
     ],
     [
+        'id' => 26,
         'colorway_id' => 41,
         'yarn_id' => 3,
-        'quantity' => 6.26,
-        'weight' => 313,
-        'meterage' => 469.5
+        'production_status_id' => 1
     ],
     [
+        'id' => 27,
         'colorway_id' => 40,
         'yarn_id' => 3,
-        'quantity' => 5.44,
-        'weight' => 272,
-        'meterage' => 408
+        'production_status_id' => 1
     ],
     [
+        'id' => 28,
         'colorway_id' => 64,
         'yarn_id' => 3,
-        'quantity' => 5,
-        'weight' => 250,
-        'meterage' => 375
+        'production_status_id' => 1
     ],
     [
+        'id' => 29,
         'colorway_id' => 65,
         'yarn_id' => 13,
-        'quantity' => 1,
-        'weight' => 50,
-        'meterage' => 180
+        'production_status_id' => 1
     ],
     [
+        'id' => 30,
         'colorway_id' => 66,
         'yarn_id' => 14,
-        'quantity' => 1,
-        'weight' => 150,
-        'meterage' => 230
+        'production_status_id' => 1
     ],
     [
+        'id' => 31,
         'colorway_id' => 67,
         'yarn_id' => 14,
-        'quantity' => 1,
-        'weight' => 150,
-        'meterage' => 230
+        'production_status_id' => 1
     ],
     [
+        'id' => 32,
         'colorway_id' => 68,
         'yarn_id' => 14,
-        'quantity' => 1,
-        'weight' => 150,
-        'meterage' => 230
+        'production_status_id' => 1
     ],
     [
+        'id' => 33,
         'colorway_id' => 69,
         'yarn_id' => 11,
-        'quantity' => 2,
-        'weight' => 100,
-        'meterage' => 280
+        'production_status_id' => 1
     ],
     
 ];

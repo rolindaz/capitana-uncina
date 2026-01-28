@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\Pivot;
 
 class ColorwayYarn extends Pivot
@@ -12,15 +11,15 @@ class ColorwayYarn extends Pivot
     public $timestamps = true;
 
     public function yarns() {
-        return $this->BelongsToMany(Yarn::class);
+        return $this->BelongsTo(Yarn::class);
     }
 
     public function colorways() {
-        return $this->BelongsToMany(Colorway::class);
+        return $this->BelongsTo(Colorway::class);
     }
 
     public function productionStatuses() {
-        return $this->BelongsToMany(ProductionStatus::class);
+        return $this->BelongsTo(ProductionStatus::class);
     }
 
 }
