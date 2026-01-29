@@ -9,18 +9,14 @@ class Colorway extends Model
 
     protected $appends = [
         'name',
-        'slug',
-        'production_status'
+        'slug'
     ];
 
     public function yarns() {
         return $this->belongsToMany(Yarn::class)
         ->using(ColorwayYarn::class)
         ->withPivot([
-            'production_status_id',
-            'quantity',
-            'meterage',
-            'weight'
+            'production_status_id'
         ])
         ->withTimestamps();
     }

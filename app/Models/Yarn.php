@@ -41,10 +41,7 @@ class Yarn extends Model
         return $this->belongsToMany(Colorway::class)
         ->using(ColorwayYarn::class)
         ->withPivot([
-            'production_status_id',
-            'quantity',
-            'meterage',
-            'weight'
+            'production_status_id'
         ])
         ->withTimestamps();
     }
