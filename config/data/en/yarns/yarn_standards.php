@@ -49,5 +49,4 @@ return [
         'locale' => 'en',
         'label' => 'Jumbo'
     ],
-    
 ];

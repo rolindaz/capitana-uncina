@@ -20,15 +20,17 @@ class YarnsTableSeeder extends Seeder
 
             $newYarn->name = $yarn['name'];
             $newYarn->slug = $yarn['slug'];
+            $newYarn->yarn_type_id = $yarn['yarn_type_id'];
             $newYarn->brand = $yarn['brand'];
             $newYarn->collection = $yarn['collection'];
-            $newYarn->weight = $yarn['weight'];
-            $newYarn->category = $yarn['category'];
-            $newYarn->ply = $yarn['ply'];
             $newYarn->unit_weight = $yarn['unit_weight'];
             $newYarn->meterage = $yarn['meterage'];
             $newYarn->fiber_types_number = $yarn['fiber_types_number'];
             $newYarn->image_path = $yarn['image_path'];
+            $newYarn->knit_gauge_sts = $yarn['knit_gauge_sts'];
+            $newYarn->knit_gauge_rows = $yarn['knit_gauge_rows'];
+            $newYarn->crochet_gauge_sts = $yarn['crochet_gauge_sts'];
+            $newYarn->crochet_gauge_rows = $yarn['crochet_gauge_rows'];
             $newYarn->min_hook_size = $yarn['min_hook_size'];
             $newYarn->max_hook_size = $yarn['max_hook_size'];
             $newYarn->min_needle_size = $yarn['min_needle_size'];

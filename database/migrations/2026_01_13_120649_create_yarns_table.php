@@ -15,15 +15,18 @@ return new class extends Migration
             $table->id();
             $table->string('name', 255);
             $table->string('slug', 255);
+            $table->foreignId('yarn_type_id')
+            ->constrained('yarn_types');
             $table->string('brand', 255);
             $table->string('collection', 255)->nullable();
-            $table->string('weight', 255)->nullable();
-            $table->string('category', 255)->nullable();
-            $table->integer('ply')->nullable();
             $table->integer('unit_weight')->nullable();
             $table->integer('meterage')->nullable();
             $table->integer('fiber_types_number')->default(1)->nullable();
             $table->string('image_path', 255)->nullable();
+            $table->integer('knit_gauge_sts')->nullable();
+            $table->integer('knit_gauge_rows')->nullable();
+            $table->integer('crochet_gauge_sts')->nullable();
+            $table->integer('crochet_gauge_rows')->nullable();
             $table->decimal('min_hook_size')->nullable();
             $table->decimal('max_hook_size')->nullable();
             $table->decimal('min_needle_size')->nullable();
