@@ -10,19 +10,25 @@ class Yarn extends Model
     protected $fillable = [
         'name',
         'slug',
+        'yarn_type_id',
         'brand',
-        'weight',
-        'category',
         'image_path',
-        'ply',
         'unit_weight',
         'meterage',
         'fiber_types_number',
+        'knit_gauge_sts',
+        'knit_gauge_rows',
+        'crochet_gauge_sts',
+        'crochet_gauge_rows',
         'min_hook_size',
         'max_hook_size',
         'min_needle_size',
         'max_needle_size'
     ];
+
+    public function yarnType() {
+        return $this->hasOne(YarnType::class);
+    }
 
     public function fibers() {
         return $this->belongsToMany(Fiber::class)

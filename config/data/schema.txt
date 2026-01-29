@@ -62,11 +62,21 @@ table yarns {
   id integer [pk, increment]
   name varchar(255) [not null, unique]
   brand varchar(255)
+  slug varchar(255) [unique]
   yarn_type_id integer [ref: > yarn_types.id]
   unit_weight integer
   meterage integer
+  collection varchar(255)
   fiber_types_number integer [default: 1]
   image_path varchar(255)
+  knit_gauge_sts integer
+  knit_gauge_rows integer
+  crochet_gauge_sts integer
+  crochet_gauge_rows integer
+  min_hook_size decimal
+  max_hook_size decimal
+  min_needle_size decimal
+  max_needle_size decimal
 }
 
 table fibers {
@@ -154,7 +164,7 @@ table yarn_standard_translations {
 
 table yarn_standard_specs {
   id integer [pk, increment]
-  yarn_standard_id integer [ref: > yarn_standards.id]
+  yarn_standard_id integer [ref: - yarn_standards.id]
   ply integer
   min_wpi integer
   max_wpi integer
@@ -173,14 +183,9 @@ table yarn_standard_specs {
 table yarn_types {
   id integer [pk, increment]
   yarn_standard_id integer [ref:> yarn_standards.id]
+  base_key varchar(255)
   key varchar(255)
-}
-
-table yarn_type_translations {
-  id integer [pk, increment]
-  yarn_type_id integer [ref: > yarn_types.id]
-  locale varchar(5)
-  label varchar(255)
+  name varchar(255)
 }
 
 table project_yarn {
