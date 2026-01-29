@@ -79,7 +79,7 @@ class ProjectController extends Controller
             ->paginate(9)
             ->withQueryString();
 
-        return view('admin.projects.index', compact('projects', 'sort', 'direction'));
+        return view('demo-app.projects.index', compact('projects', 'sort', 'direction'));
     }
 
     /**

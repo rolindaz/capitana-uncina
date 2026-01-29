@@ -7,6 +7,8 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 
+// #region Admin layout
+
 .thumbnail {
  width: 80px;
  height: 100px;
@@ -458,7 +460,27 @@ button.register-btn {
    min-height: 120px;
 }
 
+// #endregion
 
+// #region demo_app layout
+
+
+.demo_app_body {
+   width: 390px;
+   height: 844px;
+   border: 3px solid red;
+}
+
+img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+}
+
+
+
+
+// #endregion
 
 
 

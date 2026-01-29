@@ -260,7 +260,7 @@ return [
         'unit_weight' => 150,
         'meterage' => 230,
         'fiber_types_number' => 1,
-        'image_path' => 'yarns/natural-raffia.jpg',
+        'image_path' => 'yarns/natural-raffia.png',
         'knit_gauge_sts' => null,
         'knit_gauge_rows' => null,
         'crochet_gauge_sts' => null,
